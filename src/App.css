@@ -35,12 +35,6 @@ nav {
 .nav-brand img {
   height: 60px; /* Increased logo size */
   width: auto;
-  object-fit: contain;
-  transition: transform 0.3s ease;
-}
-
-.nav-brand img:hover {
-  transform: scale(1.05);
 }
 
 .nav-links {
@@ -51,6 +45,13 @@ nav {
 
 .nav-toggle {
   display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: var(--primary-green);
+  cursor: pointer;
+  margin-left: 1rem;
+  z-index: 1201;
 }
 
 nav a {
@@ -145,12 +146,14 @@ footer {
 .form-group {
   position: relative;
   margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .form-group input[type="number"] {
   width: 100%;
-  padding: 1.25rem 1rem 0.5rem 1rem;
-  font-size: 1.1rem;
+  padding: 0.8rem 1rem;
+  font-size: 1.2rem;
   border: 1.5px solid var(--border-color);
   border-radius: 12px;
   background: var(--bg-primary);
@@ -164,78 +167,29 @@ footer {
   border-color: var(--primary-green);
 }
 
-/* Modern number input arrows */
+/* Allow browser default number input arrows */
 .form-group input[type="number"] {
   -moz-appearance: textfield;
-  padding-right: 35px; /* Make space for arrows */
 }
 .form-group input[type="number"]::-webkit-outer-spin-button,
 .form-group input[type="number"]::-webkit-inner-spin-button {
-  -webkit-appearance: revert;
+  -webkit-appearance: none;
   margin: 0;
-  position: absolute;
-  right: 1px;
-  top: 1px;
-  bottom: 1px;
-  width: 30px;
-  border-radius: 0 11px 11px 0;
-  opacity: 1;
-  transition: background-color 0.2s;
-}
-.form-group input[type="number"]::-webkit-inner-spin-button:hover,
-.form-group input[type="number"]::-webkit-outer-spin-button:hover {
-  background-color: rgba(0,0,0,0.1);
-}
-
-.form-group {
-  position: relative;
 }
 
 .form-group label {
-  position: absolute;
-  left: 1rem;
-  top: 1.1rem;
   color: var(--text-tertiary);
-  font-size: 1rem;
-  pointer-events: none;
-  background: transparent;
-  transition: 0.2s cubic-bezier(0.4,0,0.2,1);
-}
-
-.form-group input[type="number"]:focus + label,
-.form-group input[type="number"]:not(:placeholder-shown) + label,
-.form-group input[type="number"]:valid + label {
-  top: 0.2rem;
-  left: 0.9rem;
-  font-size: 0.85rem;
-  color: var(--primary-green);
-  background: var(--bg-secondary);
-  padding: 0 0.25rem;
-}
-
-.form-group input[type="text"]:focus + label,
-.form-group input[type="text"]:not(:placeholder-shown) + label,
-.form-group input[type="text"]:valid + label,
-.form-group input[type="email"]:focus + label,
-.form-group input[type="email"]:not(:placeholder-shown) + label,
-.form-group input[type="email"]:valid + label,
-.form-group input[type="tel"]:focus + label,
-.form-group input[type="tel"]:not(:placeholder-shown) + label,
-.form-group input[type="tel"]:valid + label {
-  top: 0.2rem;
-  left: 0.9rem;
-  font-size: 0.85rem;
-  color: var(--primary-green);
-  background: var(--bg-secondary);
-  padding: 0 0.25rem;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  display: block;
 }
 
 .form-group input[type="text"],
 .form-group input[type="email"],
 .form-group input[type="tel"] {
   width: 100%;
-  padding: 1.25rem 1rem 0.5rem 1rem;
-  font-size: 1.1rem;
+  padding: 0.8rem 1rem;
+  font-size: 1.2rem;
   border: 1.5px solid var(--border-color);
   border-radius: 12px;
   background: var(--bg-primary);
@@ -270,12 +224,117 @@ footer {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
-  .nav-toggle {
-    display: block; /* Implement hamburger menu logic */
+@media (max-width: 1024px) {
+  .main-content, .about-page, .charity-details {
+    padding: 2rem 1rem;
+    max-width: 100vw;
   }
-  .nav-links {
-    display: none; /* Hide links for mobile, show with JS */
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .nav-container {
+    padding: 0 1.5rem;
+  }
+  .section {
+    padding: 4rem 0;
+  }
+}
+@media (max-width: 768px) {
+  .main-content, .about-page, .charity-details {
+    padding: 1rem 0.5rem;
+    max-width: 100vw;
+  }
+  .services-grid > *,
+  .trustees-grid > *,
+  .community-services > *,
+  .organisations-grid > *,
+  .testimonials-grid > *,
+  .beneficiary-organisations .organisations-grid > *,
+  .standalone-donate-section .donate-card {
+    min-width: 90vw;
+    max-width: 100vw;
+    flex: 1 1 100%;
+  }
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .zakat-calculator-container {
+    padding: 1rem 0.5rem;
+  }
+  .nav-brand img {
+    height: 50px;
+  }
+  nav a {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  .card {
+    padding: 2rem;
+  }
+  .zakat-amount .amount {
+    font-size: 2.5rem;
+  }
+  nav {
+    background: rgba(240, 255, 240, 0.85); /* Light green tint for mobile view */
+  }
+}
+@media (max-width: 500px) {
+  .main-content, .about-page, .charity-details {
+    padding: 0.5rem 0.25rem;
+  }
+  .hero-section {
+    padding: 1rem 0;
+  }
+  .services-section, .trustees-section, .charity-info, .community-section, .achievements-section {
+    margin-bottom: 2rem;
+  }
+  .nav-brand img {
+    height: 40px;
+  }
+  .nav-toggle {
+    font-size: 1.5rem;
+  }
+  .footer-section h4 {
+    font-size: 1.1rem;
+  }
+  .footer-section p, .footer-section a {
+    font-size: 0.9rem;
+  }
+  .modern-btn, .calculate-btn, .pay-zakat-btn, .donate-btn, .payment-btn {
+    font-size: 1rem;
+    padding: 0.8rem 0;
+  }
+  .zakat-amount .amount {
+    font-size: 2rem;
+  }
+  .form-group input[type="number"], .form-group input[type="text"], .form-group input[type="email"], .form-group input[type="tel"] {
+    font-size: 1rem;
+    padding: 1rem 1rem 0.4rem 1rem;
+  }
+  .form-group label {
+    font-size: 0.9rem;
+  }
+}
+@media (max-width: 400px) {
+  .nav-container {
+    padding: 0 1rem;
+  }
+  .main-content {
+    padding: 0.5rem 0.2rem;
+  }
+  .card, .zakat-form-card, .zakat-result-card, .donate-card {
+    padding: 1.5rem;
+  }
+  .payment-modal {
+    padding: 1rem;
+  }
+  .payment-header, .payment-form, .payment-amount {
+    padding: 1.5rem 1rem;
   }
 }
 
@@ -404,108 +463,342 @@ footer {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Enhanced Zakat Calculator Styles */
+/* Modern Zakat Calculator Styles - Complete Redesign */
 .zakat-calculator-container {
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 2rem;
+  background: linear-gradient(145deg, #f9fcfb 0%, #f0f9ff 100%);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
 .zakat-header {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
+  padding: 0 1rem;
+}
+
+.zakat-header h1 {
+  font-size: 2.2rem;
+  color: var(--primary-green);
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 .zakat-subtitle {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: var(--text-secondary);
-  margin-top: 1rem;
+  margin-top: 0.5rem;
+  line-height: 1.5;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .disclaimer {
   max-width: 800px;
-  margin: 2rem auto;
-  padding: 1.5rem;
-  background: #fff3cd;
-  border: 1px solid #ffeaa7;
-  border-radius: 12px;
-  text-align: left;
+  margin: 1.5rem auto;
+  padding: 1rem 1.5rem;
+  background: rgba(255, 243, 205, 0.6);
+  border: 1px solid rgba(255, 234, 167, 0.8);
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
 }
 
 .disclaimer p {
   margin: 0;
   color: #856404;
-  font-size: 0.95rem;
-  line-height: 1.6;
+  font-size: 0.9rem;
+  line-height: 1.5;
 }
 
 .disclaimer strong {
   color: #664d03;
+  font-weight: 600;
 }
 
 .calculator-layout {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 2rem;
 }
 
 @media (min-width: 1024px) {
   .calculator-layout {
-    grid-template-columns: 1fr 1fr;
-    align-items: start;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  .zakat-form-card {
+    flex: 1;
+    max-width: 55%;
+  }
+  .zakat-result-card {
+    flex: 1;
+    max-width: 40%;
+  }
+}
+
+@media (max-width: 768px) {
+  .calculator-layout {
+    gap: 1.5rem;
+  }
+  .zakat-form-card, .zakat-result-card {
+    position: relative;
+    top: 0;
+    padding: 1.2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+  .zakat-header {
+    margin-bottom: 1.2rem;
+    padding: 0 0.5rem;
+  }
+  .zakat-header h1 {
+    font-size: 1.8rem;
+  }
+  .zakat-subtitle {
+    font-size: 1rem;
+  }
+  .form-section {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 12px;
+  }
+  .form-section h3 {
+    font-size: 0.95rem;
+    margin-bottom: 0.8rem;
+  }
+  .form-group {
+    margin-bottom: 0.8rem;
+  }
+  .form-group input[type="number"],
+  .form-group input[type="text"],
+  .form-group input[type="email"],
+  .form-group input[type="tel"] {
+    padding: 0.7rem 0.7rem 0.3rem 0.7rem;
+    font-size: 0.95rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+  }
+  .form-group label {
+    font-size: 0.75rem;
+    top: 0.7rem;
+    left: 0.7rem;
+  }
+  .form-group input[type="number"]:focus + label,
+  .form-group input[type="number"]:not(:placeholder-shown) + label,
+  .form-group input[type="number"]:valid + label,
+  .form-group input[type="text"]:focus + label,
+  .form-group input[type="text"]:not(:placeholder-shown) + label,
+  .form-group input[type="text"]:valid + label,
+  .form-group input[type="email"]:focus + label,
+  .form-group input[type="email"]:not(:placeholder-shown) + label,
+  .form-group input[type="email"]:valid + label,
+  .form-group input[type="tel"]:focus + label,
+  .form-group input[type="tel"]:not(:placeholder-shown) + label,
+  .form-group input[type="tel"]:valid + label {
+    top: 0.2rem;
+    left: 0.7rem;
+    font-size: 0.65rem;
+    padding: 0 0.2rem;
+  }
+  .calculate-btn {
+    padding: 0.8rem;
+    font-size: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  .result-header h2 {
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+  }
+  .calculation-breakdown {
+    padding: 0.8rem;
+    margin-bottom: 0.8rem;
+    border-radius: 10px;
+  }
+  .breakdown-item {
+    padding: 0.4rem 0;
+    font-size: 0.9rem;
+  }
+  .breakdown-item.total {
+    font-size: 0.95rem;
+    padding-top: 0.8rem;
+  }
+  .zakat-amount .amount {
+    font-size: 1.8rem;
+  }
+  .pay-zakat-btn {
+    padding: 0.8rem 1.2rem;
+    font-size: 0.95rem;
+    min-width: 140px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  .disclaimer {
+    padding: 0.8rem 1rem;
+    margin: 1rem auto;
+    border-radius: 8px;
+  }
+}
+@media (max-width: 400px) {
+  .zakat-calculator-container {
+    padding: 1rem;
+    border-radius: 12px;
+  }
+  .zakat-form-card, .zakat-result-card {
+    padding: 1rem;
+  }
+  .zakat-header h1 {
+    font-size: 1.5rem;
+  }
+  .zakat-subtitle {
+    font-size: 0.9rem;
+  }
+}
+
+/* Responsive Images */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+@media (max-width: 768px) {
+  img {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+/* Home Page Impact Section Responsive Layout */
+.impact-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 4rem;
+}
+@media (max-width: 768px) {
+  .impact-section {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+  .impact-section img {
+    order: 1;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transform: scale(1.02);
+  }
+  .impact-section div {
+    order: 2;
   }
 }
 
 .zakat-form-card {
+  background: white;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05), 0 2px 5px rgba(0, 0, 0, 0.02);
+  padding: 2rem;
   position: sticky;
   top: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.zakat-form-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08), 0 4px 10px rgba(0, 0, 0, 0.03);
 }
 
 .zakat-form-card h2 {
   color: var(--primary-green);
-  margin-bottom: 2rem;
-  font-size: 1.5rem;
+  margin-bottom: 1.8rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-align: center;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.zakat-form-card h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--primary-green);
+  opacity: 0.3;
 }
 
 .form-section {
-  margin-bottom: 2rem;
-  padding: 1.5rem;
-  background: var(--bg-primary);
-  border-radius: 16px;
-  border: 1px solid var(--border-color-light);
+  margin-bottom: 1.8rem;
+  padding: 1.3rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.02);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-section:hover {
+  border-color: rgba(0, 128, 0, 0.2);
+  box-shadow: 0 5px 15px rgba(0, 128, 0, 0.05);
 }
 
 .form-section h3 {
   color: var(--text-primary);
-  font-size: 1.1rem;
-  margin-bottom: 1.5rem;
+  font-size: 1.05rem;
+  margin-bottom: 1.2rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  font-weight: 600;
 }
 
 .deductions-section {
-  background: #fef7f0;
-  border-color: #fed7aa;
+  background: rgba(254, 247, 240, 0.6);
+  border-color: rgba(254, 215, 170, 0.4);
 }
 
 .error-message {
-  background: #fee2e2;
+  background: rgba(254, 226, 226, 0.5);
   color: #dc2626;
-  padding: 1rem;
+  padding: 0.8rem;
   border-radius: 8px;
-  margin-bottom: 1.5rem;
-  border: 1px solid #fecaca;
+  margin-bottom: 1.2rem;
+  border: 1px solid rgba(254, 202, 202, 0.6);
+  font-size: 0.9rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+  text-align: center;
 }
 
 .calculate-btn {
   width: 100%;
-  padding: 1.25rem;
+  padding: 1.2rem;
   font-size: 1.1rem;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+  background: linear-gradient(135deg, #059669 0%, var(--primary-green) 100%);
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 128, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.calculate-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 128, 0, 0.3);
+  background: linear-gradient(135deg, #048056 0%, #059669 100%);
 }
 
 .calculate-btn span {
@@ -514,31 +807,81 @@ footer {
 
 /* Result Card Styles */
 .zakat-result-card {
-  background: linear-gradient(135deg, var(--primary-green-light) 0%, #f0f9ff 100%);
-  border: 2px solid var(--primary-green);
+  background: white;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 128, 0, 0.1);
+  box-shadow: 0 8px 25px rgba(0, 128, 0, 0.08), 0 2px 5px rgba(0, 0, 0, 0.02);
+  padding: 2rem;
   position: sticky;
   top: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  overflow: hidden;
+  background: linear-gradient(145deg, white 0%, #f9fcfb 100%);
+}
+
+.zakat-result-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-green) 0%, #059669 100%);
+}
+
+.zakat-result-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 128, 0, 0.1), 0 4px 10px rgba(0, 0, 0, 0.03);
+  border-color: rgba(0, 128, 0, 0.2);
 }
 
 .result-header h2 {
   color: var(--primary-green);
   margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-align: center;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.result-header h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 2px;
+  background: var(--primary-green);
+  opacity: 0.3;
 }
 
 .calculation-breakdown {
-  background: white;
-  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 1.2rem;
   border-radius: 12px;
   margin-bottom: 1.5rem;
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03), inset 0 0 10px rgba(0, 128, 0, 0.02);
+  border: 1px solid rgba(0, 128, 0, 0.05);
+  transition: box-shadow 0.3s ease;
+}
+
+.calculation-breakdown:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05), inset 0 0 10px rgba(0, 128, 0, 0.03);
 }
 
 .breakdown-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.75rem 0;
-  border-bottom: 1px solid var(--border-color-light);
+  padding: 0.6rem 0.3rem;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+  transition: background 0.2s ease;
+}
+
+.breakdown-item:hover {
+  background: rgba(0, 128, 0, 0.03);
 }
 
 .breakdown-item:last-child {
@@ -549,91 +892,133 @@ footer {
   font-weight: 700;
   font-size: 1.1rem;
   color: var(--primary-green);
-  border-top: 2px solid var(--primary-green);
+  border-top: 2px solid rgba(0, 128, 0, 0.2);
   margin-top: 0.5rem;
   padding-top: 1rem;
+  background: rgba(0, 128, 0, 0.05);
+  border-radius: 8px;
 }
 
 .breakdown-item .label {
   color: var(--text-secondary);
+  font-size: 0.95rem;
 }
 
 .breakdown-item .value {
   font-weight: 600;
   color: var(--text-primary);
+  font-size: 0.95rem;
 }
 
 .nisab-status {
-  margin: 1.5rem 0;
-  padding: 1rem;
-  border-radius: 8px;
+  margin: 1.3rem 0;
+  padding: 0.9rem;
+  border-radius: 10px;
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.6rem;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
+  font-size: 0.95rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.nisab-status:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
 .nisab-met {
-  background: #dcfce7;
+  background: rgba(220, 252, 231, 0.6);
   color: #166534;
-  border: 1px solid #bbf7d0;
+  border: 1px solid rgba(187, 247, 208, 0.6);
 }
 
 .nisab-not-met {
-  background: #fef3c7;
+  background: rgba(254, 243, 199, 0.6);
   color: #92400e;
-  border: 1px solid #fde68a;
+  border: 1px solid rgba(253, 230, 138, 0.6);
 }
 
 .status-icon {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
+  opacity: 0.8;
 }
 
 .zakat-due-section {
   text-align: center;
+  background: rgba(0, 128, 0, 0.05);
+  padding: 1.5rem 1rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.zakat-due-section:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  transform: translateY(-3px);
 }
 
 .zakat-amount {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .zakat-amount h3 {
   color: var(--text-secondary);
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  margin-bottom: 0.4rem;
+  font-weight: 500;
 }
 
 .zakat-amount .amount {
-  font-size: 3rem;
+  font-size: 2.8rem;
   font-weight: 800;
   color: var(--primary-green);
   display: block;
-  line-height: 1;
+  line-height: 1.1;
+  margin: 0.3rem 0;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 5px rgba(0, 128, 0, 0.2);
 }
 
 .rate-info {
   color: var(--text-tertiary);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   margin-top: 0.5rem;
+  opacity: 0.8;
 }
 
 .payment-section {
-  margin-top: 2rem;
+  margin-top: 1.8rem;
+  padding: 0.5rem;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.02);
+  transition: box-shadow 0.3s ease;
+}
+
+.payment-section:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
 .pay-zakat-btn {
   background: linear-gradient(135deg, #059669 0%, var(--primary-green) 100%);
-  padding: 1.25rem 2rem;
+  padding: 1.2rem 1.8rem;
   font-size: 1.1rem;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
   margin: 0 auto;
-  min-width: 200px;
+  min-width: 220px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 128, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
 .pay-zakat-btn:hover {
-  transform: translateY(-3px) scale(1.05);
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 25px rgba(0, 128, 0, 0.3);
+  background: linear-gradient(135deg, #048056 0%, #059669 100%);
 }
 
 /* Standalone donate section */
@@ -1105,52 +1490,9 @@ footer {
   justify-content: center;
 }
 
-/* Modern custom number input arrows */
+/* Removed custom number input arrows */
 .form-group {
   position: relative;
-}
-
-.form-group input[type="number"]::-webkit-inner-spin-button,
-.form-group input[type="number"]::-webkit-outer-spin-button {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.form-group .custom-arrows {
-  position: absolute;
-  right: 6px;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-  z-index: 2;
-}
-
-.form-group .arrow-btn {
-  background: var(--primary-green-light);
-  border: none;
-  border-radius: 4px;
-  width: 20px;
-  height: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  margin: 0;
-  transition: background 0.2s;
-  font-size: 0.85rem;
-  color: var(--primary-green);
-  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
-  padding: 0;
-}
-.form-group .arrow-btn:hover {
-  background: var(--primary-green);
-  color: #fff;
-}
-
-.form-group input[type="number"] {
-  padding-right: 32px;
 }
 
 /* Charity Information as card */
@@ -1246,4 +1588,124 @@ footer {
   text-align: left !important;
   margin-left: 0 !important;
   margin-right: 0 !important;
+}
+
+/* Hamburger menu styles */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 1rem;
+  z-index: 1201;
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+}
+
+.hamburger {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background: var(--primary-green);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 25px;
+  height: 3px;
+  background: var(--primary-green);
+  transition: all 0.3s ease;
+}
+
+.hamburger::before {
+  top: -8px;
+}
+
+.hamburger::after {
+  bottom: -8px;
+}
+
+.nav-toggle.active .hamburger {
+  background: transparent;
+}
+
+.nav-toggle.active .hamburger::before {
+  transform: translateY(8px) rotate(45deg);
+  background: var(--primary-green);
+}
+
+.nav-toggle.active .hamburger::after {
+  transform: translateY(-8px) rotate(-45deg);
+  background: var(--primary-green);
+}
+
+@media (max-width: 900px) {
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 70vw;
+    max-width: 350px;
+    background: linear-gradient(135deg, #f0f9ff 0%, var(--primary-green-light) 100%);
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.15);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 5rem 2rem 2rem 2rem;
+    gap: 2.5rem;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform: translateX(100%);
+    z-index: 1200;
+    overflow-y: auto;
+  }
+  .nav-links.open {
+    display: flex;
+    transform: translateX(0);
+  }
+  .nav-toggle {
+    display: block;
+  }
+  .nav-container {
+    justify-content: space-between;
+  }
+  nav a {
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    padding: 1rem 1.5rem;
+    width: 100%;
+    text-align: left;
+    border-radius: 10px;
+    transition: background 0.3s ease;
+  }
+  nav a:hover {
+    background: rgba(255, 255, 255, 0.5);
+    color: var(--primary-green);
+  }
+  nav a.active {
+    background: rgba(255, 255, 255, 0.7);
+    color: var(--primary-green);
+    font-weight: 700;
+  }
+}
+
+/* Overlay for mobile nav */
+.mobile-nav-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.3);
+  z-index: 1199;
+}
+.mobile-nav-overlay.open {
+  display: block;
 }

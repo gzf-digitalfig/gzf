@@ -18,22 +18,24 @@ export default function Navbar() {
     <nav>
       <div className="nav-container">
         <div className="nav-brand">
-          <img 
-            src={logo} 
-            alt="Gloucester Zakat Fund Logo"
-            style={{ height: 96, marginRight: 24, verticalAlign: 'middle', borderRadius: 8, background: '#fff' }}
-          />
-                  </div>
+          <NavLink to="/" onClick={closeMenu}>
+            <img 
+              src={logo} 
+              alt="Gloucester Zakat Fund Logo"
+              style={{ height: 96, marginRight: 24, verticalAlign: 'middle' }}
+            />
+          </NavLink>
+        </div>
         
         <button 
-          className="nav-toggle" 
+          className={`nav-toggle ${isMenuOpen ? 'active' : ''}`} 
           onClick={toggleMenu}
           aria-label="Toggle navigation menu"
         >
-          {/* Add hamburger icon here */}
+          <span className="hamburger"></span>
         </button>
 
-        <div className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
+        <div className={`nav-links ${isMenuOpen ? 'open' : ''}`}>
           <NavLink to="/" end onClick={closeMenu}>Home</NavLink>
           <NavLink to="/about" onClick={closeMenu}>About</NavLink>
           <NavLink to="/whatiszakat" onClick={closeMenu}>What is Zakat</NavLink>
