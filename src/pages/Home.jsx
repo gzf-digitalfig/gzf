@@ -50,20 +50,20 @@ export default function Home() {
       </section>
 
       {/* Impact Section */}
-      <section className="section impact-section">
+      <section className="section">
         <div className="container">
-          <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2rem'}}>
-            <div className="slide-up impact-image" style={{width: '100%', maxWidth: '600px'}}>
+          <div className="impact-section">
+            <div className="fade-in impact-text">
+              <h2>Your Zakat, Your Local Impact</h2>
+              <p>Every penny of your Zakat is a lifeline for someone in our community. We support families facing hardship, individuals seeking education, and those in critical need of assistance. Your contribution fosters a stronger, more resilient Gloucester for everyone.</p>
+              <Link to="/about" className="btn">Learn More About Our Work</Link>
+            </div>
+            <div className="slide-up impact-image">
               <img 
                 src={placeholder} 
                 alt="Community support"
                 style={{width: '100%', borderRadius: '16px', boxShadow: 'var(--shadow-lg)'}}
               />
-            </div>
-            <div className="fade-in impact-text" style={{textAlign: 'center'}}>
-              <h2>Your Zakat, Your Local Impact</h2>
-              <p>Every penny of your Zakat is a lifeline for someone in our community. We support families facing hardship, individuals seeking education, and those in critical need of assistance. Your contribution fosters a stronger, more resilient Gloucester for everyone.</p>
-              <Link to="/about" className="btn">Learn More About Our Work</Link>
             </div>
           </div>
         </div>

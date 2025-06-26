@@ -271,6 +271,7 @@ footer {
   }
   .zakat-calculator-container {
     padding: 1rem 0.5rem;
+    border-radius: 10px;
   }
   .nav-brand img {
     height: 50px;
@@ -347,7 +348,80 @@ footer {
   }
 }
 
-/* Utility Classes */
+/* --- Zakat Calculator: wide desktop, only stack on mobile --- */
+.zakat-calculator-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: linear-gradient(145deg, #f9fcfb 0%, #f0f9ff 100%);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.calculator-layout {
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+@media (max-width: 1024px) {
+  .calculator-layout {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+
+/* --- Impact/Hero/Placeholder image section: image right on desktop, top on mobile --- */
+.impact-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4rem;
+}
+.impact-section .impact-text {
+  flex: 1 1 50%;
+}
+.impact-section .impact-image {
+  flex: 1 1 50%;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: 0;
+}
+@media (max-width: 900px) {
+  .impact-section {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+  }
+  .impact-section .impact-image {
+    margin: 0 auto;
+    max-width: 400px;
+  }
+  .impact-section .impact-text {
+    order: 2;
+  }
+  .impact-section .impact-image {
+    order: 1;
+  }
+}
+
+/* Remove any unnecessary min-width/max-width restrictions for desktop on card containers */
+@media (min-width: 1025px) {
+  .services-grid > *,
+  .trustees-grid > *,
+  .community-services > *,
+  .organisations-grid > *,
+  .testimonials-grid > *,
+  .beneficiary-organisations .organisations-grid > *,
+  .standalone-donate-section .donate-card {
+    min-width: 320px;
+    max-width: 420px;
+    flex: 1 1 320px;
+  }
+}
+
 .container {
   max-width: 1400px;
   margin: 0 auto;
@@ -474,7 +548,7 @@ footer {
 
 /* Modern Zakat Calculator Styles - Complete Redesign */
 .zakat-calculator-container {
-  max-width: 1100px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 2rem;
   background: linear-gradient(145deg, #f9fcfb 0%, #f0f9ff 100%);
@@ -531,23 +605,38 @@ footer {
 
 .calculator-layout {
   display: flex;
-  flex-direction: column;
-  gap: 2rem;
+  flex-direction: row;
+  gap: 3rem;
+  align-items: flex-start;
+  justify-content: space-between;
 }
 
-@media (min-width: 1024px) {
+.calculator-form-section {
+  flex: 2;
+  min-width: 0;
+}
+
+.calculator-result-section {
+  flex: 1;
+  min-width: 350px;
+}
+
+.standalone-donate-section {
+  flex: 1;
+  min-width: 350px;
+}
+
+@media (max-width: 1024px) {
   .calculator-layout {
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 1.5rem;
   }
-  .zakat-form-card {
-    flex: 1;
-    max-width: 55%;
-  }
-  .zakat-result-card {
-    flex: 1;
-    max-width: 40%;
+  
+  .calculator-form-section,
+  .calculator-result-section,
+  .standalone-donate-section {
+    flex: none;
+    min-width: 0;
   }
 }
 
@@ -696,7 +785,7 @@ img {
     gap: 2rem;
     text-align: center;
   }
-  .impact-section img {
+  .impact-section .impact-image {
     order: 1;
     width: 100%;
     max-width: 400px;
@@ -705,7 +794,7 @@ img {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     transform: scale(1.02);
   }
-  .impact-section div {
+  .impact-section .impact-text {
     order: 2;
   }
 }
@@ -716,9 +805,15 @@ img {
   border: 1px solid rgba(0, 0, 0, 0.05);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05), 0 2px 5px rgba(0, 0, 0, 0.02);
   padding: 2rem;
-  position: sticky;
-  top: 2rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+}
+
+@media (min-width: 1025px) {
+  .zakat-form-card {
+    position: sticky;
+    top: 2rem;
+  }
 }
 
 .zakat-form-card:hover {
@@ -821,11 +916,17 @@ img {
   border: 1px solid rgba(0, 128, 0, 0.1);
   box-shadow: 0 8px 25px rgba(0, 128, 0, 0.08), 0 2px 5px rgba(0, 0, 0, 0.02);
   padding: 2rem;
-  position: sticky;
-  top: 2rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   overflow: hidden;
   background: linear-gradient(145deg, white 0%, #f9fcfb 100%);
+  width: 100%;
+}
+
+@media (min-width: 1025px) {
+  .zakat-result-card {
+    position: sticky;
+    top: 2rem;
+  }
 }
 
 .zakat-result-card::before {
@@ -1032,15 +1133,27 @@ img {
 
 /* Standalone donate section */
 .standalone-donate-section {
-  margin-top: 3rem;
+  margin-top: 0;
+}
+
+@media (max-width: 1024px) {
+  .standalone-donate-section {
+    margin-top: 3rem;
+  }
 }
 
 .donate-card {
-  max-width: 400px;
-  margin: 0 auto;
   text-align: center;
   background: linear-gradient(135deg, #f0f9ff 0%, var(--primary-green-light) 100%);
   border: 2px solid var(--primary-green);
+  width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .donate-card {
+    max-width: 400px;
+    margin: 0 auto;
+  }
 }
 
 .donate-card h2 {
