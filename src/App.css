@@ -86,7 +86,6 @@ nav a.active {
 /* Main Content */
 .main-content {
   flex: 1;
-  max-width: 1400px;
   margin: 0 auto;
   padding: 4rem 2rem;
   width: 100%;
@@ -350,9 +349,8 @@ footer {
 
 /* --- Zakat Calculator: wide desktop, only stack on mobile --- */
 .zakat-calculator-container {
-  max-width: 1400px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 4rem;
   background: linear-gradient(145deg, #f9fcfb 0%, #f0f9ff 100%);
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
@@ -423,7 +421,6 @@ footer {
 }
 
 .container {
-  max-width: 1400px;
   margin: 0 auto;
   padding: 0 2rem;
 }
@@ -548,9 +545,8 @@ footer {
 
 /* Modern Zakat Calculator Styles - Complete Redesign */
 .zakat-calculator-container {
-  max-width: 1400px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 4rem;
   background: linear-gradient(145deg, #f9fcfb 0%, #f0f9ff 100%);
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
@@ -617,13 +613,13 @@ footer {
 }
 
 .calculator-result-section {
-  flex: 1;
-  min-width: 350px;
+  flex: 2;
+  min-width: 0;
 }
 
 .standalone-donate-section {
-  flex: 1;
-  min-width: 350px;
+  flex: 2;
+  min-width: 0;
 }
 
 @media (max-width: 1024px) {
@@ -1151,7 +1147,6 @@ img {
 
 @media (max-width: 1024px) {
   .donate-card {
-    max-width: 400px;
     margin: 0 auto;
   }
 }
@@ -1575,11 +1570,15 @@ img {
 .community-services > *,
 .organisations-grid > *,
 .testimonials-grid > *,
-.beneficiary-organisations .organisations-grid > *,
-.standalone-donate-section .donate-card {
+.beneficiary-organisations .organisations-grid > * {
   flex: 1 1 320px;
   max-width: 420px;
   min-width: 320px;
+  margin-bottom: 2rem;
+}
+
+.standalone-donate-section .donate-card {
+  flex: 1;
   margin-bottom: 2rem;
 }
 
@@ -1589,11 +1588,14 @@ img {
   .community-services > *,
   .organisations-grid > *,
   .testimonials-grid > *,
-  .beneficiary-organisations .organisations-grid > *,
-  .standalone-donate-section .donate-card {
+  .beneficiary-organisations .organisations-grid > * {
     flex: 1 1 28%;
     max-width: 32%;
     min-width: 280px;
+  }
+  
+  .standalone-donate-section .donate-card {
+    flex: 1;
   }
 }
 
