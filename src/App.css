@@ -1,0 +1,1249 @@
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Clean Navigation */
+nav {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-color-light);
+  padding: 1rem 0;
+  transition: all 0.3s ease;
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-brand img {
+  height: 60px; /* Increased logo size */
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.nav-brand img:hover {
+  transform: scale(1.05);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-toggle {
+  display: none;
+}
+
+nav a {
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--text-primary);
+  background: var(--bg-tertiary);
+}
+
+nav a.active {
+  color: var(--primary-green);
+  background: var(--primary-green-light);
+  font-weight: 600;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  width: 100%;
+}
+
+/* Clean Footer */
+footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-color-light);
+  padding: 4rem 2rem;
+  margin-top: 6rem;
+}
+
+.footer-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 3rem;
+}
+
+.footer-section h4 {
+  color: var(--text-primary);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.footer-section p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.footer-section .footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-section a {
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+.footer-section a:hover {
+  color: var(--primary-green);
+}
+
+.footer-bottom {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color-light);
+  text-align: center;
+  color: var(--text-tertiary);
+}
+
+/* Modern Zakat Calculator Styles */
+.zakat-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.form-group input[type="number"] {
+  width: 100%;
+  padding: 1.25rem 1rem 0.5rem 1rem;
+  font-size: 1.1rem;
+  border: 1.5px solid var(--border-color);
+  border-radius: 12px;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 0.2s;
+  box-shadow: var(--shadow-sm);
+}
+
+.form-group input[type="number"]:focus {
+  border-color: var(--primary-green);
+}
+
+/* Modern number input arrows */
+.form-group input[type="number"] {
+  -moz-appearance: textfield;
+  padding-right: 35px; /* Make space for arrows */
+}
+.form-group input[type="number"]::-webkit-outer-spin-button,
+.form-group input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: revert;
+  margin: 0;
+  position: absolute;
+  right: 1px;
+  top: 1px;
+  bottom: 1px;
+  width: 30px;
+  border-radius: 0 11px 11px 0;
+  opacity: 1;
+  transition: background-color 0.2s;
+}
+.form-group input[type="number"]::-webkit-inner-spin-button:hover,
+.form-group input[type="number"]::-webkit-outer-spin-button:hover {
+  background-color: rgba(0,0,0,0.1);
+}
+
+.form-group {
+  position: relative;
+}
+
+.form-group label {
+  position: absolute;
+  left: 1rem;
+  top: 1.1rem;
+  color: var(--text-tertiary);
+  font-size: 1rem;
+  pointer-events: none;
+  background: transparent;
+  transition: 0.2s cubic-bezier(0.4,0,0.2,1);
+}
+
+.form-group input[type="number"]:focus + label,
+.form-group input[type="number"]:not(:placeholder-shown) + label,
+.form-group input[type="number"]:valid + label {
+  top: 0.2rem;
+  left: 0.9rem;
+  font-size: 0.85rem;
+  color: var(--primary-green);
+  background: var(--bg-secondary);
+  padding: 0 0.25rem;
+}
+
+.form-group input[type="text"]:focus + label,
+.form-group input[type="text"]:not(:placeholder-shown) + label,
+.form-group input[type="text"]:valid + label,
+.form-group input[type="email"]:focus + label,
+.form-group input[type="email"]:not(:placeholder-shown) + label,
+.form-group input[type="email"]:valid + label,
+.form-group input[type="tel"]:focus + label,
+.form-group input[type="tel"]:not(:placeholder-shown) + label,
+.form-group input[type="tel"]:valid + label {
+  top: 0.2rem;
+  left: 0.9rem;
+  font-size: 0.85rem;
+  color: var(--primary-green);
+  background: var(--bg-secondary);
+  padding: 0 0.25rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"] {
+  width: 100%;
+  padding: 1.25rem 1rem 0.5rem 1rem;
+  font-size: 1.1rem;
+  border: 1.5px solid var(--border-color);
+  border-radius: 12px;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 0.2s;
+  box-shadow: var(--shadow-sm);
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="tel"]:focus {
+  border-color: var(--primary-green);
+}
+
+.modern-btn {
+  background: var(--gradient-primary);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  padding: 1rem 0;
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.modern-btn:hover {
+  background: var(--primary-green);
+  transform: translateY(-2px) scale(1.01);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: block; /* Implement hamburger menu logic */
+  }
+  .nav-links {
+    display: none; /* Hide links for mobile, show with JS */
+  }
+}
+
+/* Utility Classes */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section {
+  padding: 6rem 0;
+}
+
+.grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mb-8 {
+  margin-bottom: 4rem;
+}
+
+/* Clean Card */
+.card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color-light);
+  border-radius: 24px; /* Softer, more modern radius */
+  padding: 2.5rem;
+  box-shadow: var(--shadow-md);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Added bounce effect */
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.02); /* More pronounced hover effect */
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-green-light);
+}
+
+.card-icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary-green);
+  display: inline-block;
+  background: var(--primary-green-light);
+  padding: 1.5rem;
+  border-radius: 20px;
+}
+
+/* Ensure all About section cards have consistent styling */
+.service-item,
+.trustee-card,
+.community-services > .service-block,
+.organisations-grid > .org-item,
+.achievement-item,
+.beneficiary-organisations .org-item,
+.achievements-list > .achievement-item {
+  background: var(--bg-secondary);
+  padding: 2rem;
+  border-radius: 14px;
+  border: 1px solid var(--border-color-light);
+  box-shadow: var(--shadow-sm);
+  text-align: left;
+  transition: box-shadow 0.2s, transform 0.2s;
+  margin-bottom: 0;
+}
+
+.service-item:hover,
+.trustee-card:hover,
+.community-services > .service-block:hover,
+.organisations-grid > .org-item:hover,
+.achievement-item:hover,
+.beneficiary-organisations .org-item:hover,
+.achievements-list > .achievement-item:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px) scale(1.02);
+  border-color: var(--primary-green-light);
+}
+
+.service-item h3,
+.trustee-card h3,
+.community-services > .service-block h3,
+.organisations-grid > .org-item h3,
+.achievement-item .year {
+  color: var(--primary-green);
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.service-item p,
+.trustee-card p,
+.community-services > .service-block p,
+.organisations-grid > .org-item p,
+.achievement-item .description {
+  color: var(--text-primary);
+  line-height: 1.6;
+  font-size: 0.97rem;
+}
+
+/* Animations */
+.fade-in {
+  animation: fadeIn 0.8s ease-out;
+}
+
+.slide-up {
+  animation: slideUp 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Enhanced Zakat Calculator Styles */
+.zakat-calculator-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.zakat-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.zakat-subtitle {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  margin-top: 1rem;
+}
+
+.disclaimer {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: #fff3cd;
+  border: 1px solid #ffeaa7;
+  border-radius: 12px;
+  text-align: left;
+}
+
+.disclaimer p {
+  margin: 0;
+  color: #856404;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.disclaimer strong {
+  color: #664d03;
+}
+
+.calculator-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .calculator-layout {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+}
+
+.zakat-form-card {
+  position: sticky;
+  top: 2rem;
+}
+
+.zakat-form-card h2 {
+  color: var(--primary-green);
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+}
+
+.form-section {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: var(--bg-primary);
+  border-radius: 16px;
+  border: 1px solid var(--border-color-light);
+}
+
+.form-section h3 {
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.deductions-section {
+  background: #fef7f0;
+  border-color: #fed7aa;
+}
+
+.error-message {
+  background: #fee2e2;
+  color: #dc2626;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  border: 1px solid #fecaca;
+}
+
+.calculate-btn {
+  width: 100%;
+  padding: 1.25rem;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.calculate-btn span {
+  font-size: 1.2rem;
+}
+
+/* Result Card Styles */
+.zakat-result-card {
+  background: linear-gradient(135deg, var(--primary-green-light) 0%, #f0f9ff 100%);
+  border: 2px solid var(--primary-green);
+  position: sticky;
+  top: 2rem;
+}
+
+.result-header h2 {
+  color: var(--primary-green);
+  margin-bottom: 1.5rem;
+}
+
+.calculation-breakdown {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.breakdown-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border-color-light);
+}
+
+.breakdown-item:last-child {
+  border-bottom: none;
+}
+
+.breakdown-item.total {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--primary-green);
+  border-top: 2px solid var(--primary-green);
+  margin-top: 0.5rem;
+  padding-top: 1rem;
+}
+
+.breakdown-item .label {
+  color: var(--text-secondary);
+}
+
+.breakdown-item .value {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.nisab-status {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.nisab-met {
+  background: #dcfce7;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+
+.nisab-not-met {
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fde68a;
+}
+
+.status-icon {
+  font-size: 1.2rem;
+}
+
+.zakat-due-section {
+  text-align: center;
+}
+
+.zakat-amount {
+  margin-bottom: 2rem;
+}
+
+.zakat-amount h3 {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.zakat-amount .amount {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--primary-green);
+  display: block;
+  line-height: 1;
+}
+
+.rate-info {
+  color: var(--text-tertiary);
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.payment-section {
+  margin-top: 2rem;
+}
+
+.pay-zakat-btn {
+  background: linear-gradient(135deg, #059669 0%, var(--primary-green) 100%);
+  padding: 1.25rem 2rem;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 0 auto;
+  min-width: 200px;
+}
+
+.pay-zakat-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+}
+
+/* Standalone donate section */
+.standalone-donate-section {
+  margin-top: 3rem;
+}
+
+.donate-card {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+  background: linear-gradient(135deg, #f0f9ff 0%, var(--primary-green-light) 100%);
+  border: 2px solid var(--primary-green);
+}
+
+.donate-card h2 {
+  color: var(--primary-green);
+  margin-bottom: 1rem;
+}
+
+.donate-form {
+  margin-top: 1.5rem;
+}
+
+.donate-btn {
+  width: 100%;
+  margin-top: 1rem;
+  background: linear-gradient(135deg, #059669 0%, var(--primary-green) 100%);
+}
+
+/* Stripe Payment Modal Styles */
+.payment-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.payment-modal {
+  background: white;
+  border-radius: 20px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.payment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 2rem 1rem;
+  border-bottom: 1px solid var(--border-color-light);
+}
+
+.payment-header h2 {
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.close-btn:hover {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.payment-amount {
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, var(--primary-green-light) 0%, #f0f9ff 100%);
+}
+
+.amount-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.amount-display .currency {
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+}
+
+.amount-display .amount {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--primary-green);
+}
+
+.payment-form {
+  padding: 2rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .form-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.payment-methods {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.payment-method {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.payment-method:hover {
+  border-color: var(--primary-green);
+}
+
+.payment-method.active {
+  border-color: var(--primary-green);
+  background: var(--primary-green-light);
+}
+
+.payment-method input[type="radio"] {
+  margin: 0;
+}
+
+.method-icon {
+  font-size: 1.5rem;
+}
+
+.error-text {
+  color: #dc2626;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+.payment-actions {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.payment-btn {
+  width: 100%;
+  padding: 1.25rem;
+  font-size: 1.1rem;
+  background: linear-gradient(135deg, #059669 0%, var(--primary-green) 100%);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.payment-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.payment-btn:disabled:hover {
+  transform: none;
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid transparent;
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.security-info {
+  color: var(--text-tertiary);
+  font-size: 0.9rem;
+}
+
+.security-info p {
+  margin: 0.25rem 0;
+}
+
+.loading-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  background: var(--bg-tertiary);
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  color: var(--text-secondary);
+}
+
+.demo-info {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #fff3cd;
+  border: 1px solid #ffeaa7;
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+
+.demo-info h4 {
+  color: #856404;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.demo-info p {
+  margin: 0.25rem 0;
+  color: #856404;
+}
+
+.checkout-modal {
+  max-width: 500px;
+}
+
+.form-description {
+  color: var(--text-tertiary);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Contact and Apply page styles */
+.bank-details, .application-locations {
+  max-width: 800px;
+  margin: 2rem 0;
+  text-align: left;
+  padding: 0 2rem;
+}
+
+.bank-details h3, .application-locations h3 {
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+  text-align: left;
+}
+
+.details-list, .locations-list {
+  text-align: left;
+  padding: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+.detail-item {
+  display: block;
+  padding: 0.5rem 0;
+  border-bottom: none;
+  text-align: left;
+}
+
+.detail-item .label {
+  font-weight: 600;
+  color: var(--text-primary);
+  display: inline;
+}
+
+.detail-item .value {
+  color: var(--text-primary);
+  font-weight: 400;
+  display: inline;
+  margin-left: 0.5rem;
+}
+
+.location-item {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border-color-light);
+  text-align: left;
+}
+
+.location-item:last-child {
+  border-bottom: none;
+}
+
+.location-name {
+  font-weight: 700;
+  color: var(--primary-green);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
+
+.location-address {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  text-align: left;
+}
+
+/* About page styles */
+.about-page {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 2rem 2rem 2rem;
+}
+
+.hero-section {
+  text-align: center;
+  margin-bottom: 4rem;
+  padding: 2rem 0;
+}
+
+.tagline {
+  font-size: 1.3rem;
+  color: var(--primary-green);
+  font-weight: 600;
+  margin: 1rem 0;
+}
+
+.primary-message {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.services-section, .trustees-section, .charity-info, .community-section, .achievements-section {
+  margin-bottom: 4rem;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+  justify-content: center; /* Center the grid items */
+}
+
+.service-item {
+  background: var(--bg-secondary);
+  padding: 2rem;
+  border-radius: 14px;
+  border: 1px solid var(--border-color-light);
+  box-shadow: var(--shadow-sm);
+  text-align: left;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.service-item:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px) scale(1.02);
+  border-color: var(--primary-green-light);
+}
+
+.service-item h3 {
+  color: var(--primary-green);
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.service-item p {
+  color: var(--text-primary);
+  line-height: 1.6;
+  font-size: 0.97rem;
+}
+
+/* Universal card container update for full-width and centering last row */
+.services-grid,
+.trustees-grid,
+.community-services,
+.organisations-grid,
+.testimonials-grid,
+.beneficiary-organisations .organisations-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  transform: none;
+}
+
+.services-grid > *,
+.trustees-grid > *,
+.community-services > *,
+.organisations-grid > *,
+.testimonials-grid > *,
+.beneficiary-organisations .organisations-grid > *,
+.standalone-donate-section .donate-card {
+  flex: 1 1 320px;
+  max-width: 420px;
+  min-width: 320px;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 600px) {
+  .services-grid > *,
+  .trustees-grid > *,
+  .community-services > *,
+  .organisations-grid > *,
+  .testimonials-grid > *,
+  .beneficiary-organisations .organisations-grid > *,
+  .standalone-donate-section .donate-card {
+    flex: 1 1 28%;
+    max-width: 32%;
+    min-width: 280px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .services-grid,
+  .trustees-grid,
+  .community-services,
+  .organisations-grid {
+    justify-content: flex-start;
+  }
+}
+
+/* Center last row if not full */
+.services-grid, .trustees-grid, .community-services, .organisations-grid {
+  align-items: stretch;
+  justify-content: center;
+}
+
+/* Modern custom number input arrows */
+.form-group {
+  position: relative;
+}
+
+.form-group input[type="number"]::-webkit-inner-spin-button,
+.form-group input[type="number"]::-webkit-outer-spin-button {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.form-group .custom-arrows {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  z-index: 2;
+}
+
+.form-group .arrow-btn {
+  background: var(--primary-green-light);
+  border: none;
+  border-radius: 4px;
+  width: 20px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin: 0;
+  transition: background 0.2s;
+  font-size: 0.85rem;
+  color: var(--primary-green);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  padding: 0;
+}
+.form-group .arrow-btn:hover {
+  background: var(--primary-green);
+  color: #fff;
+}
+
+.form-group input[type="number"] {
+  padding-right: 32px;
+}
+
+/* Charity Information as card */
+.charity-details {
+  background: var(--bg-secondary);
+  padding: 2rem;
+  border-radius: 14px;
+  border: 1px solid var(--border-color-light);
+  box-shadow: var(--shadow-sm);
+  margin: 2rem 0;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+.detail-row {
+  display: block;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border-color-light);
+}
+.detail-row:last-child {
+  border-bottom: none;
+}
+.label {
+  display: block;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.2rem;
+}
+.value {
+  display: block;
+  color: var(--text-primary);
+  margin-bottom: 0.2rem;
+}
+
+/* Partner organisations grid centering */
+.organisations-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  align-items: stretch;
+}
+.organisations-grid > .org-item {
+  background: var(--bg-secondary);
+  padding: 2.2rem 2rem;
+  border-radius: 16px;
+  border: 1.5px solid var(--border-color-light);
+  box-shadow: var(--shadow-md);
+  font-size: 1.08rem;
+  color: var(--text-primary);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 90px;
+  transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s, background 0.2s, color 0.2s;
+  margin-bottom: 0;
+  flex: 1 1 320px;
+  max-width: 400px;
+  min-width: 220px;
+  text-align: center;
+}
+@media (min-width: 600px) {
+  .organisations-grid > .org-item {
+    flex: 1 1 28%;
+    max-width: 32%;
+    min-width: 220px;
+  }
+}
+.organisations-grid > .org-item:hover {
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-green);
+  transform: translateY(-6px) scale(1.04);
+  background: var(--primary-green-light);
+  color: var(--primary-green);
+}
+
+.beneficiary-organisations h3 {
+  margin-top: 2.5rem;
+  margin-bottom: 1.2rem;
+  padding-top: 0;
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-align: left;
+}
+
+/* Charity Information: force left alignment */
+.charity-info, .charity-details, .charity-details * {
+  text-align: left !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
