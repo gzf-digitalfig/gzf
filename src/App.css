@@ -32,9 +32,18 @@ nav {
   gap: 1rem;
 }
 
+/* Logo styling removed to maintain native transparent background */
 .nav-brand img {
-  height: 60px; /* Increased logo size */
-  width: auto;
+}
+
+/* Override NavLink styles for logo to prevent white highlight */
+.nav-brand a, .nav-brand a:hover, .nav-brand a:active, .nav-brand a:focus, .nav-brand a:visited {
+  background: transparent !important;
+  color: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
 }
 
 .nav-links {
