@@ -3,14 +3,30 @@ import StripeCheckout from "../components/StripeCheckout";
 
 export default function CalculateZakat() {
   const [formData, setFormData] = useState({
-    cash: '',
+    // Gold & Silver
     gold: '',
     silver: '',
-    investments: '',
-    businessAssets: '',
-    livestock: '',
-    debts: '',
-    expenses: ''
+    // Cash
+    cashInHand: '',
+    cashInISA: '',
+    bankAccounts: '',
+    paypal: '',
+    // Crypto
+    crypto: '',
+    // Stocks/Shares
+    stocks: '',
+    // Business
+    businessAccount: '',
+    businessStock: '',
+    moniesOwed: '',
+    // Pension
+    pension: '',
+    // Liabilities
+    creditCards: '',
+    debt: '',
+    councilTax: '',
+    businessInvoices: '',
+    mortgage: ''
   });
   const [zakat, setZakat] = useState(null);
   const [showPayment, setShowPayment] = useState(false);
@@ -40,7 +56,7 @@ export default function CalculateZakat() {
     const newErrors = {};
     
     // Check if at least one asset field has a value
-    const assetFields = ['cash', 'gold', 'silver', 'investments', 'businessAssets', 'livestock'];
+    const assetFields = ['gold', 'silver', 'cashInHand', 'cashInISA', 'bankAccounts', 'paypal', 'crypto', 'stocks', 'businessAccount', 'businessStock', 'moniesOwed', 'pension'];
     const hasAssets = assetFields.some(field => {
       const value = formData[field];
       return value && value.trim() !== '' && Number(value) > 0;
@@ -62,14 +78,25 @@ export default function CalculateZakat() {
     }
 
     const totalAssets = 
-      Number(formData.cash || 0) + 
       Number(formData.gold || 0) + 
       Number(formData.silver || 0) + 
-      Number(formData.investments || 0) + 
-      Number(formData.businessAssets || 0) + 
-      Number(formData.livestock || 0);
+      Number(formData.cashInHand || 0) + 
+      Number(formData.cashInISA || 0) + 
+      Number(formData.bankAccounts || 0) + 
+      Number(formData.paypal || 0) + 
+      Number(formData.crypto || 0) + 
+      (Number(formData.stocks || 0) * 0.4) + // Stocks at 40% value for Zakat calculation
+      Number(formData.businessAccount || 0) + 
+      Number(formData.businessStock || 0) + 
+      Number(formData.moniesOwed || 0) + 
+      Number(formData.pension || 0);
     
-    const totalDeductions = Number(formData.debts || 0) + Number(formData.expenses || 0);
+    const totalDeductions = 
+      Number(formData.creditCards || 0) + 
+      Number(formData.debt || 0) + 
+      Number(formData.councilTax || 0) + 
+      Number(formData.businessInvoices || 0) + 
+      Number(formData.mortgage || 0);
     const netAssets = totalAssets - totalDeductions;
     
     const zakatDue = netAssets >= NISAB_THRESHOLD ? (netAssets * 0.025) : 0;
@@ -79,7 +106,9 @@ export default function CalculateZakat() {
       totalDeductions,
       netAssets,
       zakatDue,
-      meetsNisab: netAssets >= NISAB_THRESHOLD
+      meetsNisab: netAssets >= NISAB_THRESHOLD,
+      stocksOriginalValue: Number(formData.stocks || 0),
+      stocksZakatableValue: Number(formData.stocks || 0) * 0.4
     });
   };
 
@@ -155,27 +184,49 @@ export default function CalculateZakat() {
               )}
               
               <div className="form-section">
-                <h3>Cash & Liquid Assets</h3>
-                {renderNumberInput('cash', 'Cash & Bank Savings (£)', 100, 0)}
-                {renderNumberInput('investments', 'Stocks, Bonds & Investments (£)', 100, 0)}
+                <h3>Gold & Silver</h3>
+                {renderNumberInput('gold', 'Gold (£)', 50, 0)}
+                {renderNumberInput('silver', 'Silver (£)', 50, 0)}
               </div>
 
               <div className="form-section">
-                <h3>Precious Metals</h3>
-                {renderNumberInput('gold', 'Gold Value (£)', 50, 0)}
-                {renderNumberInput('silver', 'Silver Value (£)', 50, 0)}
+                <h3>Cash</h3>
+                {renderNumberInput('cashInHand', 'Cash in Hand (£)', 10, 0)}
+                {renderNumberInput('cashInISA', 'Cash in ISA (£)', 100, 0)}
+                {renderNumberInput('bankAccounts', 'Bank Accounts (£)', 100, 0)}
+                {renderNumberInput('paypal', 'PayPal (£)', 10, 0)}
               </div>
 
               <div className="form-section">
-                <h3>Business & Other Assets</h3>
-                {renderNumberInput('businessAssets', 'Business Assets & Inventory (£)', 100, 0)}
-                {renderNumberInput('livestock', 'Livestock Value (£)', 50, 0)}
+                <h3>Crypto</h3>
+                {renderNumberInput('crypto', 'Cryptocurrency (£)', 50, 0)}
               </div>
 
+              <div className="form-section">
+                <h3>Stocks/Shares</h3>
+                {renderNumberInput('stocks', 'Stocks & Shares (£)', 100, 0)}
+                <p style={{ fontSize: '0.9rem', color: '#666', margin: '0.5rem 0' }}>Note: Stocks are subject to 1% Zakat rate (calculated as 2.5% of 40% value)</p>
+              </div>
+
+              <div className="form-section">
+                <h3>Business</h3>
+                {renderNumberInput('businessAccount', 'Business Account (£)', 100, 0)}
+                {renderNumberInput('businessStock', 'Stock Value (£)', 100, 0)}
+                {renderNumberInput('moniesOwed', 'Monies Owed by Others (£)', 50, 0)}
+              </div>
+
+              <div className="form-section">
+                <h3>Pension</h3>
+                {renderNumberInput('pension', 'Pension (£)', 100, 0)}
+              </div>
+
+              <h2>Your Liabilities</h2>
               <div className="form-section deductions-section">
-                <h3>Deductions</h3>
-                {renderNumberInput('debts', 'Outstanding Debts (£)', 100, 0)}
-                {renderNumberInput('expenses', 'Essential Living Expenses (£)', 100, 0)}
+                {renderNumberInput('creditCards', 'Credit Cards (£)', 50, 0)}
+                {renderNumberInput('debt', 'Other Debt (£)', 100, 0)}
+                {renderNumberInput('councilTax', 'Council Tax Arrears (£)', 50, 0)}
+                {renderNumberInput('businessInvoices', 'Business Invoices Due (£)', 100, 0)}
+                {renderNumberInput('mortgage', 'Mortgage (1 year) (£)', 500, 0)}
               </div>
 
               <button type="submit" className="modern-btn calculate-btn">
@@ -197,6 +248,12 @@ export default function CalculateZakat() {
                   <span className="label">Total Assets:</span>
                   <span className="value">£{zakat.totalAssets.toFixed(2)}</span>
                 </div>
+                {zakat.stocksOriginalValue > 0 && (
+                  <div className="breakdown-item">
+                    <span className="label">Stocks (£{zakat.stocksOriginalValue.toFixed(2)} × 40%):</span>
+                    <span className="value">£{zakat.stocksZakatableValue.toFixed(2)}</span>
+                  </div>
+                )}
                 <div className="breakdown-item">
                   <span className="label">Total Deductions:</span>
                   <span className="value">-£{zakat.totalDeductions.toFixed(2)}</span>
