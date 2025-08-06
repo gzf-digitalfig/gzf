@@ -38,7 +38,7 @@ export default function Navbar() {
         <div className={`nav-links ${isMenuOpen ? 'open' : ''}`}>
           <NavLink to="/" end onClick={closeMenu}>Home</NavLink>
           <NavLink to="/about" onClick={closeMenu}>About</NavLink>
-          <NavLink to="/whatiszakat" onClick={closeMenu}>What is Zakat</NavLink>
+          <NavLink to="/faq" onClick={closeMenu}>What is Zakat</NavLink>
           <NavLink to="/apply" onClick={closeMenu}>Apply</NavLink>
           <NavLink to="/contact" onClick={closeMenu}>Contact</NavLink>
           <NavLink to="/calculatezakat" className="btn btn-primary" onClick={closeMenu}>Calculate Zakat</NavLink>

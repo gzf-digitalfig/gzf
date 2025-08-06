@@ -18,7 +18,7 @@ export default function Footer() {
           <h4>Quick Links</h4>
           <div className="footer-links">
             <Link to="/about">About Us</Link>
-            <Link to="/whatiszakat">What is Zakat</Link>
+            <Link to="/faq">What is Zakat</Link>
             <Link to="/apply">Apply for Support</Link>
           </div>
         </div>

@@ -22,7 +22,6 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/trustees" element={<Trustees />} />
-          <Route path="/whatiszakat" element={<WhatIsZakat />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/community" element={<Community />} />
           <Route path="/apply" element={<Apply />} />
