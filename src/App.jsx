@@ -4,7 +4,6 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Trustees from "./pages/Trustees";
-import WhatIsZakat from "./pages/WhatIsZakat";
 import FAQ from "./pages/FAQ";
 import Community from "./pages/Community";
 import Apply from "./pages/Apply";
