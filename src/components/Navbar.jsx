@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
-import logo from "../assets/logo.webp";
+import logo from "../assets/gzflogo.webp";
 import "../App.css";
 
 export default function Navbar() {
@@ -12,6 +12,7 @@ export default function Navbar() {
 
   const closeMenu = () => {
     setIsMenuOpen(false);
+    window.scrollTo(0, 0);
   };
 
   return (
@@ -19,10 +20,10 @@ export default function Navbar() {
       <div className="nav-container">
         <div className="nav-brand">
           <NavLink to="/" onClick={closeMenu}>
-            <img 
-              src={logo} 
+            <img
+              src={logo}
               alt="Gloucester Zakat Fund Logo"
-              style={{ height: 96, marginRight: 24, verticalAlign: 'middle' }}
+              style={{ height: 110, marginRight: 24, verticalAlign: 'middle' }}
             />
           </NavLink>
         </div>
