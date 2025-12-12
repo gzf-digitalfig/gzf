@@ -3,7 +3,7 @@
 A modern, clean React + Vite site for the Gloucester Zakat Fund, using a green and cream color scheme.
 
 ## Features
-- Home, About, Trustees, What is Zakat, FAQ, Community, Apply, Calculate Zakat, Contact, Latest News pages
+- Home, About (including Community & Latest News content), What is Zakat, FAQ, Apply, Calculate Zakat, Contact pages
 - Modern, accessible UI
 - All content and templates tailored for Gloucester
 

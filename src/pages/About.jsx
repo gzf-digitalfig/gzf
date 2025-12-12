@@ -4,7 +4,9 @@ export default function About() {
       <div className="hero-section">
         <h1>About Gloucester Zakat Fund</h1>
         <p className="tagline">Your Local Neighbourhood Zakat Distributors</p>
-        <p className="primary-message">Collecting zakat and sadaqah to assist local residents in Gloucester</p>
+        <p className="primary-message">
+          Collecting zakat and sadaqah to assist local residents in Gloucester
+        </p>
       </div>
 
       <div className="services-section">
@@ -12,48 +14,103 @@ export default function About() {
         <div className="services-grid">
           <div className="service-item">
             <h3>Qualify Individuals for Zakat</h3>
-            <p>We carefully assess applications to ensure zakat reaches those who are genuinely eligible according to Islamic principles.</p>
+            <p>
+              We carefully assess applications to ensure zakat reaches those who
+              are genuinely eligible according to Islamic principles.
+            </p>
           </div>
           <div className="service-item">
             <h3>Pay Zakat Online and via Mobile</h3>
-            <p>Convenient and secure online payment system allowing you to fulfill your zakat obligations from anywhere.</p>
+            <p>
+              Convenient and secure online payment system allowing you to fulfill
+              your zakat obligations from anywhere.
+            </p>
           </div>
           <div className="service-item">
             <h3>Direct Local Distribution</h3>
-            <p>We ensure your zakat goes directly to those in need within the Gloucester community.</p>
+            <p>
+              We ensure your zakat goes directly to those in need within the
+              Gloucester community.
+            </p>
           </div>
         </div>
       </div>
 
       <div className="trustees-section">
         <h2>Meet the Trustees</h2>
-        <p>To ensure good effective governance, provide leadership and vision it is essential for a charity to have trustees who have particular qualities and specialised skills. This allows the charity to fulfil its purpose in a manner that instils confidence in the hearts and minds of its supporters and beneficiaries.</p>
-        <p>The Gloucester Zakat Fund is overseen by five trustees who are well-known reputable members of Gloucester's Muslim community. All the trustees have extensive experience in leadership roles which, combined with the experience gained from managing other successful local charities, provide the Gloucester Zakat Fund vision and strategic direction.</p>
-        
+        <p>
+          To ensure good effective governance, provide leadership and vision it
+          is essential for a charity to have trustees who have particular
+          qualities and specialised skills. This allows the charity to fulfil
+          its purpose in a manner that instils confidence in the hearts and
+          minds of its supporters and beneficiaries.
+        </p>
+        <p>
+          The Gloucester Zakat Fund is overseen by five trustees who are
+          well-known reputable members of Gloucester&apos;s Muslim community. All
+          the trustees have extensive experience in leadership roles which,
+          combined with the experience gained from managing other successful
+          local charities, provide the Gloucester Zakat Fund vision and
+          strategic direction.
+        </p>
+
         <div className="trustees-grid">
           <div className="trustee-card">
-            <h3>(Dr, Mufti) Ahmed Rahman PhD (Chairman)</h3>
-            <p>Mufti Ahmed Rahman, a local resident of Gloucester, has served as Imam of Gloucester Central Mosque since 2015. He memorised the Holy Qur'ān, then graduated from Darul Uloom with formal authorisation in the Islamic sciences. He has a PhD in Islamic Studies from University of Birmingham and has also specialised in legal judgment (iftā'). He works on scholarly publications and many of his lectures are available through local Islamic education centres.</p>
+            <h3>Imam Abdullah Abdul Samad Patel (Chair)</h3>
+            <p>
+              Imam Abdullah Abdul Samad Patel is a highly respected figure in the
+              local Muslim community and serves as an Imam at Masjid e Umar. He is
+              also the Head Teacher at Al-Ashraf Primary School, the first Islamic
+              Primary School in the Southwest, and leads Peace Inclusion, advocating
+              for educational access and community cohesion. Since 2025, he has
+              served as a trustee for the Gloucester Rugby Charitable Foundation.
+            </p>
           </div>
-          
+
           <div className="trustee-card">
-            <h3>Yusuf Hassan</h3>
-            <p>Yusuf has been a resident of Gloucester since 1995. He is a founding member of the local Islamic school and has successfully managed local businesses in retail and property. He served as Chairman of Gloucester Central Mosque between 2018 and 2020 and brings valuable business acumen to the fund's operations.</p>
+            <h3>Farouq Ginwalla (Trustee)</h3>
+            <p>
+              Farouq Ginwalla brings extensive professional experience to the
+              board as the Director of FG Immigration Ltd. As a long-standing
+              resident of Gloucester, his expertise in governance and regulation
+              ensures the charity operates with high standards of compliance and
+              integrity, overseeing the responsible distribution of funds to those
+              most in need.
+            </p>
           </div>
-          
+
           <div className="trustee-card">
-            <h3>Fatima Ali – BSc., MIET</h3>
-            <p>A local resident of Gloucester since 1985, Fatima, by profession, is a retired NHS Senior Project Manager. She served as Secretary of Masjid-e-Noor between 2010 to 2015 and has been actively involved in local community welfare projects. Presently Fatima is a member of the governing body of the local Islamic school and works closely with Gloucester City Council on community integration initiatives.</p>
+            <h3>Kamel Boulkenafet (Trustee)</h3>
+            <p>
+              Kamel Boulkenafet is a dedicated community advocate who previously
+              served as a Director for Gloucestershire Action for Refugees and
+              Asylum Seekers (GARAS). He was honored with the &quot;Community
+              Upstander Award&quot; for his exceptional efforts in supporting
+              vulnerable youth, reflecting the compassionate values at the heart
+              of the Gloucester Zakat Fund.
+            </p>
           </div>
-          
+
           <div className="trustee-card">
-            <h3>Omar Patel</h3>
-            <p>Omar has experience of working in the welfare system for 15 years. As a result of this experience, he has extensive knowledge in assessing benefit claimants and assisting those looking for employment. Within the community he has been voluntarily involved in faith-based outreach work helping build spirituality and confidence in members of the local community. He is also an active member in local community forums.</p>
+            <h3>Mariam Qureshi (Trustee)</h3>
+            <p>
+              Mariam Qureshi is an active trustee dedicated to social welfare within
+              Gloucester. Her role involves assessing complex hardship cases and
+              ensuring the fund&apos;s resources are directed towards impactful
+              interventions for local families, helping to maintain the vital link
+              between the charity and the community it serves.
+            </p>
           </div>
-          
+
           <div className="trustee-card">
-            <h3>Aisha Khan</h3>
-            <p>Aisha is a resident of Gloucester and has been involved in a number of community projects within the city, including refugee community sponsorship and raising awareness of social issues. She currently works for an educational charity and has previously worked in the public sector. She brings valuable experience in community outreach and social welfare.</p>
+            <h3>Hashim Moolla (Trustee)</h3>
+            <p>
+              Hashim Moolla serves as a trustee with a focus on operational
+              efficiency and community outreach. He assists in the rigorous
+              verification of zakat applications, ensuring that every donation is
+              accounted for and reaches eligible recipients in accordance with
+              both charitable law and Islamic principles.
+            </p>
           </div>
         </div>
       </div>
@@ -63,7 +120,7 @@ export default function About() {
         <div className="charity-details">
           <div className="detail-row">
             <span className="label">Charity Number:</span>
-            <span className="value">1234567 (To be updated)</span>
+            <span className="value">1215932</span>
           </div>
           <div className="detail-row">
             <span className="label">Registration:</span>
@@ -82,38 +139,95 @@ export default function About() {
 
       <div className="community-section">
         <h2>Gloucester Zakat Fund in the Community</h2>
-        <p>Throughout the year the Gloucester Zakat Fund provides assistance to a number of local charities, vulnerable residents and families. Alhamdulillah most of us are blessed with good health, wealth and family and friends to provide support in challenging times. However there are a number of neighbours and families who aren't as fortunate right here on our local doorstep.</p>
-        
+        <p>
+          Throughout the year the Gloucester Zakat Fund provides assistance to a
+          number of local charities, vulnerable residents and families.
+          Alhamdulillah most of us are blessed with good health, wealth and
+          family and friends to provide support in challenging times. However
+          there are a number of neighbours and families who aren&apos;t as
+          fortunate right here on our local doorstep.
+        </p>
+
         <div className="community-services">
           <div className="service-block">
             <h3>Supermarket Vouchers</h3>
-            <p>The Gloucester Zakat Fund provides local charities and organisations with a regular supply of supermarket gift cards/vouchers which can be used by local families and individuals in need to purchase food and other basic supplies.</p>
+            <p>
+              The Gloucester Zakat Fund provides local charities and
+              organisations with a regular supply of supermarket gift
+              cards/vouchers which can be used by local families and individuals
+              in need to purchase food and other basic supplies.
+            </p>
           </div>
-          
+
           <div className="service-block">
             <h3>Emergency Support Grants</h3>
-            <p>We provide small grants to families in crisis situations to assist with essential expenses such as utilities, rent assistance, and emergency food supplies.</p>
+            <p>
+              We provide small grants to families in crisis situations to assist
+              with essential expenses such as utilities, rent assistance, and
+              emergency food supplies.
+            </p>
           </div>
-          
+
           <div className="service-block">
             <h3>School Support</h3>
-            <p>The Fund provides assistance to families struggling with school-related costs, including uniform grants and educational supplies for children in need.</p>
+            <p>
+              The Fund provides assistance to families struggling with
+              school-related costs, including uniform grants and educational
+              supplies for children in need.
+            </p>
           </div>
         </div>
 
         <div className="beneficiary-organisations">
-          <div style={{ height: '3rem' }}></div>
+          <div style={{ height: "3rem" }}></div>
           <h2>Partner Organisations</h2>
-          <p>We work closely with local organisations to ensure effective distribution of zakat and sadaqah:</p>
+          <p>
+            We work closely with local organisations to ensure effective
+            distribution of zakat and sadaqah:
+          </p>
           <div className="organisations-grid">
             <div className="org-item">Gloucester Food Bank</div>
             <div className="org-item">Gloucester Community Centre</div>
-            <div className="org-item">Local Women's Shelter</div>
+            <div className="org-item">Local Women&apos;s Shelter</div>
             <div className="org-item">Gloucester Citizens Advice</div>
             <div className="org-item">Gloucester Homeless Support</div>
             <div className="org-item">Local Family Support Services</div>
             <div className="org-item">Gloucester Refugee Support</div>
             <div className="org-item">Community Health Services</div>
+            <div className="org-item">Gloucestershire Bundles</div>
+            <div className="org-item">The Friendship Cafe</div>
+            <div className="org-item">Masjid-e-Noor</div>
+            <div className="org-item">Gloucester City Council</div>
+          </div>
+        </div>
+      </div>
+
+      <div className="achievements-section">
+        <h2>Community Stories</h2>
+        <div className="testimonials-grid">
+          <div className="testimonial card">
+            <p>
+              "The food vouchers from Gloucester Zakat Fund were a lifesaver for
+              my family. We are incredibly grateful for their support during a
+              difficult time."
+            </p>
+            <cite>- A grateful mother</cite>
+          </div>
+          <div className="testimonial card">
+            <p>
+              "I was struggling to pay my rent and was on the verge of being
+              evicted. The emergency grant from GZF gave me the breathing room I
+              needed to get back on my feet."
+            </p>
+            <cite>- A local resident</cite>
+          </div>
+          <div className="testimonial card">
+            <p>
+              "Thanks to the school uniform grant, my children could start the
+              new school year with confidence and a sense of belonging. Thank
+              you, GZF!"
+            </p>
+            <cite>- A happy parent</cite>
           </div>
         </div>
       </div>
@@ -122,20 +236,51 @@ export default function About() {
         <h2>Community Activities & Achievements</h2>
         <div className="achievements-list">
           <div className="achievement-item">
-            <span className="year">2023</span>
-            <span className="description">Gloucester Zakat Fund raised £5,000 during Ramadan for Gloucestershire Royal Hospital's children's ward</span>
+            <span className="year">2025</span>
+            <span className="description">
+              June 2025: GZF launches new school uniform grant for Gloucester
+              families.
+            </span>
+          </div>
+          <div className="achievement-item">
+            <span className="year">2025</span>
+            <span className="description">
+              May 2025: Eid Qurbani meat distributed to over 100 local families.
+            </span>
+          </div>
+          <div className="achievement-item">
+            <span className="year">2025</span>
+            <span className="description">
+              April 2025: GZF partners with local foodbanks for Ramadan support.
+            </span>
           </div>
           <div className="achievement-item">
             <span className="year">2023</span>
-            <span className="description">Special Eid gifts donated to Gloucester Community Centre and local family support services</span>
+            <span className="description">
+              Gloucester Zakat Fund raised s5,000 during Ramadan for
+              Gloucestershire Royal Hospital&apos;s children&apos;s ward
+            </span>
+          </div>
+          <div className="achievement-item">
+            <span className="year">2023</span>
+            <span className="description">
+              Special Eid gifts donated to Gloucester Community Centre and local
+              family support services
+            </span>
           </div>
           <div className="achievement-item">
             <span className="year">2022</span>
-            <span className="description">Our supermarket voucher scheme provided vital assistance to over 200 local families</span>
+            <span className="description">
+              Our supermarket voucher scheme provided vital assistance to over
+              200 local families
+            </span>
           </div>
           <div className="achievement-item">
             <span className="year">2022</span>
-            <span className="description">Emergency support provided to 50+ families during cost of living crisis</span>
+            <span className="description">
+              Emergency support provided to 50+ families during cost of living
+              crisis
+            </span>
           </div>
         </div>
       </div>
