@@ -1,3 +1,13 @@
+// Use import.meta.glob to load all JSON files from the activities content directory
+const activityModules = import.meta.glob("../content/activities/*.json", {
+  eager: true,
+});
+
+// Convert the modules object into an array of activity objects
+const activities = Object.values(activityModules)
+  .map((mod) => mod.default || mod) // Handle default export if present, or raw JSON
+  .sort((a, b) => b.year - a.year); // Sort by year descending
+
 export default function About() {
   return (
     <div className="about-page">
@@ -56,7 +66,7 @@ export default function About() {
 
         <div className="trustees-grid">
           <div className="trustee-card">
-            <h3>Imam Abdullah Abdul Samad Patel (Chair)</h3>
+            <h3>Imam Abdullah Patel (Chair)</h3>
             <p>
               Imam Abdullah Abdul Samad Patel is a highly respected figure in the
               local Muslim community and serves as an Imam at Masjid e Umar. He is
@@ -232,58 +242,19 @@ export default function About() {
         </div>
       </div>
 
-      <div className="achievements-section">
-        <h2>Community Activities & Achievements</h2>
-        <div className="achievements-list">
-          <div className="achievement-item">
-            <span className="year">2025</span>
-            <span className="description">
-              June 2025: GZF launches new school uniform grant for Gloucester
-              families.
-            </span>
-          </div>
-          <div className="achievement-item">
-            <span className="year">2025</span>
-            <span className="description">
-              May 2025: Eid Qurbani meat distributed to over 100 local families.
-            </span>
-          </div>
-          <div className="achievement-item">
-            <span className="year">2025</span>
-            <span className="description">
-              April 2025: GZF partners with local foodbanks for Ramadan support.
-            </span>
-          </div>
-          <div className="achievement-item">
-            <span className="year">2023</span>
-            <span className="description">
-              Gloucester Zakat Fund raised s5,000 during Ramadan for
-              Gloucestershire Royal Hospital&apos;s children&apos;s ward
-            </span>
-          </div>
-          <div className="achievement-item">
-            <span className="year">2023</span>
-            <span className="description">
-              Special Eid gifts donated to Gloucester Community Centre and local
-              family support services
-            </span>
-          </div>
-          <div className="achievement-item">
-            <span className="year">2022</span>
-            <span className="description">
-              Our supermarket voucher scheme provided vital assistance to over
-              200 local families
-            </span>
-          </div>
-          <div className="achievement-item">
-            <span className="year">2022</span>
-            <span className="description">
-              Emergency support provided to 50+ families during cost of living
-              crisis
-            </span>
+      {activities.length > 0 && (
+        <div className="achievements-section">
+          <h2>Community Activities & Achievements</h2>
+          <div className="achievements-list">
+            {activities.map((activity, index) => (
+              <div key={index} className="achievement-item">
+                <span className="year">{activity.year}</span>
+                <span className="description">{activity.description}</span>
+              </div>
+            ))}
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

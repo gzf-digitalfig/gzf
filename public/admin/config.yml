@@ -1,0 +1,20 @@
+backend:
+  name: git-gateway
+  branch: main
+
+
+
+media_folder: public/assets/images
+public_folder: /assets/images
+
+collections:
+  - name: "activities"
+    label: "Community Activities"
+    folder: "src/content/activities"
+    create: true
+    slug: "{{year}}-{{slug}}"
+    format: "json"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Year", name: "year", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
