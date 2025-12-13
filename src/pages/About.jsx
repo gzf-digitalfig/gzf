@@ -6,9 +6,15 @@ const activityModules = import.meta.glob("../content/activities/*.json", {
 // Convert the modules object into an array of activity objects
 const activities = Object.values(activityModules)
   .map((mod) => mod.default || mod) // Handle default export if present, or raw JSON
-  .sort((a, b) => b.year - a.year); // Sort by year descending
+  .sort((a, b) => new Date(b.date) - new Date(a.date)); // Sort by date descending
 
 export default function About() {
+  // Helper to format date as "Month Year"
+  const formatDate = (dateString) => {
+    if (!dateString) return "";
+    const date = new Date(dateString);
+    return date.toLocaleDateString("en-US", { month: "long", year: "numeric" });
+  };
   return (
     <div className="about-page">
       <div className="hero-section">
@@ -248,7 +254,9 @@ export default function About() {
           <div className="achievements-list">
             {activities.map((activity, index) => (
               <div key={index} className="achievement-item">
-                <span className="year">{activity.year}</span>
+                <span className="year" style={{ width: "auto", padding: "0 1rem", borderRadius: "20px" }}>
+                  {formatDate(activity.date)}
+                </span>
                 <span className="description">{activity.description}</span>
               </div>
             ))}
