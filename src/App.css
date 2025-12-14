@@ -158,8 +158,8 @@ footer {
   /* Right align to show right side of image */
   position: relative;
   color: white;
-  /* Make hero a full-width banner that touches the header on desktop */
-  margin: -4rem -2rem 0;
+  /* Make hero a full-width banner that touches the header on desktop, with a gap below */
+  margin: -4rem -2rem 1.5rem;
 }
 
 .home-hero::before {
@@ -279,7 +279,7 @@ footer {
 
   /* Adjust hero offset to match container padding on tablets */
   .home-hero {
-    margin: -2rem -1rem 0;
+    margin: -2rem -1rem 1.5rem;
   }
 
   .footer-content {
@@ -490,7 +490,7 @@ footer {
   margin-right: 0;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1077px) {
   .impact-section {
     flex-direction: column;
     gap: 2rem;
@@ -908,6 +908,16 @@ footer {
 
   .zakat-subtitle {
     font-size: 0.9rem;
+  }
+
+  /* Ensure home hero is truly edge-to-edge on mobile */
+  .home-hero {
+    margin: -0.5rem -0.5rem 1.5rem;
+  }
+
+  .home-hero > .container {
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 
@@ -1955,7 +1965,7 @@ img {
   background: var(--primary-green);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1077px) {
   .nav-links {
     display: none;
     position: fixed;
