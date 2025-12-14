@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 
 export default function CalculateZakat() {
@@ -30,6 +30,19 @@ export default function CalculateZakat() {
   });
   const [zakat, setZakat] = useState(null);
   const [errors, setErrors] = useState({});
+  const resultRef = useRef(null);
+
+  useEffect(() => {
+    if (zakat !== null && resultRef.current) {
+      // On small screens, scroll the result section into view
+      if (window.innerWidth <= 768) {
+        resultRef.current.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    }
+  }, [zakat]);
 
   const PAYPAL_URL = "https://www.paypal.com/gb/fundraiser/charity/5731751";
 
@@ -109,8 +122,6 @@ export default function CalculateZakat() {
       stocksOriginalValue: Number(formData.stocks || 0),
       stocksZakatableValue: Number(formData.stocks || 0) * 0.4
     });
-
-    window.scrollTo(0, 0);
   };
 
   const handlePayZakat = () => {
@@ -243,7 +254,7 @@ export default function CalculateZakat() {
         </div>
 
         {zakat !== null && (
-          <div className="calculator-result-section">
+          <div className="calculator-result-section" ref={resultRef}>
             <div className="card zakat-result-card">
               <div className="result-header">
                 <h2>Your Zakat Calculation</h2>
