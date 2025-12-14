@@ -160,6 +160,23 @@ footer {
   color: white;
 }
 
+.home-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  /* Adjusted to 0.5 per user feedback */
+  z-index: 1;
+}
+
+.home-hero>.container {
+  position: relative;
+  z-index: 2;
+}
+
 /* Modern Zakat Calculator Styles */
 .zakat-form {
   display: flex;
