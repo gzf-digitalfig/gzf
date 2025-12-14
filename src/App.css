@@ -158,6 +158,8 @@ footer {
   /* Right align to show right side of image */
   position: relative;
   color: white;
+  /* Make hero a full-width banner that touches the header on desktop */
+  margin: -4rem -2rem 0;
 }
 
 .home-hero::before {
@@ -275,6 +277,11 @@ footer {
     max-width: 100vw;
   }
 
+  /* Adjust hero offset to match container padding on tablets */
+  .home-hero {
+    margin: -2rem -1rem 0;
+  }
+
   .footer-content {
     grid-template-columns: 1fr;
     gap: 2rem;
@@ -298,16 +305,21 @@ footer {
     max-width: 100vw;
   }
 
+  /* Adjust hero offset to match container padding on small screens */
+  .home-hero {
+    margin: -1rem -0.5rem 0;
+  }
+
   .services-grid>*,
   .trustees-grid>*,
   .community-services>*,
   .organisations-grid>*,
   .testimonials-grid>*,
   .beneficiary-organisations .organisations-grid>*,
-  .standalone-donate-section .donate-card {
+  .standalone-donate-section .donate-card,
+  .standalone-donate-section .gift-aid-message {
     min-width: 90vw;
     max-width: 100vw;
-    flex: 1 1 100%;
   }
 
   .footer-content {
@@ -353,6 +365,13 @@ footer {
   .about-page,
   .charity-details {
     padding: 0.5rem 0.25rem;
+  }
+
+  /* Adjust hero offset to match container padding on very small screens */
+  .home-hero {
+    margin-top: -0.5rem;
+    margin-left: -0.25rem;
+    margin-right: -0.25rem;
   }
 
   .hero-section {
@@ -417,6 +436,13 @@ footer {
 
   .main-content {
     padding: 0.5rem 0.2rem;
+  }
+
+  /* Adjust hero offset to match container padding on extra small screens */
+  .home-hero {
+    margin-top: -0.5rem;
+    margin-left: -0.2rem;
+    margin-right: -0.2rem;
   }
 
   .card,
@@ -510,10 +536,10 @@ footer {
   .organisations-grid>*,
   .testimonials-grid>*,
   .beneficiary-organisations .organisations-grid>*,
-  .standalone-donate-section .donate-card {
+  .standalone-donate-section .donate-card,
+  .standalone-donate-section .gift-aid-message {
     min-width: 320px;
     max-width: 420px;
-    flex: 1 1 320px;
   }
 }
 
@@ -732,12 +758,32 @@ footer {
 .standalone-donate-section {
   flex: 2;
   min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.standalone-donate-section .card,
+.standalone-donate-section .gift-aid-message {
+  width: 100%;
+  box-sizing: border-box;
 }
 
 @media (max-width: 1024px) {
   .calculator-layout {
     flex-direction: column;
     gap: 1.5rem;
+  }
+
+  .standalone-donate-section {
+    order: 1;
+  }
+
+  .calculator-form-section {
+    order: 2;
+  }
+
+  .calculator-result-section {
+    order: 3;
   }
 
   .calculator-form-section,

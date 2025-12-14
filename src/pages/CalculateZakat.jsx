@@ -1,5 +1,5 @@
 import { useState } from "react";
-import StripeCheckout from "../components/StripeCheckout";
+
 
 export default function CalculateZakat() {
   const [formData, setFormData] = useState({
@@ -29,10 +29,9 @@ export default function CalculateZakat() {
     mortgage: ''
   });
   const [zakat, setZakat] = useState(null);
-  const [showPayment, setShowPayment] = useState(false);
-  const [showDonateModal, setShowDonateModal] = useState(false);
-  const [donateAmount, setDonateAmount] = useState('');
   const [errors, setErrors] = useState({});
+
+  const PAYPAL_URL = "https://www.paypal.com/gb/fundraiser/charity/5731751";
 
   // Nisab threshold (current gold price equivalent - approximately £4,000)
   const NISAB_THRESHOLD = 4000;
@@ -42,7 +41,7 @@ export default function CalculateZakat() {
       ...prev,
       [field]: value
     }));
-    
+
     // Clear error when user starts typing
     if (errors[field]) {
       setErrors(prev => ({
@@ -54,14 +53,14 @@ export default function CalculateZakat() {
 
   const validateForm = () => {
     const newErrors = {};
-    
+
     // Check if at least one asset field has a value
     const assetFields = ['gold', 'silver', 'cashInHand', 'cashInISA', 'bankAccounts', 'paypal', 'crypto', 'stocks', 'businessAccount', 'businessStock', 'moniesOwed', 'pension'];
     const hasAssets = assetFields.some(field => {
       const value = formData[field];
       return value && value.trim() !== '' && Number(value) > 0;
     });
-    
+
     if (!hasAssets) {
       newErrors.general = 'Please enter at least one asset value to calculate Zakat.';
     }
@@ -72,35 +71,35 @@ export default function CalculateZakat() {
 
   const handleCalculate = (e) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
       return;
     }
 
-    const totalAssets = 
-      Number(formData.gold || 0) + 
-      Number(formData.silver || 0) + 
-      Number(formData.cashInHand || 0) + 
-      Number(formData.cashInISA || 0) + 
-      Number(formData.bankAccounts || 0) + 
-      Number(formData.paypal || 0) + 
-      Number(formData.crypto || 0) + 
+    const totalAssets =
+      Number(formData.gold || 0) +
+      Number(formData.silver || 0) +
+      Number(formData.cashInHand || 0) +
+      Number(formData.cashInISA || 0) +
+      Number(formData.bankAccounts || 0) +
+      Number(formData.paypal || 0) +
+      Number(formData.crypto || 0) +
       (Number(formData.stocks || 0) * 0.4) + // Stocks at 40% value for Zakat calculation
-      Number(formData.businessAccount || 0) + 
-      Number(formData.businessStock || 0) + 
-      Number(formData.moniesOwed || 0) + 
+      Number(formData.businessAccount || 0) +
+      Number(formData.businessStock || 0) +
+      Number(formData.moniesOwed || 0) +
       Number(formData.pension || 0);
-    
-    const totalDeductions = 
-      Number(formData.creditCards || 0) + 
-      Number(formData.debt || 0) + 
-      Number(formData.councilTax || 0) + 
-      Number(formData.businessInvoices || 0) + 
+
+    const totalDeductions =
+      Number(formData.creditCards || 0) +
+      Number(formData.debt || 0) +
+      Number(formData.councilTax || 0) +
+      Number(formData.businessInvoices || 0) +
       Number(formData.mortgage || 0);
     const netAssets = totalAssets - totalDeductions;
-    
+
     const zakatDue = netAssets >= NISAB_THRESHOLD ? (netAssets * 0.025) : 0;
-    
+
     setZakat({
       totalAssets,
       totalDeductions,
@@ -113,15 +112,11 @@ export default function CalculateZakat() {
   };
 
   const handlePayZakat = () => {
-    setShowPayment(true);
+    window.open(PAYPAL_URL, '_blank', 'noopener,noreferrer');
   };
 
   const handleDonate = () => {
-    if (!donateAmount || Number(donateAmount) < 1) {
-      setErrors({ donate: 'Please enter a valid donation amount (minimum £1)' });
-      return;
-    }
-    setShowDonateModal(true);
+    window.open(PAYPAL_URL, '_blank', 'noopener,noreferrer');
   };
 
   const renderNumberInput = (field, label, step = 1, min = 0) => (
@@ -163,18 +158,18 @@ export default function CalculateZakat() {
   return (
     <div className="zakat-calculator-container">
       <div className="zakat-header">
-        <h1 className="text-center">Zakat Calculator</h1>
-        <p className="text-center zakat-subtitle">
-          Calculate your estimated Zakat amount
-        </p>
-        <div className="disclaimer">
-          <p><strong>Important Disclaimer:</strong> This calculator provides an estimate only and does not constitute advice from an Islamic scholar. Please consult with a qualified Islamic scholar or religious authority for guidance on your specific Zakat obligations. Individual circumstances may require different calculations or considerations not covered by this tool.</p>
-        </div>
+        <h1 className="text-center">Calculate & Give Zakat</h1>
       </div>
 
       <div className="calculator-layout">
         <div className="calculator-form-section">
+
+
           <div className="card zakat-form-card">
+            <h1 className="text-center" style={{ marginTop: 0, marginBottom: '0.5rem', fontSize: '2rem', color: 'var(--primary-green)', fontWeight: 700 }}>Zakat Calculator</h1>
+            <p className="text-center zakat-subtitle" style={{ marginTop: 0, marginBottom: '1.5rem' }}>
+              Calculate your estimated Zakat amount
+            </p>
             <h2>Your Assets</h2>
             <form onSubmit={handleCalculate} className="zakat-form">
               {errors.general && (
@@ -182,7 +177,7 @@ export default function CalculateZakat() {
                   {errors.general}
                 </div>
               )}
-              
+
               <div className="form-section">
                 <h3>Gold & Silver</h3>
                 {renderNumberInput('gold', 'Gold (£)', 50, 0)}
@@ -232,6 +227,10 @@ export default function CalculateZakat() {
               <button type="submit" className="modern-btn calculate-btn">
                 Calculate My Zakat
               </button>
+
+              <div className="disclaimer" style={{ marginTop: '2rem' }}>
+                <p><strong>Important Disclaimer:</strong> This calculator provides an estimate only and does not constitute advice from an Islamic scholar. Please consult with a qualified Islamic scholar or religious authority for guidance on your specific Zakat obligations. Individual circumstances may require different calculations or considerations not covered by this tool.</p>
+              </div>
             </form>
           </div>
         </div>
@@ -242,7 +241,7 @@ export default function CalculateZakat() {
               <div className="result-header">
                 <h2>Your Zakat Calculation</h2>
               </div>
-              
+
               <div className="calculation-breakdown">
                 <div className="breakdown-item">
                   <span className="label">Total Assets:</span>
@@ -289,7 +288,7 @@ export default function CalculateZakat() {
 
                 {zakat.zakatDue > 0 && (
                   <div className="payment-section">
-                    <button 
+                    <button
                       onClick={handlePayZakat}
                       className="modern-btn pay-zakat-btn"
                     >
@@ -308,57 +307,41 @@ export default function CalculateZakat() {
         <div className="standalone-donate-section">
           <div className="card donate-card">
             <h2>Make a Donation</h2>
-            <p>Want to donate without calculating zakat? You can make a direct donation to support our community.</p>
-            
-            {errors.donate && (
-              <div className="error-message">
-                {errors.donate}
-              </div>
-            )}
-            
-            <div className="donate-form">
-              <div className="form-group">
-                <input
-                  type="number"
-                  id="donate-amount"
-                  value={donateAmount}
-                  onChange={(e) => {
-                    setDonateAmount(e.target.value);
-                    if (errors.donate) {
-                      setErrors(prev => ({ ...prev, donate: '' }));
-                    }
-                  }}
-                  min="1"
-                  step="10"
-                  placeholder="0.00"
-                />
-                <label htmlFor="donate-amount">Donation Amount (£)</label>
-              </div>
-              
-              <button 
+            <p>Want to donate zakat without calculating first? You can make a direct donation to support our community.</p>
+
+            <div className="donate-action" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem' }}>
+              <button
                 onClick={handleDonate}
                 className="modern-btn donate-btn"
+                style={{ width: '100%' }}
               >
                 Donate Now
               </button>
+
+
             </div>
+          </div>
+
+          <div className="gift-aid-message" style={{
+            marginTop: '1.5rem',
+            background: 'var(--bg-secondary)',
+            padding: '1rem',
+            borderRadius: '8px',
+            border: '1px dashed var(--primary-green)',
+            fontSize: '0.95rem',
+            color: 'var(--text-primary)',
+            textAlign: 'center'
+          }}>
+            <p style={{ margin: 0 }}>
+              We kindly ask that you click the <strong>Gift Aid</strong> button on your emailed receipt. This allows us to reclaim an extra 25p for every £1 you donate at no extra cost to you, which allows us to pay our admin costs.
+            </p>
           </div>
         </div>
       </div>
 
-      {showPayment && zakat && zakat.zakatDue > 0 && (
-        <StripeCheckout 
-          amount={zakat.zakatDue}
-          onClose={() => setShowPayment(false)}
-        />
-      )}
 
-      {showDonateModal && donateAmount && (
-        <StripeCheckout 
-          amount={Number(donateAmount)}
-          onClose={() => setShowDonateModal(false)}
-        />
-      )}
+
+
     </div>
   );
 }
