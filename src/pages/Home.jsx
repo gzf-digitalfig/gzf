@@ -2,7 +2,24 @@ import { Link } from "react-router-dom";
 import placeholder from "../assets/placeholder.webp";
 import heroImage from "../assets/zakat.webp";
 
+// Load activities from the CMS (JSON files)
+const activityModules = import.meta.glob("../content/activities/*.json", {
+  eager: true,
+});
+
+const activities = Object.values(activityModules)
+  .map((mod) => mod.default || mod)
+  .sort((a, b) => new Date(b.date) - new Date(a.date));
+
 export default function Home() {
+  const latestActivities = activities.slice(0, 5);
+
+  const formatDate = (dateString) => {
+    if (!dateString) return "";
+    const date = new Date(dateString);
+    return date.toLocaleDateString("en-US", { month: "long", year: "numeric" });
+  };
+
   return (
     <div>
       {/* Hero Section */}
@@ -25,6 +42,35 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Latest News Section */}
+      {latestActivities.length > 0 && (
+        <section className="section" style={{ backgroundColor: 'var(--bg-secondary)' }}>
+          <div className="container">
+            <div className="text-center mb-4">
+              <h2>Latest news</h2>
+            </div>
+            <div className="achievements-list">
+              {latestActivities.map((activity, index) => (
+                <div key={index} className="achievement-item">
+                  <span
+                    className="year"
+                    style={{ width: "auto", padding: "0 1rem", borderRadius: "20px" }}
+                  >
+                    {formatDate(activity.date)}
+                  </span>
+                  <span className="description">{activity.description}</span>
+                </div>
+              ))}
+            </div>
+            <div className="text-center" style={{ marginTop: "2rem" }}>
+              <Link to="/news">
+                Read more
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* How It Works Section */}
       <section className="section" style={{ backgroundColor: 'var(--bg-secondary)' }}>

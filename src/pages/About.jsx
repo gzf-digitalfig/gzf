@@ -247,22 +247,6 @@ export default function About() {
           </div>
         </div>
       </div>
-
-      {activities.length > 0 && (
-        <div className="achievements-section">
-          <h2>Community Activities & Achievements</h2>
-          <div className="achievements-list">
-            {activities.map((activity, index) => (
-              <div key={index} className="achievement-item">
-                <span className="year" style={{ width: "auto", padding: "0 1rem", borderRadius: "20px" }}>
-                  {formatDate(activity.date)}
-                </span>
-                <span className="description">{activity.description}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
     </div>
   );
 }

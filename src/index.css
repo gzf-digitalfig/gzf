@@ -109,6 +109,8 @@ button, .btn {
 button:hover, .btn:hover {
   transform: translateY(-3px);
   box-shadow: var(--shadow-lg);
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
 }
 
 .btn-secondary {

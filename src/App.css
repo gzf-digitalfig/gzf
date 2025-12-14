@@ -348,6 +348,18 @@ footer {
     font-size: 2.5rem;
   }
 
+  /* Mobile layout for news entries: date centered, text left */
+  .achievements-list .achievement-item .year {
+    display: block;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .achievements-list .achievement-item .description {
+    display: block;
+    text-align: left;
+  }
+
   nav {
     background: rgba(240, 255, 240, 0.85);
     /* Light green tint for mobile view */
@@ -547,6 +559,10 @@ footer {
 
 .text-center {
   text-align: center;
+}
+
+.mb-4 {
+  margin-bottom: 2rem;
 }
 
 .mb-8 {

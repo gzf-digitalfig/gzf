@@ -8,6 +8,7 @@ import FAQ from "./pages/FAQ";
 import Apply from "./pages/Apply";
 import CalculateZakat from "./pages/CalculateZakat";
 import Contact from "./pages/Contact";
+import News from "./pages/News";
 import "./App.css";
 
 function ScrollToTop() {
@@ -29,6 +30,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/news" element={<News />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/apply" element={<Apply />} />
           <Route path="/calculatezakat" element={<CalculateZakat />} />
