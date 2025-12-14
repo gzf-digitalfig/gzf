@@ -340,9 +340,10 @@ export default function CalculateZakat() {
             </div>
           </div>
 
-          <div className="card gift-aid-message" style={{
+          <div className="gift-aid-message" style={{
             marginTop: '1.5rem',
             background: 'var(--bg-secondary)',
+            padding: '1rem',
             borderRadius: '8px',
             border: '1px dashed var(--primary-green)',
             fontSize: '0.95rem',
