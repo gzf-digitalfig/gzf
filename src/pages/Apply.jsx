@@ -26,24 +26,12 @@ export default function Apply() {
       </div>
 
       <div className="application-locations">
-        <h3>Application Locations:</h3>
+        <h3>Application Location:</h3>
         <div className="locations-list">
           <div className="location-item">
-            <div className="location-name">Gloucester Central Mosque</div>
+            <div className="location-name">Masjid E Umar</div>
             <div className="location-address">
-              12 All Saints Road, Gloucester, GL1 4EE
-            </div>
-          </div>
-          <div className="location-item">
-            <div className="location-name">Masjid-e-Noor</div>
-            <div className="location-address">
-              45 Ryecroft Street, Gloucester, GL1 4LY
-            </div>
-          </div>
-          <div className="location-item">
-            <div className="location-name">Al-Huda Community Centre</div>
-            <div className="location-address">
-              88 Barton Street, Gloucester, GL1 4EX
+              14 Conduit St, Gloucester, GL1 4LX
             </div>
           </div>
         </div>
