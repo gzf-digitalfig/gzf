@@ -2,8 +2,8 @@ export default function Contact() {
   return (
     <div>
       <h1>Contact Us</h1>
-      <p>Email: info@gloucesterzakatfund.org.uk</p>
-      <p>For correspondence only: Gloucester Zakat Fund, PO Box 123, Gloucester, GL1 2AB</p>
+      <p>Email: info@gloucesterzakatcharity.org.uk</p>
+      <p>For correspondence only: Gloucester Zakat Charity, PO Box 123, Gloucester, GL1 2AB</p>
       <div className="bank-details">
         <h3>Bank Details for Donations:</h3>
         <div className="details-list">
@@ -13,7 +13,7 @@ export default function Contact() {
           </div>
           <div className="detail-item">
             <span className="label">Account Name:</span>
-            <span className="value">Gloucester Zakat Fund</span>
+            <span className="value">Gloucester Zakat Charity</span>
           </div>
           <div className="detail-item">
             <span className="label">Sort Code:</span>

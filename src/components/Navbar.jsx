@@ -22,7 +22,7 @@ export default function Navbar() {
           <NavLink to="/" onClick={closeMenu}>
             <img
               src={logo}
-              alt="Gloucester Zakat Fund Logo"
+              alt="Gloucester Zakat Charity Logo"
               style={{ height: 110, marginRight: 24, verticalAlign: 'middle' }}
             />
           </NavLink>

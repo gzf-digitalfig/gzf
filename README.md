@@ -1,6 +1,6 @@
-# Gloucester Zakat Fund
+# Gloucester Zakat Charity
 
-A modern, clean React + Vite site for the Gloucester Zakat Fund, using a green and cream color scheme.
+A modern, clean React + Vite site for the Gloucester Zakat Charity, using a green and cream color scheme.
 
 ## Features
 - Home, About (including Community & Latest News content), What is Zakat, FAQ, Apply, Calculate Zakat, Contact pages

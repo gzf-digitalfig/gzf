@@ -18,7 +18,7 @@ export default function About() {
   return (
     <div className="about-page">
       <div className="hero-section">
-        <h1>About Gloucester Zakat Fund</h1>
+        <h1>About Gloucester Zakat Charity</h1>
         <p className="tagline">Your Local Neighbourhood Zakat Distributors</p>
         <p className="primary-message">
           Collecting zakat and sadaqah to assist local residents in Gloucester
@@ -62,11 +62,11 @@ export default function About() {
           minds of its supporters and beneficiaries.
         </p>
         <p>
-          The Gloucester Zakat Fund is overseen by five trustees who are
+          The Gloucester Zakat Charity is overseen by five trustees who are
           well-known reputable members of Gloucester&apos;s Muslim community. All
           the trustees have extensive experience in leadership roles which,
           combined with the experience gained from managing other successful
-          local charities, provide the Gloucester Zakat Fund vision and
+          local charities, provide the Gloucester Zakat Charity vision and
           strategic direction.
         </p>
 
@@ -103,7 +103,7 @@ export default function About() {
               Asylum Seekers (GARAS). He was honored with the &quot;Community
               Upstander Award&quot; for his exceptional efforts in supporting
               vulnerable youth, reflecting the compassionate values at the heart
-              of the Gloucester Zakat Fund.
+              of the Gloucester Zakat Charity.
             </p>
           </div>
 
@@ -154,9 +154,9 @@ export default function About() {
       </div>
 
       <div className="community-section">
-        <h2>Gloucester Zakat Fund in the Community</h2>
+        <h2>Gloucester Zakat Charity in the Community</h2>
         <p>
-          Throughout the year the Gloucester Zakat Fund provides assistance to a
+          Throughout the year the Gloucester Zakat Charity provides assistance to a
           number of local charities, vulnerable residents and families.
           Alhamdulillah most of us are blessed with good health, wealth and
           family and friends to provide support in challenging times. However
@@ -168,7 +168,7 @@ export default function About() {
           <div className="service-block">
             <h3>Supermarket Vouchers</h3>
             <p>
-              The Gloucester Zakat Fund provides local charities and
+              The Gloucester Zakat Charity provides local charities and
               organisations with a regular supply of supermarket gift
               cards/vouchers which can be used by local families and individuals
               in need to purchase food and other basic supplies.
@@ -223,7 +223,7 @@ export default function About() {
         <div className="testimonials-grid">
           <div className="testimonial card">
             <p>
-              "The food vouchers from Gloucester Zakat Fund were a lifesaver for
+              "The food vouchers from Gloucester Zakat Charity were a lifesaver for
               my family. We are incredibly grateful for their support during a
               difficult time."
             </p>

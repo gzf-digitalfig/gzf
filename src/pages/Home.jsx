@@ -16,7 +16,7 @@ export default function Home() {
               Supporting Our Community Through Zakat
             </h1>
             <p className="lead mb-8" style={{ maxWidth: '700px', margin: '0 auto 3rem' }}>
-              The Gloucester Zakat Fund is your trusted local charity for collecting and distributing Zakat to those in need within our community.
+              The Gloucester Zakat Charity is your trusted local charity for collecting and distributing Zakat to those in need within our community.
             </p>
             <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
               <Link to="/calculatezakat" className="btn btn-primary btn-large">Calculate & Give Zakat</Link>

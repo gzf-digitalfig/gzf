@@ -74,11 +74,11 @@ export default function FAQ() {
         </FAQItem>
         
         <FAQItem 
-          question="What is the purpose of the Gloucester Zakat Fund?" 
+          question="What is the purpose of the Gloucester Zakat Charity?" 
           isOpen={openItems['general-2']} 
           onToggle={() => toggleItem('general-2')}
         >
-          <p>Our fund collects and distributes Zakat locally to eligible Muslims in Gloucestershire, with a particular focus on Gloucester, helping those in hardship while adhering to Islamic principles.</p>
+          <p>Our charity collects and distributes Zakat locally to eligible Muslims in Gloucestershire, with a particular focus on Gloucester, helping those in hardship while adhering to Islamic principles.</p>
         </FAQItem>
         
         <FAQItem 
