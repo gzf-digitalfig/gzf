@@ -273,7 +273,7 @@ footer {
   .main-content,
   .about-page,
   .charity-details {
-    padding: 2rem 1rem;
+    padding: 2rem 0.75rem;
     max-width: 100vw;
   }
 
@@ -288,7 +288,7 @@ footer {
   }
 
   .nav-container {
-    padding: 0 1.5rem;
+    padding: 0 1.25rem;
   }
 
   .section {
@@ -301,7 +301,7 @@ footer {
   .main-content,
   .about-page,
   .charity-details {
-    padding: 1rem 0.5rem;
+    padding: 0.5rem 0.25rem;
     max-width: 100vw;
   }
 
@@ -328,7 +328,7 @@ footer {
   }
 
   .zakat-calculator-container {
-    padding: 1rem 0.5rem;
+    padding: 1rem 0.25rem;
     border-radius: 10px;
   }
 
@@ -342,11 +342,11 @@ footer {
   }
 
   .container {
-    padding: 0 1rem;
+    padding: 0 0.5rem;
   }
 
   .card {
-    padding: 2rem;
+    padding: 1.5rem;
   }
 
   .zakat-amount .amount {
@@ -364,7 +364,7 @@ footer {
   .main-content,
   .about-page,
   .charity-details {
-    padding: 0.5rem 0.25rem;
+    padding: 0.5rem 0.15rem;
   }
 
   /* Adjust hero offset to match container padding on very small screens */
@@ -409,7 +409,7 @@ footer {
   .donate-btn,
   .payment-btn {
     font-size: 1rem;
-    padding: 0.8rem 0;
+    padding: 0.7rem 0;
   }
 
   .zakat-amount .amount {
