@@ -109,6 +109,8 @@ export default function CalculateZakat() {
       stocksOriginalValue: Number(formData.stocks || 0),
       stocksZakatableValue: Number(formData.stocks || 0) * 0.4
     });
+
+    window.scrollTo(0, 0);
   };
 
   const handlePayZakat = () => {
