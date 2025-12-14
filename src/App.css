@@ -697,7 +697,6 @@ footer {
 }
 
 .zakat-header h1 {
-  font-size: 2.2rem;
   color: var(--primary-green);
   margin-bottom: 0.5rem;
   font-weight: 700;
@@ -812,10 +811,6 @@ footer {
     padding: 0 0.5rem;
   }
 
-  .zakat-header h1 {
-    font-size: 1.8rem;
-  }
-
   .zakat-subtitle {
     font-size: 1rem;
   }
@@ -925,10 +920,6 @@ footer {
   .zakat-form-card,
   .zakat-result-card {
     padding: 1rem;
-  }
-
-  .zakat-header h1 {
-    font-size: 1.5rem;
   }
 
   .zakat-subtitle {

@@ -166,7 +166,12 @@ export default function CalculateZakat() {
 
 
           <div className="card zakat-form-card">
-            <h1 className="text-center" style={{ marginTop: 0, marginBottom: '0.5rem', fontSize: '2rem', color: 'var(--primary-green)', fontWeight: 700 }}>Zakat Calculator</h1>
+            <h1
+              className="text-center"
+              style={{ marginTop: 0, marginBottom: '0.5rem', color: 'var(--primary-green)', fontWeight: 700 }}
+            >
+              Zakat Calculator
+            </h1>
             <p className="text-center zakat-subtitle" style={{ marginTop: 0, marginBottom: '1.5rem' }}>
               Calculate your estimated Zakat amount
             </p>
@@ -307,7 +312,7 @@ export default function CalculateZakat() {
         <div className="standalone-donate-section">
           <div className="card donate-card">
             <h2>Make a Donation</h2>
-            <p>Want to donate zakat without calculating first? You can make a direct donation to support our community.</p>
+            <p>Want to donate zakat without calculating first? You can make a direct donation to support our community now.</p>
 
             <div className="donate-action" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem' }}>
               <button
