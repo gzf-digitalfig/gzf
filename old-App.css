@@ -33,14 +33,11 @@ nav {
 }
 
 /* Logo styling removed to maintain native transparent background */
-.nav-brand img {}
+.nav-brand img {
+}
 
 /* Override NavLink styles for logo to prevent white highlight */
-.nav-brand a,
-.nav-brand a:hover,
-.nav-brand a:active,
-.nav-brand a:focus,
-.nav-brand a:visited {
+.nav-brand a, .nav-brand a:hover, .nav-brand a:active, .nav-brand a:focus, .nav-brand a:visited {
   background: transparent !important;
   color: transparent !important;
   border: none !important;
@@ -64,10 +61,6 @@ nav {
   cursor: pointer;
   margin-left: 1rem;
   z-index: 1201;
-  width: 40px;
-  height: 40px;
-  padding: 10px;
-  position: relative;
 }
 
 nav a {
@@ -151,34 +144,6 @@ footer {
   color: var(--text-tertiary);
 }
 
-/* Home Page Hero */
-.home-hero {
-  background-size: cover;
-  background-position: right;
-  /* Right align to show right side of image */
-  position: relative;
-  color: white;
-  /* Make hero a full-width banner that touches the header on desktop */
-  margin: -4rem -2rem 0;
-}
-
-.home-hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.3);
-  /* Adjusted to 0.5 per user feedback */
-  z-index: 1;
-}
-
-.home-hero>.container {
-  position: relative;
-  z-index: 2;
-}
-
 /* Modern Zakat Calculator Styles */
 .zakat-form {
   display: flex;
@@ -214,7 +179,6 @@ footer {
 .form-group input[type="number"] {
   -moz-appearance: textfield;
 }
-
 .form-group input[type="number"]::-webkit-outer-spin-button,
 .form-group input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -269,180 +233,116 @@ footer {
 
 /* Responsive Design */
 @media (max-width: 1024px) {
-
-  .main-content,
-  .about-page,
-  .charity-details {
-    padding: 2rem 0.75rem;
+  .main-content, .about-page, .charity-details {
+    padding: 2rem 1rem;
     max-width: 100vw;
   }
-
-  /* Adjust hero offset to match container padding on tablets */
-  .home-hero {
-    margin: -2rem -1rem 0;
-  }
-
   .footer-content {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-
   .nav-container {
-    padding: 0 1.25rem;
+    padding: 0 1.5rem;
   }
-
   .section {
     padding: 4rem 0;
   }
 }
-
 @media (max-width: 768px) {
-
-  .main-content,
-  .about-page,
-  .charity-details {
-    padding: 0.5rem 0.5rem;
+  .main-content, .about-page, .charity-details {
+    padding: 1rem 0.5rem;
     max-width: 100vw;
   }
-
-  .services-grid>*,
-  .trustees-grid>*,
-  .community-services>*,
-  .organisations-grid>*,
-  .testimonials-grid>*,
-  .beneficiary-organisations .organisations-grid>*,
+  .services-grid > *,
+  .trustees-grid > *,
+  .community-services > *,
+  .organisations-grid > *,
+  .testimonials-grid > *,
+  .beneficiary-organisations .organisations-grid > *,
   .standalone-donate-section .donate-card {
-    width: 100%;
-    max-width: 100%;
+    min-width: 90vw;
+    max-width: 100vw;
     flex: 1 1 100%;
   }
-
   .footer-content {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-
   .zakat-calculator-container {
     padding: 1rem 0.5rem;
     border-radius: 10px;
   }
-
   .nav-brand img {
     height: 50px;
   }
-
   nav a {
     padding: 0.6rem 1rem;
     font-size: 0.9rem;
   }
-
   .container {
-    padding: 0 0.5rem;
+    padding: 0 1rem;
   }
-
   .card {
-    padding: 1.5rem;
+    padding: 2rem;
   }
-
   .zakat-amount .amount {
     font-size: 2.5rem;
   }
-
   nav {
-    background: rgba(240, 255, 240, 0.85);
-    /* Light green tint for mobile view */
+    background: rgba(240, 255, 240, 0.85); /* Light green tint for mobile view */
   }
 }
-
 @media (max-width: 500px) {
-  /* Adjust hero offset to match container padding on very small screens */
-  .home-hero {
-    margin-top: -0.5rem;
-    margin-left: -0.25rem;
-    margin-right: -0.25rem;
+  .main-content, .about-page, .charity-details {
+    padding: 0.5rem 0.25rem;
   }
-
   .hero-section {
     padding: 1rem 0;
   }
-
-  .services-section,
-  .trustees-section,
-  .charity-info,
-  .community-section,
-  .achievements-section {
+  .services-section, .trustees-section, .charity-info, .community-section, .achievements-section {
     margin-bottom: 2rem;
   }
-
   .nav-brand img {
-    height: 60px;
+    height: 40px;
   }
-
   .nav-toggle {
     font-size: 1.5rem;
   }
-
   .footer-section h4 {
     font-size: 1.1rem;
   }
-
-  .footer-section p,
-  .footer-section a {
+  .footer-section p, .footer-section a {
     font-size: 0.9rem;
   }
-
-  .modern-btn,
-  .calculate-btn,
-  .pay-zakat-btn,
-  .donate-btn,
-  .payment-btn {
+  .modern-btn, .calculate-btn, .pay-zakat-btn, .donate-btn, .payment-btn {
     font-size: 1rem;
-    padding: 0.7rem 0;
+    padding: 0.8rem 0;
   }
-
   .zakat-amount .amount {
     font-size: 2rem;
   }
-
-  .form-group input[type="number"],
-  .form-group input[type="text"],
-  .form-group input[type="email"],
-  .form-group input[type="tel"] {
+  .form-group input[type="number"], .form-group input[type="text"], .form-group input[type="email"], .form-group input[type="tel"] {
     font-size: 1rem;
     padding: 1rem 1rem 0.4rem 1rem;
   }
-
   .form-group label {
     font-size: 0.9rem;
   }
 }
-
-@media (max-width: 500px) {
+@media (max-width: 400px) {
   .nav-container {
     padding: 0 1rem;
   }
-
-  /* Adjust hero offset to match container padding on extra small screens */
-  .home-hero {
-    margin-top: -0.5rem;
-    margin-left: -0.2rem;
-    margin-right: -0.2rem;
+  .main-content {
+    padding: 0.5rem 0.2rem;
   }
-
-  .card,
-  .zakat-form-card,
-  .zakat-result-card,
-  .donate-card {
+  .card, .zakat-form-card, .zakat-result-card, .donate-card {
     padding: 1.5rem;
   }
-
   .payment-modal {
     padding: 1rem;
   }
-
-  .payment-header,
-  .payment-form,
-  .payment-amount {
+  .payment-header, .payment-form, .payment-amount {
     padding: 1.5rem 1rem;
   }
 }
@@ -478,34 +378,28 @@ footer {
   align-items: center;
   gap: 4rem;
 }
-
 .impact-section .impact-text {
   flex: 1 1 50%;
 }
-
 .impact-section .impact-image {
   flex: 1 1 50%;
   max-width: 500px;
   margin-left: auto;
   margin-right: 0;
 }
-
 @media (max-width: 900px) {
   .impact-section {
     flex-direction: column;
     gap: 2rem;
     text-align: center;
   }
-
   .impact-section .impact-image {
     margin: 0 auto;
     max-width: 400px;
   }
-
   .impact-section .impact-text {
     order: 2;
   }
-
   .impact-section .impact-image {
     order: 1;
   }
@@ -513,17 +407,16 @@ footer {
 
 /* Remove any unnecessary min-width/max-width restrictions for desktop on card containers */
 @media (min-width: 1025px) {
-
-  .services-grid>*,
-  .trustees-grid>*,
-  .community-services>*,
-  .organisations-grid>*,
-  .testimonials-grid>*,
-  .beneficiary-organisations .organisations-grid>*,
-  .standalone-donate-section .donate-card,
-  .standalone-donate-section .gift-aid-message {
+  .services-grid > *,
+  .trustees-grid > *,
+  .community-services > *,
+  .organisations-grid > *,
+  .testimonials-grid > *,
+  .beneficiary-organisations .organisations-grid > *,
+  .standalone-donate-section .donate-card {
     min-width: 320px;
     max-width: 420px;
+    flex: 1 1 320px;
   }
 }
 
@@ -557,19 +450,16 @@ footer {
 .card {
   background: var(--bg-secondary);
   border: 1px solid var(--border-color-light);
-  border-radius: 24px;
-  /* Softer, more modern radius */
+  border-radius: 24px; /* Softer, more modern radius */
   padding: 2.5rem;
   box-shadow: var(--shadow-md);
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  /* Added bounce effect */
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Added bounce effect */
   position: relative;
   overflow: hidden;
 }
 
 .card:hover {
-  transform: translateY(-10px) scale(1.02);
-  /* More pronounced hover effect */
+  transform: translateY(-10px) scale(1.02); /* More pronounced hover effect */
   box-shadow: var(--shadow-lg);
   border-color: var(--primary-green-light);
 }
@@ -587,11 +477,11 @@ footer {
 /* Ensure all About section cards have consistent styling */
 .service-item,
 .trustee-card,
-.community-services>.service-block,
-.organisations-grid>.org-item,
+.community-services > .service-block,
+.organisations-grid > .org-item,
 .achievement-item,
 .beneficiary-organisations .org-item,
-.achievements-list>.achievement-item {
+.achievements-list > .achievement-item {
   background: var(--bg-secondary);
   padding: 2rem;
   border-radius: 14px;
@@ -604,11 +494,11 @@ footer {
 
 .service-item:hover,
 .trustee-card:hover,
-.community-services>.service-block:hover,
-.organisations-grid>.org-item:hover,
+.community-services > .service-block:hover,
+.organisations-grid > .org-item:hover,
 .achievement-item:hover,
 .beneficiary-organisations .org-item:hover,
-.achievements-list>.achievement-item:hover {
+.achievements-list > .achievement-item:hover {
   box-shadow: var(--shadow-md);
   transform: translateY(-4px) scale(1.02);
   border-color: var(--primary-green-light);
@@ -616,8 +506,8 @@ footer {
 
 .service-item h3,
 .trustee-card h3,
-.community-services>.service-block h3,
-.organisations-grid>.org-item h3,
+.community-services > .service-block h3,
+.organisations-grid > .org-item h3,
 .achievement-item .year {
   color: var(--primary-green);
   margin-bottom: 1rem;
@@ -626,8 +516,8 @@ footer {
 
 .service-item p,
 .trustee-card p,
-.community-services>.service-block p,
-.organisations-grid>.org-item p,
+.community-services > .service-block p,
+.organisations-grid > .org-item p,
 .achievement-item .description {
   color: var(--text-primary);
   line-height: 1.6;
@@ -644,25 +534,13 @@ footer {
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* Modern Zakat Calculator Styles - Complete Redesign */
@@ -681,6 +559,7 @@ footer {
 }
 
 .zakat-header h1 {
+  font-size: 2.2rem;
   color: var(--primary-green);
   margin-bottom: 0.5rem;
   font-weight: 700;
@@ -741,14 +620,6 @@ footer {
 .standalone-donate-section {
   flex: 2;
   min-width: 0;
-  display: flex;
-  flex-direction: column;
-}
-
-.standalone-donate-section .card,
-.standalone-donate-section .gift-aid-message {
-  width: 100%;
-  box-sizing: border-box;
 }
 
 @media (max-width: 1024px) {
@@ -756,19 +627,7 @@ footer {
     flex-direction: column;
     gap: 1.5rem;
   }
-
-  .standalone-donate-section {
-    order: 1;
-  }
-
-  .calculator-form-section {
-    order: 2;
-  }
-
-  .calculator-result-section {
-    order: 3;
-  }
-
+  
   .calculator-form-section,
   .calculator-result-section,
   .standalone-donate-section {
@@ -781,105 +640,91 @@ footer {
   .calculator-layout {
     gap: 1.5rem;
   }
-
-  .zakat-form-card,
-  .zakat-result-card {
+  .zakat-form-card, .zakat-result-card {
     position: relative;
     top: 0;
-    padding: 0.75rem;
+    padding: 1.2rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   }
-
   .zakat-header {
     margin-bottom: 1.2rem;
-    padding: 0 0.25rem;
+    padding: 0 0.5rem;
   }
-
+  .zakat-header h1 {
+    font-size: 1.8rem;
+  }
   .zakat-subtitle {
     font-size: 1rem;
   }
-
   .form-section {
-    padding: 0.75rem;
+    padding: 1rem;
     margin-bottom: 1rem;
     border-radius: 12px;
   }
-
   .form-section h3 {
     font-size: 0.95rem;
     margin-bottom: 0.8rem;
   }
-
   .form-group {
     margin-bottom: 0.8rem;
   }
-
   .form-group input[type="number"],
   .form-group input[type="text"],
   .form-group input[type="email"],
   .form-group input[type="tel"] {
     padding: 0.7rem 0.7rem 0.3rem 0.7rem;
-    font-size: 1.05rem;
+    font-size: 0.95rem;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
   }
-
   .form-group label {
-    font-size: 1rem;
+    font-size: 0.75rem;
     top: 0.7rem;
     left: 0.7rem;
   }
-
-  .form-group input[type="number"]:focus+label,
-  .form-group input[type="number"]:not(:placeholder-shown)+label,
-  .form-group input[type="number"]:valid+label,
-  .form-group input[type="text"]:focus+label,
-  .form-group input[type="text"]:not(:placeholder-shown)+label,
-  .form-group input[type="text"]:valid+label,
-  .form-group input[type="email"]:focus+label,
-  .form-group input[type="email"]:not(:placeholder-shown)+label,
-  .form-group input[type="email"]:valid+label,
-  .form-group input[type="tel"]:focus+label,
-  .form-group input[type="tel"]:not(:placeholder-shown)+label,
-  .form-group input[type="tel"]:valid+label {
+  .form-group input[type="number"]:focus + label,
+  .form-group input[type="number"]:not(:placeholder-shown) + label,
+  .form-group input[type="number"]:valid + label,
+  .form-group input[type="text"]:focus + label,
+  .form-group input[type="text"]:not(:placeholder-shown) + label,
+  .form-group input[type="text"]:valid + label,
+  .form-group input[type="email"]:focus + label,
+  .form-group input[type="email"]:not(:placeholder-shown) + label,
+  .form-group input[type="email"]:valid + label,
+  .form-group input[type="tel"]:focus + label,
+  .form-group input[type="tel"]:not(:placeholder-shown) + label,
+  .form-group input[type="tel"]:valid + label {
     top: 0.2rem;
     left: 0.7rem;
-    font-size: 0.9rem;
+    font-size: 0.65rem;
     padding: 0 0.2rem;
   }
-
   .calculate-btn {
     padding: 0.8rem;
     font-size: 1rem;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
-
   .result-header h2 {
     font-size: 1.1rem;
     margin-bottom: 0.8rem;
   }
-
   .calculation-breakdown {
-    padding: 0.6rem;
+    padding: 0.8rem;
     margin-bottom: 0.8rem;
     border-radius: 10px;
   }
-
   .breakdown-item {
     padding: 0.4rem 0;
     font-size: 0.9rem;
   }
-
   .breakdown-item.total {
     font-size: 0.95rem;
     padding-top: 0.8rem;
   }
-
   .zakat-amount .amount {
     font-size: 1.8rem;
   }
-
   .pay-zakat-btn {
     padding: 0.8rem 1.2rem;
     font-size: 0.95rem;
@@ -887,25 +732,23 @@ footer {
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
-
   .disclaimer {
-    padding: 0.6rem 0.5rem;
+    padding: 0.8rem 1rem;
     margin: 1rem auto;
     border-radius: 8px;
   }
 }
-
-@media (max-width: 600px) {
+@media (max-width: 400px) {
   .zakat-calculator-container {
-    padding: 0.5rem 0.15rem;
+    padding: 1rem;
     border-radius: 12px;
   }
-
-  .zakat-form-card,
-  .zakat-result-card {
-    padding: 0.75rem;
+  .zakat-form-card, .zakat-result-card {
+    padding: 1rem;
   }
-
+  .zakat-header h1 {
+    font-size: 1.5rem;
+  }
   .zakat-subtitle {
     font-size: 0.9rem;
   }
@@ -918,7 +761,6 @@ img {
   display: block;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 @media (max-width: 768px) {
   img {
     width: 100%;
@@ -933,14 +775,12 @@ img {
   align-items: center;
   gap: 4rem;
 }
-
 @media (max-width: 768px) {
   .impact-section {
     grid-template-columns: 1fr;
     gap: 2rem;
     text-align: center;
   }
-
   .impact-section .impact-image {
     order: 1;
     width: 100%;
@@ -950,7 +790,6 @@ img {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     transform: scale(1.02);
   }
-
   .impact-section .impact-text {
     order: 2;
   }
@@ -1248,12 +1087,6 @@ img {
   text-shadow: 0 2px 5px rgba(0, 128, 0, 0.2);
 }
 
-.home-hero h1,
-.home-hero p {
-  color: white !important;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
 .rate-info {
   color: var(--text-tertiary);
   font-size: 0.85rem;
@@ -1364,7 +1197,6 @@ img {
     opacity: 0;
     transform: translateY(-50px) scale(0.95);
   }
-
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -1525,13 +1357,8 @@ img {
 }
 
 @keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 .security-info {
@@ -1587,24 +1414,21 @@ img {
 }
 
 /* Contact and Apply page styles */
-.bank-details,
-.application-locations {
+.bank-details, .application-locations {
   max-width: 800px;
   margin: 2rem 0;
   text-align: left;
   padding: 0 2rem;
 }
 
-.bank-details h3,
-.application-locations h3 {
+.bank-details h3, .application-locations h3 {
   color: var(--text-primary);
   margin-bottom: 1.5rem;
   font-size: 1.2rem;
   text-align: left;
 }
 
-.details-list,
-.locations-list {
+.details-list, .locations-list {
   text-align: left;
   padding: 0;
   background: none;
@@ -1684,11 +1508,7 @@ img {
   margin: 0 auto;
 }
 
-.services-section,
-.trustees-section,
-.charity-info,
-.community-section,
-.achievements-section {
+.services-section, .trustees-section, .charity-info, .community-section, .achievements-section {
   margin-bottom: 4rem;
 }
 
@@ -1697,8 +1517,7 @@ img {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
   margin-top: 2rem;
-  justify-content: center;
-  /* Center the grid items */
+  justify-content: center; /* Center the grid items */
 }
 
 .service-item {
@@ -1746,12 +1565,12 @@ img {
   transform: none;
 }
 
-.services-grid>*,
-.trustees-grid>*,
-.community-services>*,
-.organisations-grid>*,
-.testimonials-grid>*,
-.beneficiary-organisations .organisations-grid>* {
+.services-grid > *,
+.trustees-grid > *,
+.community-services > *,
+.organisations-grid > *,
+.testimonials-grid > *,
+.beneficiary-organisations .organisations-grid > * {
   flex: 1 1 320px;
   max-width: 420px;
   min-width: 320px;
@@ -1764,25 +1583,23 @@ img {
 }
 
 @media (min-width: 600px) {
-
-  .services-grid>*,
-  .trustees-grid>*,
-  .community-services>*,
-  .organisations-grid>*,
-  .testimonials-grid>*,
-  .beneficiary-organisations .organisations-grid>* {
+  .services-grid > *,
+  .trustees-grid > *,
+  .community-services > *,
+  .organisations-grid > *,
+  .testimonials-grid > *,
+  .beneficiary-organisations .organisations-grid > * {
     flex: 1 1 28%;
     max-width: 32%;
     min-width: 280px;
   }
-
+  
   .standalone-donate-section .donate-card {
     flex: 1;
   }
 }
 
 @media (min-width: 1200px) {
-
   .services-grid,
   .trustees-grid,
   .community-services,
@@ -1792,10 +1609,7 @@ img {
 }
 
 /* Center last row if not full */
-.services-grid,
-.trustees-grid,
-.community-services,
-.organisations-grid {
+.services-grid, .trustees-grid, .community-services, .organisations-grid {
   align-items: stretch;
   justify-content: center;
 }
@@ -1824,18 +1638,15 @@ img {
   padding: 0.75rem 0;
   border-bottom: 1px solid var(--border-color-light);
 }
-
 .detail-row:last-child {
   border-bottom: none;
 }
-
 .label {
   display: block;
   font-weight: 600;
   color: var(--text-primary);
   margin-bottom: 0.2rem;
 }
-
 .value {
   display: block;
   color: var(--text-primary);
@@ -1850,8 +1661,7 @@ img {
   justify-content: center;
   align-items: stretch;
 }
-
-.organisations-grid>.org-item {
+.organisations-grid > .org-item {
   background: var(--bg-secondary);
   padding: 2.2rem 2rem;
   border-radius: 16px;
@@ -1871,16 +1681,14 @@ img {
   min-width: 220px;
   text-align: center;
 }
-
 @media (min-width: 600px) {
-  .organisations-grid>.org-item {
+  .organisations-grid > .org-item {
     flex: 1 1 28%;
     max-width: 32%;
     min-width: 220px;
   }
 }
-
-.organisations-grid>.org-item:hover {
+.organisations-grid > .org-item:hover {
   box-shadow: var(--shadow-lg);
   border-color: var(--primary-green);
   transform: translateY(-6px) scale(1.04);
@@ -1900,25 +1708,31 @@ img {
 }
 
 /* Charity Information: force left alignment */
-.charity-info,
-.charity-details,
-.charity-details * {
+.charity-info, .charity-details, .charity-details * {
   text-align: left !important;
   margin-left: 0 !important;
   margin-right: 0 !important;
 }
 
 /* Hamburger menu styles */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 1rem;
+  z-index: 1201;
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+}
 
 .hamburger {
   display: block;
   width: 25px;
   height: 3px;
   background: var(--primary-green);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;
   transition: all 0.3s ease;
 }
 
@@ -1975,20 +1789,16 @@ img {
     z-index: 1200;
     overflow-y: auto;
   }
-
   .nav-links.open {
     display: flex;
     transform: translateX(0);
   }
-
   .nav-toggle {
     display: block;
   }
-
   .nav-container {
     justify-content: space-between;
   }
-
   nav a {
     color: var(--text-primary);
     font-size: 1.2rem;
@@ -1998,12 +1808,10 @@ img {
     border-radius: 10px;
     transition: background 0.3s ease;
   }
-
   nav a:hover {
     background: rgba(255, 255, 255, 0.5);
     color: var(--primary-green);
   }
-
   nav a.active {
     background: rgba(255, 255, 255, 0.7);
     color: var(--primary-green);
@@ -2019,10 +1827,9 @@ img {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0,0,0,0.3);
   z-index: 1199;
 }
-
 .mobile-nav-overlay.open {
   display: block;
 }
