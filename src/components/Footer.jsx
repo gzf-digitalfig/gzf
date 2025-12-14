@@ -12,6 +12,9 @@ export default function Footer() {
           <p>
             Collecting and distributing Zakat and Sadaqah to support our local community with transparency and care.
           </p>
+          <p>
+            Registered Charity No. 1215932
+          </p>
         </div>
         
         <div className="footer-section">
@@ -41,7 +44,7 @@ export default function Footer() {
       </div>
       
       <div className="footer-bottom">
-        &copy; {currentYear} Gloucester Zakat Charity. All rights reserved. Charity No: [add number]
+        &copy; {currentYear} Gloucester Zakat Charity. All rights reserved.
       </div>
     </footer>
   );
