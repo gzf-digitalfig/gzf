@@ -202,18 +202,13 @@ export default function About() {
             distribution of zakat and sadaqah:
           </p>
           <div className="organisations-grid">
-            <div className="org-item">Gloucester Food Bank</div>
-            <div className="org-item">Gloucester Community Centre</div>
-            <div className="org-item">Local Women&apos;s Shelter</div>
-            <div className="org-item">Gloucester Citizens Advice</div>
-            <div className="org-item">Gloucester Homeless Support</div>
-            <div className="org-item">Local Family Support Services</div>
-            <div className="org-item">Gloucester Refugee Support</div>
-            <div className="org-item">Community Health Services</div>
-            <div className="org-item">Gloucestershire Bundles</div>
             <div className="org-item">The Friendship Cafe</div>
-            <div className="org-item">Masjid-e-Noor</div>
-            <div className="org-item">Gloucester City Council</div>
+            <div className="org-item">Masjid-e-Umar</div>
+            <div className="org-item">Gloucester Feed The Hungry</div>
+            <div className="org-item">Gloucester Muslim Welfare Association</div>
+            <div className="org-item">Gloucester Muslim Burial Association</div>
+            <div className="org-item">Gloucestershire Action for Refugees and Asylum Seekers</div>
+
           </div>
         </div>
       </div>
@@ -247,6 +242,6 @@ export default function About() {
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 }
