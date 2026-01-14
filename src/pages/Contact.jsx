@@ -17,11 +17,11 @@ export default function Contact() {
           </div>
           <div className="detail-item">
             <span className="label">Sort Code:</span>
-            <span className="value">12-34-56</span>
+            <span className="value">40-22-09</span>
           </div>
           <div className="detail-item">
             <span className="label">Account Number:</span>
-            <span className="value">12345678</span>
+            <span className="value">32684810</span>
           </div>
         </div>
       </div>
