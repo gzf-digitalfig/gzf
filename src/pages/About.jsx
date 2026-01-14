@@ -1,3 +1,5 @@
+import aboutData from "../content/pages/about.json";
+
 // Use import.meta.glob to load all JSON files from the activities content directory
 const activityModules = import.meta.glob("../content/activities/*.json", {
   eager: true,
@@ -202,13 +204,9 @@ export default function About() {
             distribution of zakat and sadaqah:
           </p>
           <div className="organisations-grid">
-            <div className="org-item">The Friendship Cafe</div>
-            <div className="org-item">Masjid-e-Umar</div>
-            <div className="org-item">Gloucester Feed The Hungry</div>
-            <div className="org-item">Gloucester Muslim Welfare Association</div>
-            <div className="org-item">Gloucester Muslim Burial Association</div>
-            <div className="org-item">Gloucestershire Action for Refugees and Asylum Seekers</div>
-
+            {aboutData.organizations.map((org, index) => (
+              <div key={index} className="org-item">{org.name}</div>
+            ))}
           </div>
         </div>
       </div>

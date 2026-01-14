@@ -27,9 +27,9 @@ export default function Navbar() {
             />
           </NavLink>
         </div>
-        
-        <button 
-          className={`nav-toggle ${isMenuOpen ? 'active' : ''}`} 
+
+        <button
+          className={`nav-toggle ${isMenuOpen ? 'active' : ''}`}
           onClick={toggleMenu}
           aria-label="Toggle navigation menu"
         >
@@ -42,7 +42,10 @@ export default function Navbar() {
           <NavLink to="/faq" onClick={closeMenu}>What is Zakat</NavLink>
           <NavLink to="/apply" onClick={closeMenu}>Apply</NavLink>
           <NavLink to="/contact" onClick={closeMenu}>Contact</NavLink>
-          <NavLink to="/calculatezakat" className="btn btn-primary" onClick={closeMenu}>Calculate Zakat</NavLink>
+          <div className="nav-buttons-group">
+            <NavLink to="/calculatezakat" className="btn btn-primary" onClick={closeMenu}>Donate</NavLink>
+            <NavLink to="/calculatezakat" className="btn btn-primary" onClick={closeMenu}>Calculate Zakat</NavLink>
+          </div>
         </div>
       </div>
     </nav>

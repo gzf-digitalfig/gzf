@@ -18,3 +18,48 @@ collections:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
       - { label: "Activity", name: "description", widget: "text" }
+
+  - name: "pages"
+    label: "Pages"
+    files:
+      - name: "home"
+        label: "Home Page"
+        file: "src/content/pages/home.json"
+        fields:
+          - { label: "Hero Title", name: "heroTitle", widget: "string" }
+          - { label: "Hero Subtitle", name: "heroSubtitle", widget: "text" }
+          - { label: "Steps", name: "steps", widget: "list", fields: [
+              { label: "Number", name: "number", widget: "string" },
+              { label: "Title", name: "title", widget: "string" },
+              { label: "Description", name: "description", widget: "text" }
+            ]}
+          - { label: "Impact Title", name: "impactTitle", widget: "string" }
+          - { label: "Impact Text", name: "impactText", widget: "text" }
+          - { label: "Impact Button Text", name: "impactBtnText", widget: "string" }
+          - { label: "Testimonials", name: "testimonials", widget: "list", fields: [
+              { label: "Quote", name: "quote", widget: "text" },
+              { label: "Author", name: "author", widget: "string" }
+            ]}
+          - { label: "CTA Title", name: "ctaTitle", widget: "string" }
+          - { label: "CTA Text", name: "ctaText", widget: "text" }
+          - { label: "CTA Button Text", name: "ctaBtnText", widget: "string" }
+
+      - name: "about"
+        label: "About Page"
+        file: "src/content/pages/about.json"
+        fields:
+          - { label: "Intro Title", name: "introTitle", widget: "string" }
+          - { label: "Intro Text", name: "introText", widget: "text" }
+          - { label: "Partner Organizations", name: "organizations", widget: "list", fields: [{label: "Name", name: "name", widget: "string"}] }
+
+      - name: "contact"
+        label: "Contact Page"
+        file: "src/content/pages/contact.json"
+        fields:
+          - { label: "Page Title", name: "title", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Address", name: "address", widget: "string" }
+          - { label: "Bank Name", name: "bankName", widget: "string" }
+          - { label: "Account Name", name: "accountName", widget: "string" }
+          - { label: "Sort Code", name: "sortCode", widget: "string" }
+          - { label: "Account Number", name: "accountNumber", widget: "string" }

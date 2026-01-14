@@ -1,0 +1,24 @@
+{
+    "introTitle": "Partner Organisations",
+    "introText": "We work closely with local organisations to ensure effective distribution of zakat and sadaqah:",
+    "organizations": [
+        {
+            "name": "The Friendship Cafe"
+        },
+        {
+            "name": "Masjid-e-Umar"
+        },
+        {
+            "name": "Gloucester Feed The Hungry"
+        },
+        {
+            "name": "Gloucester Muslim Welfare Association"
+        },
+        {
+            "name": "Gloucester Muslim Burial Association"
+        },
+        {
+            "name": "Gloucestershire Action for Refugees and Asylum Seekers"
+        }
+    ]
+}

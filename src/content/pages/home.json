@@ -1,0 +1,41 @@
+{
+    "heroTitle": "Supporting Our Community Through Zakat",
+    "heroSubtitle": "The Gloucester Zakat Charity is your trusted local charity for collecting and distributing Zakat to those in need within our community.",
+    "steps": [
+        {
+            "number": "1",
+            "title": "Calculate Your Zakat",
+            "description": "Use our easy-to-use calculator to determine the amount of Zakat you need to pay."
+        },
+        {
+            "number": "2",
+            "title": "Give Securely Online",
+            "description": "Make your Zakat payment through our secure online portal with confidence."
+        },
+        {
+            "number": "3",
+            "title": "Impact Your Community",
+            "description": "We ensure your Zakat is distributed effectively to eligible recipients in Gloucester."
+        }
+    ],
+    "impactTitle": "Your Zakat, Your Local Impact",
+    "impactText": "Every penny of your Zakat is a lifeline for someone in our community. We support families facing hardship, individuals seeking education, and those in critical need of assistance. Your contribution fosters a stronger, more resilient Gloucester for everyone.",
+    "impactBtnText": "Learn More About Our Work",
+    "testimonials": [
+        {
+            "quote": "The support from GZF was a blessing during a very difficult time for my family. We are so grateful.",
+            "author": "A Supported Family"
+        },
+        {
+            "quote": "Giving my Zakat through GZF gives me peace of mind, knowing it's helping people right here in my city.",
+            "author": "A Local Donor"
+        },
+        {
+            "quote": "As a student, the educational grant I received made all the difference. Thank you, GZF!",
+            "author": "A Student Recipient"
+        }
+    ],
+    "ctaTitle": "Ready to Fulfill Your Zakat?",
+    "ctaText": "Join us in strengthening our community. Your contribution, big or small, makes a world of difference.",
+    "ctaBtnText": "Give Your Zakat Now"
+}
