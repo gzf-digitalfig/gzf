@@ -367,6 +367,7 @@ footer {
 }
 
 @media (max-width: 500px) {
+
   /* Adjust hero offset to match container padding on very small screens */
   .home-hero {
     margin-top: -0.5rem;
@@ -931,7 +932,7 @@ footer {
     margin: -0.5rem -0.5rem 1.5rem;
   }
 
-  .home-hero > .container {
+  .home-hero>.container {
     padding-left: 0;
     padding-right: 0;
   }
@@ -2051,4 +2052,21 @@ img {
 
 .mobile-nav-overlay.open {
   display: block;
+}
+
+/* Footer Logo */
+.footer-cc-logo {
+  display: block;
+  height: 80px;
+  margin-top: 0.5rem;
+  margin-left: 0;
+  margin-right: auto;
+  width: auto;
+  max-width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .footer-cc-logo {
+    height: 100px;
+  }
 }

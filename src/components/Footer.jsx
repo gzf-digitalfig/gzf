@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "../App.css";
+import ccLogo from "../assets/cc.webp";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -15,8 +16,9 @@ export default function Footer() {
           <p>
             Registered Charity No. 1215932
           </p>
+          <img src={ccLogo} alt="Registered Charity" className="footer-cc-logo" />
         </div>
-        
+
         <div className="footer-section">
           <h4>Quick Links</h4>
           <div className="footer-links">
@@ -25,7 +27,7 @@ export default function Footer() {
             <Link to="/apply">Apply for Support</Link>
           </div>
         </div>
-        
+
         <div className="footer-section">
           <h4>Get in Touch</h4>
           <div className="footer-links">
@@ -42,7 +44,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      
+
       <div className="footer-bottom">
         &copy; {currentYear} Gloucester Zakat Charity. All rights reserved.
       </div>
