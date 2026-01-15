@@ -8,6 +8,7 @@ import FAQ from "./pages/FAQ";
 import Apply from "./pages/Apply";
 import CalculateZakat from "./pages/CalculateZakat";
 import Contact from "./pages/Contact";
+import Donate from "./pages/Donate";
 import News from "./pages/News";
 import "./App.css";
 
@@ -15,7 +16,15 @@ function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    // Immediate scroll to top
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant",
+    });
+    // Fallback for generic scroll containers
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
   }, [pathname]);
 
   return null;
@@ -34,6 +43,7 @@ function App() {
           <Route path="/faq" element={<FAQ />} />
           <Route path="/apply" element={<Apply />} />
           <Route path="/calculatezakat" element={<CalculateZakat />} />
+          <Route path="/donate" element={<Donate />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </div>

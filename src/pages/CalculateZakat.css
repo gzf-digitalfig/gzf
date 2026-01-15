@@ -1,0 +1,937 @@
+/* ============================================================================
+   ZAKAT CALCULATOR - Gloucester Zakat Fund
+   React Port Styles
+   ============================================================================ */
+
+/* Namespace wrapper to prevent global conflicts */
+.zakat-calculator-wizard {
+    /* ============================================================================
+     CSS VARIABLES
+     ============================================================================ */
+    --primary: var(--primary-green);
+    --primary-dark: #1e7e34;
+    /* Darker shade of #28a745 */
+    --primary-light: var(--primary-green-light);
+    --primary-bg: #f8f9fa;
+
+    --secondary: #0070BA;
+    --secondary-light: #F0F8FF;
+
+    --warning: #F9A825;
+    --warning-bg: #FFF9E6;
+
+    --error: #D32F2F;
+    --success: #388E3C;
+
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --text-muted: #999999;
+
+    --bg-white: #FFFFFF;
+    --bg-light: #F9FBF9;
+    --bg-card: #FFFFFF;
+
+    --border-light: #E0E0E0;
+    --border-medium: #CCCCCC;
+
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.15);
+
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --radius-xl: 20px;
+
+    --spacing-xs: 8px;
+    --spacing-sm: 12px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+
+    --transition: all 0.2s ease;
+
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+.zakat-calculator-wizard * {
+    box-sizing: border-box;
+}
+
+/* ============================================================================
+   LOADING STATE
+   ============================================================================ */
+.zakat-calculator-wizard .loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    gap: var(--spacing-md);
+}
+
+.zakat-calculator-wizard .spinner {
+    width: 48px;
+    height: 48px;
+    border: 4px solid var(--primary-light);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: zakat-spin 1s linear infinite;
+}
+
+@keyframes zakat-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ============================================================================
+   HEADER
+   ============================================================================ */
+.zakat-calculator-wizard .header {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: white;
+    padding: var(--spacing-lg) var(--spacing-md);
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--spacing-lg);
+}
+
+.zakat-calculator-wizard .header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: white;
+}
+
+.zakat-calculator-wizard .header p {
+    opacity: 0.9;
+    font-size: 14px;
+    color: white;
+}
+
+/* ============================================================================
+   CONTAINER
+   ============================================================================ */
+.zakat-calculator-wizard .container {
+    max-width: 800px;
+    /* Slightly wider for React app integration */
+    margin: 0 auto;
+}
+
+/* ============================================================================
+   CURRENCY SELECTOR
+   ============================================================================ */
+.zakat-calculator-wizard .currency-selector {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+    background: var(--bg-white);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+}
+
+.zakat-calculator-wizard .currency-selector label {
+    font-weight: 600;
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.zakat-calculator-wizard .currency-selector select {
+    flex: 1;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border: 2px solid var(--border-light);
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    background: var(--bg-white);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.zakat-calculator-wizard .currency-selector select:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+/* ============================================================================
+   NISAB CARD
+   ============================================================================ */
+.zakat-calculator-wizard .nisab-card {
+    background: var(--bg-white);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+    box-shadow: var(--shadow-sm);
+    border: 2px solid var(--primary-light);
+}
+
+.zakat-calculator-wizard .nisab-card h2 {
+    color: var(--primary-dark);
+    font-size: 16px;
+    margin-bottom: var(--spacing-xs);
+}
+
+.zakat-calculator-wizard .nisab-value {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--primary);
+    margin: var(--spacing-sm) 0;
+}
+
+.zakat-calculator-wizard .nisab-card p {
+    color: var(--text-muted);
+    font-size: 13px;
+}
+
+/* ============================================================================
+   PROGRESS SECTION
+   ============================================================================ */
+.zakat-calculator-wizard .progress-section {
+    margin-bottom: var(--spacing-md);
+}
+
+.zakat-calculator-wizard .step-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin-bottom: var(--spacing-sm);
+}
+
+.zakat-calculator-wizard .progress-bar {
+    height: 8px;
+    background: var(--border-light);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: var(--spacing-xs);
+}
+
+.zakat-calculator-wizard .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.zakat-calculator-wizard .step-indicator {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+/* ============================================================================
+   CONTENT CARD
+   ============================================================================ */
+.zakat-calculator-wizard .content-card {
+    background: var(--bg-white);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    margin-bottom: var(--spacing-md);
+}
+
+/* ============================================================================
+   FORM ELEMENTS
+   ============================================================================ */
+.zakat-calculator-wizard .form-group {
+    margin-bottom: var(--spacing-lg);
+}
+
+.zakat-calculator-wizard .form-label {
+    display: block;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-xs);
+    font-size: 15px;
+}
+
+.zakat-calculator-wizard .form-input {
+    width: 100%;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 2px solid var(--border-light);
+    border-radius: var(--radius-md);
+    font-size: 16px;
+    transition: var(--transition);
+    background: var(--bg-white);
+}
+
+.zakat-calculator-wizard .form-input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(124, 179, 66, 0.1);
+}
+
+.zakat-calculator-wizard .form-input::placeholder {
+    color: var(--text-muted);
+}
+
+.zakat-calculator-wizard .help-text {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-top: var(--spacing-xs);
+    line-height: 1.5;
+}
+
+.zakat-calculator-wizard .section-description {
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-lg);
+    font-size: 15px;
+}
+
+/* ============================================================================
+   INFO BOXES
+   ============================================================================ */
+.zakat-calculator-wizard .info-box {
+    background: var(--primary-bg);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-lg);
+    border-left: 4px solid var(--primary);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.zakat-calculator-wizard .info-box-compact {
+    padding: var(--spacing-sm) var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.zakat-calculator-wizard .info-box-success {
+    background: var(--primary-bg);
+    border-left-color: var(--success);
+}
+
+.zakat-calculator-wizard .info-box-warning {
+    background: var(--warning-bg);
+    border-left-color: var(--warning);
+}
+
+.zakat-calculator-wizard .info-box strong {
+    color: var(--primary-dark);
+}
+
+/* ============================================================================
+   RESULT BOXES
+   ============================================================================ */
+.zakat-calculator-wizard .result-box {
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    text-align: center;
+    font-weight: 600;
+    margin-top: var(--spacing-md);
+}
+
+.zakat-calculator-wizard .result-box-success {
+    background: var(--primary-bg);
+    color: var(--primary-dark);
+}
+
+/* ============================================================================
+   SEGMENTED CONTROL
+   ============================================================================ */
+.zakat-calculator-wizard .segmented-control {
+    display: flex;
+    gap: 0;
+    margin-bottom: var(--spacing-md);
+    border: 2px solid var(--primary);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+.zakat-calculator-wizard .segmented-control button {
+    flex: 1;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: none;
+    background: var(--bg-white);
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.zakat-calculator-wizard .segmented-control button.active {
+    background: var(--primary);
+    color: white;
+}
+
+.zakat-calculator-wizard .segmented-control button:not(.active):hover {
+    background: var(--primary-bg);
+}
+
+/* ============================================================================
+   CHECKBOX GROUP
+   ============================================================================ */
+.zakat-calculator-wizard .checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    cursor: pointer;
+    padding: var(--spacing-md);
+    background: var(--bg-light);
+    border-radius: var(--radius-md);
+    transition: var(--transition);
+}
+
+.zakat-calculator-wizard .checkbox-group:hover {
+    background: var(--primary-bg);
+}
+
+.zakat-calculator-wizard .checkbox-group input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--primary);
+    cursor: pointer;
+}
+
+.zakat-calculator-wizard .checkbox-group span {
+    font-weight: 500;
+}
+
+/* ============================================================================
+   DYNAMIC LISTS
+   ============================================================================ */
+.zakat-calculator-wizard .list-item {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+    align-items: center;
+}
+
+.zakat-calculator-wizard .list-item .form-input {
+    flex: 1;
+}
+
+.zakat-calculator-wizard .list-item .form-input:first-of-type {
+    flex: 2;
+}
+
+.zakat-calculator-wizard .btn-remove {
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: #FFEBEE;
+    color: var(--error);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: 18px;
+    transition: var(--transition);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.zakat-calculator-wizard .btn-remove:hover {
+    background: #FFCDD2;
+}
+
+.zakat-calculator-wizard .btn-add {
+    display: block;
+    width: 100%;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 2px dashed var(--primary);
+    background: transparent;
+    color: var(--primary);
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-top: var(--spacing-sm);
+}
+
+.zakat-calculator-wizard .btn-add:hover {
+    background: var(--primary-bg);
+}
+
+.zakat-calculator-wizard .btn-add-primary {
+    border-style: solid;
+    background: var(--primary);
+    color: white;
+}
+
+.zakat-calculator-wizard .btn-add-primary:hover {
+    background: var(--primary-dark);
+}
+
+/* ============================================================================
+   GOLD ITEMS
+   ============================================================================ */
+.zakat-calculator-wizard .gold-item-card {
+    background: var(--bg-light);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-sm);
+    border: 1px solid var(--border-light);
+}
+
+.zakat-calculator-wizard .gold-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-xs);
+}
+
+.zakat-calculator-wizard .gold-item-name {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.zakat-calculator-wizard .gold-item-actions {
+    display: flex;
+    gap: var(--spacing-xs);
+}
+
+.zakat-calculator-wizard .btn-icon {
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+    transition: var(--transition);
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.zakat-calculator-wizard .btn-icon:hover {
+    background: var(--border-light);
+}
+
+.zakat-calculator-wizard .gold-item-details {
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+/* ============================================================================
+   QUICK CALCULATOR
+   ============================================================================ */
+.zakat-calculator-wizard .quick-calculator {
+    background: linear-gradient(135deg, var(--primary-bg) 0%, var(--primary-light) 100%);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--spacing-lg);
+    border: 2px solid var(--primary);
+}
+
+.zakat-calculator-wizard .quick-calculator h4 {
+    color: var(--primary-dark);
+    margin-bottom: var(--spacing-md);
+    font-size: 16px;
+}
+
+.zakat-calculator-wizard .quick-calc-row {
+    margin-bottom: var(--spacing-md);
+}
+
+.zakat-calculator-wizard .quick-calc-row label {
+    display: block;
+    font-weight: 600;
+    color: var(--primary-dark);
+    margin-bottom: var(--spacing-xs);
+    font-size: 14px;
+}
+
+.zakat-calculator-wizard .quick-calc-results {
+    background: var(--bg-white);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.zakat-calculator-wizard .quick-calc-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-xs) 0;
+    font-size: 14px;
+}
+
+.zakat-calculator-wizard .quick-calc-item.highlight {
+    border-top: 2px solid var(--primary-bg);
+    margin-top: var(--spacing-xs);
+    padding-top: var(--spacing-sm);
+}
+
+.zakat-calculator-wizard .quick-calc-value {
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.zakat-calculator-wizard .quick-calc-item.highlight .quick-calc-value {
+    font-size: 18px;
+    color: var(--primary-dark);
+}
+
+/* ============================================================================
+   PENSION CALC BOX
+   ============================================================================ */
+.zakat-calculator-wizard .pension-calc-box {
+    background: var(--primary-bg);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    margin-top: var(--spacing-md);
+    border-left: 4px solid var(--primary);
+    font-size: 14px;
+}
+
+.zakat-calculator-wizard .pension-zakat-due {
+    display: block;
+    margin-top: var(--spacing-sm);
+    font-size: 18px;
+    color: var(--primary-dark);
+}
+
+/* ============================================================================
+   EMPTY STATE
+   ============================================================================ */
+.zakat-calculator-wizard .empty-state {
+    color: var(--text-muted);
+    font-style: italic;
+    padding: var(--spacing-md);
+    text-align: center;
+}
+
+/* ============================================================================
+   SUMMARY STEP
+   ============================================================================ */
+.zakat-calculator-wizard .summary-status {
+    text-align: center;
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-xl);
+    margin-bottom: var(--spacing-lg);
+}
+
+.zakat-calculator-wizard .summary-status.status-above {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: white;
+}
+
+.zakat-calculator-wizard .summary-status.status-below {
+    background: linear-gradient(135deg, var(--primary-bg) 0%, var(--primary-light) 100%);
+    color: var(--primary-dark);
+}
+
+.zakat-calculator-wizard .status-icon {
+    font-size: 48px;
+    margin-bottom: var(--spacing-sm);
+    display: block;
+}
+
+.zakat-calculator-wizard .status-title {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: var(--spacing-xs);
+}
+
+.zakat-calculator-wizard .status-subtitle {
+    opacity: 0.9;
+    font-size: 15px;
+}
+
+/* Summary Details */
+.zakat-calculator-wizard .summary-details {
+    background: var(--bg-white);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.zakat-calculator-wizard .summary-header {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 2px solid var(--border-light);
+}
+
+.zakat-calculator-wizard .summary-header h3 {
+    color: var(--primary-dark);
+    margin-bottom: 4px;
+}
+
+.zakat-calculator-wizard .summary-header p {
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+.zakat-calculator-wizard .summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.zakat-calculator-wizard .summary-row:last-child {
+    border-bottom: none;
+}
+
+.zakat-calculator-wizard .summary-row-final {
+    border-top: 3px solid var(--primary);
+    border-bottom: none !important;
+    margin-top: var(--spacing-md);
+    padding-top: var(--spacing-md);
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.zakat-calculator-wizard .value-positive {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.zakat-calculator-wizard .value-negative {
+    color: #8D6E63;
+    font-weight: 600;
+}
+
+.zakat-calculator-wizard .value-nisab {
+    color: var(--warning);
+    font-weight: 600;
+}
+
+.zakat-calculator-wizard .value-zakat {
+    color: var(--primary-dark);
+    font-weight: 800;
+    font-size: 24px;
+}
+
+/* ============================================================================
+   PAYMENT SECTION
+   ============================================================================ */
+.zakat-calculator-wizard .payment-section {
+    background: var(--bg-white);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.zakat-calculator-wizard .payment-header {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.zakat-calculator-wizard .payment-header h3 {
+    color: var(--primary-dark);
+    font-size: 24px;
+    margin-bottom: 4px;
+}
+
+.zakat-calculator-wizard .payment-header p {
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.zakat-calculator-wizard .payment-amount-display {
+    text-align: center;
+    padding: var(--spacing-lg);
+    background: linear-gradient(135deg, var(--primary-bg) 0%, var(--primary-light) 100%);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--spacing-lg);
+}
+
+.zakat-calculator-wizard .payment-label {
+    font-size: 14px;
+    color: var(--primary-dark);
+    font-weight: 600;
+    margin-bottom: var(--spacing-xs);
+    display: block;
+}
+
+.zakat-calculator-wizard .payment-value {
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--primary-dark);
+}
+
+.zakat-calculator-wizard .paypal-container {
+    margin-bottom: var(--spacing-lg);
+}
+
+/* ============================================================================
+   NAVIGATION BUTTONS
+   ============================================================================ */
+.zakat-calculator-wizard .navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: var(--spacing-lg);
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid var(--border-light);
+}
+
+.zakat-calculator-wizard .btn {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    font-size: 16px;
+    transition: var(--transition);
+}
+
+.zakat-calculator-wizard .btn-previous {
+    background: #F0F0F0;
+    color: var(--text-secondary);
+}
+
+.zakat-calculator-wizard .btn-previous:hover {
+    background: #E0E0E0;
+    color: var(--text-primary);
+}
+
+.zakat-calculator-wizard .btn-next {
+    background: var(--primary);
+    color: white;
+    margin-left: auto;
+    /* Push to right */
+}
+
+background: var(--primary-dark);
+}
+
+/* ============================================================================
+   DONATE STYLES (Restored)
+   ============================================================================ */
+.zakat-calculator-wizard .donate-card {
+    background: linear-gradient(135deg, white 0%, #f0f7ff 100%);
+    border: 1px solid #cce5ff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 123, 255, 0.1);
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.zakat-calculator-wizard .donate-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 123, 255, 0.15);
+}
+
+.zakat-calculator-wizard .donate-card h3 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.zakat-calculator-wizard .donate-card p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.zakat-calculator-wizard .donate-btn {
+    display: inline-block;
+    background: #0070BA;
+    /* PayPal Blue */
+    color: white;
+    font-weight: bold;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: background 0.2s ease;
+    width: 100%;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.zakat-calculator-wizard .donate-btn:hover {
+    background: #005ea6;
+}
+
+.zakat-calculator-wizard .gift-aid-notice {
+    background: #fff3cd;
+    border: 1px solid #ffeeba;
+    color: #856404;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    text-align: left;
+    margin-top: 1rem;
+}
+
+/* MODAL OVERLAY */
+.zakat-calculator-wizard-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: var(--spacing-md);
+}
+
+.zakat-calculator-wizard-modal {
+    background: white;
+    border-radius: var(--radius-lg);
+    width: 100%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: var(--shadow-lg);
+}
+
+.zakat-calculator-wizard-modal-header {
+    padding: var(--spacing-md);
+    border-bottom: 1px solid var(--border-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.zakat-calculator-wizard-modal-title {
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.zakat-calculator-wizard-modal-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-muted);
+}
+
+.zakat-calculator-wizard-modal-body {
+    padding: var(--spacing-md);
+}
+
+.zakat-calculator-wizard-modal-footer {
+    padding: var(--spacing-md);
+    border-top: 1px solid var(--border-light);
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--spacing-sm);
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+    .zakat-calculator-wizard .container {
+        padding: var(--spacing-sm);
+    }
+
+    .zakat-calculator-wizard .content-card {
+        padding: var(--spacing-md);
+    }
+
+    .zakat-calculator-wizard .nisab-value {
+        font-size: 28px;
+    }
+
+    .zakat-calculator-wizard .payment-value {
+        font-size: 36px;
+    }
+}

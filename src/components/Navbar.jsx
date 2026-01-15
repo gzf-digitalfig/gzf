@@ -43,7 +43,7 @@ export default function Navbar() {
           <NavLink to="/apply" onClick={closeMenu}>Apply</NavLink>
           <NavLink to="/contact" onClick={closeMenu}>Contact</NavLink>
           <div className="nav-buttons-group">
-            <NavLink to="/calculatezakat" className="btn btn-primary" onClick={closeMenu}>Donate</NavLink>
+            <NavLink to="/donate" className="btn btn-primary" onClick={closeMenu}>Donate</NavLink>
             <NavLink to="/calculatezakat" className="btn btn-primary" onClick={closeMenu}>Calculate Zakat</NavLink>
           </div>
         </div>

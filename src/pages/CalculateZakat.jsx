@@ -1,365 +1,218 @@
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
+import "./CalculateZakat.css";
+import { FALLBACK_CURRENCIES, FALLBACK_RATES } from "../utils/zakatHelpers";
 
+// Components
+import WizardProgress from "../components/zakat/WizardProgress";
+import GoldSilverStep from "../components/zakat/GoldSilverStep";
+import LiquidAssetsStep from "../components/zakat/LiquidAssetsStep";
+import { BusinessAssetsStep, ReceivablesStep } from "../components/zakat/BusinessAssetsStep";
+import PensionStep from "../components/zakat/PensionStep";
+import LiabilitiesStep from "../components/zakat/LiabilitiesStep";
+import ZakatSummary from "../components/zakat/ZakatSummary";
 
 export default function CalculateZakat() {
-  const [formData, setFormData] = useState({
-    // Gold & Silver
-    gold: '',
-    silver: '',
-    // Cash
-    cashInHand: '',
-    cashInISA: '',
-    bankAccounts: '',
-    paypal: '',
-    // Crypto
-    crypto: '',
-    // Stocks/Shares
-    stocks: '',
-    // Business
-    businessAccount: '',
-    businessStock: '',
-    moniesOwed: '',
+  const [currentStep, setCurrentStep] = useState(1);
+  const TOTAL_STEPS = 7;
+
+  // -- MAIN STATE --
+  const [state, setState] = useState({
+    calculationDate: new Date().toISOString().split('T')[0],
+    currency: 'GBP',
+    prices: {
+      gold: 110.57, // Updated 2026-01-15
+      silver: 2.13, // Updated 2026-01-15
+      nisab: 1305.36 // silver * 612.36
+    },
+    // Assets
+    assets: {
+      goldItems: [], // { name, weight, carat, value, inputType }
+      silver: { mode: 'weight', weight: '', value: '' },
+      cashInHand: '',
+      bankAccounts: [],
+      digitalWallets: [],
+      crypto: [],
+      isas: [],
+      stocks: [],
+      otherAssets: [],
+
+      // Business
+      businessStock: '',
+      businessInvoices: '',
+      businessAccounts: [],
+
+      receivables: []
+    },
+    includeBusinessAssets: false,
+
     // Pension
-    pension: '',
+    pension: {
+      type: 'NotSure', // NotSure, None, DB, DC
+      access: 'Locked', // Locked, Accessible
+      include: false,
+      value: ''
+    },
+
     // Liabilities
-    creditCards: '',
-    debt: '',
-    councilTax: '',
-    businessInvoices: '',
-    mortgage: ''
+    liabilities: {
+      studentLoan: '',
+      carFinance: '',
+      councilTax: '',
+      mortgage: '',
+      creditCards: [],
+      personalLoans: [],
+      otherBills: [],
+      businessTaxes: '',
+      businessLoans: []
+    }
   });
-  const [zakat, setZakat] = useState(null);
-  const [errors, setErrors] = useState({});
-  const resultRef = useRef(null);
 
+  const [currencies, setCurrencies] = useState(FALLBACK_CURRENCIES);
+  const [exchangeRates, setExchangeRates] = useState(FALLBACK_RATES);
+  const [loading, setLoading] = useState(true);
+
+  // -- DATA FETCHING --
   useEffect(() => {
-    if (zakat !== null && resultRef.current) {
-      // On small screens, scroll the result section into view
-      if (window.innerWidth <= 768) {
-        resultRef.current.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
+    const fetchData = async () => {
+      try {
+        // 1. Prices
+        const priceRes = await fetch('https://gloucesterprayertimes.com/zakatapp/nisab_history.php');
+        if (priceRes.ok) {
+          const history = await priceRes.json();
+          if (history && history.length > 0) {
+            const today = history[0];
+            setState(prev => ({
+              ...prev,
+              prices: {
+                gold: parseFloat(today.gold_price_gbp),
+                silver: parseFloat(today.silver_price_gbp),
+                nisab: parseFloat(today.silver_price_gbp) * 612.36
+              }
+            }));
+          }
+        }
+
+        // 2. Currencies
+        const currRes = await fetch('https://gloucesterprayertimes.com/zakatapp/currencies.php');
+        if (currRes.ok) {
+          const data = await currRes.json();
+          if (data.result === 'success') {
+            const list = Object.entries(data.currencies).map(([code, name]) => ({ code, name }));
+            list.sort((a, b) => a.name.localeCompare(b.name));
+            setCurrencies(list);
+          }
+        }
+
+        // 3. Rates
+        const rateRes = await fetch('https://gloucesterprayertimes.com/zakatapp/get_rates.php');
+        if (rateRes.ok) {
+          const data = await rateRes.json();
+          if (data.result === 'success') {
+            setExchangeRates(data.conversion_rates);
+          }
+        }
+
+      } catch (err) {
+        console.warn("Error loading live data, using fallbacks. Details:", err);
+        console.error("Fetch failed. This is likely due to CORS if running locally. Default values will be used.");
+      } finally {
+        setLoading(false);
       }
-    }
-  }, [zakat]);
+    };
+    fetchData();
+  }, []);
 
-  const PAYPAL_URL = "https://www.paypal.com/gb/fundraiser/charity/5731751";
 
-  // Nisab threshold (current gold price equivalent - approximately £4,000)
-  const NISAB_THRESHOLD = 4000;
-
-  const handleInputChange = (field, value) => {
-    setFormData(prev => ({
-      ...prev,
-      [field]: value
-    }));
-
-    // Clear error when user starts typing
-    if (errors[field]) {
-      setErrors(prev => ({
-        ...prev,
-        [field]: ''
-      }));
-    }
+  // -- HANDLERS --
+  const updateState = (field, value) => {
+    setState(prev => ({ ...prev, [field]: value }));
   };
 
-  const validateForm = () => {
-    const newErrors = {};
-
-    // Check if at least one asset field has a value
-    const assetFields = ['gold', 'silver', 'cashInHand', 'cashInISA', 'bankAccounts', 'paypal', 'crypto', 'stocks', 'businessAccount', 'businessStock', 'moniesOwed', 'pension'];
-    const hasAssets = assetFields.some(field => {
-      const value = formData[field];
-      return value && value.trim() !== '' && Number(value) > 0;
-    });
-
-    if (!hasAssets) {
-      newErrors.general = 'Please enter at least one asset value to calculate Zakat.';
-    }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+  const nextStep = () => {
+    if (currentStep < TOTAL_STEPS) setCurrentStep(c => c + 1);
+    window.scrollTo(0, 0);
   };
 
-  const handleCalculate = (e) => {
-    e.preventDefault();
-
-    if (!validateForm()) {
-      return;
-    }
-
-    const totalAssets =
-      Number(formData.gold || 0) +
-      Number(formData.silver || 0) +
-      Number(formData.cashInHand || 0) +
-      Number(formData.cashInISA || 0) +
-      Number(formData.bankAccounts || 0) +
-      Number(formData.paypal || 0) +
-      Number(formData.crypto || 0) +
-      (Number(formData.stocks || 0) * 0.4) + // Stocks at 40% value for Zakat calculation
-      Number(formData.businessAccount || 0) +
-      Number(formData.businessStock || 0) +
-      Number(formData.moniesOwed || 0) +
-      Number(formData.pension || 0);
-
-    const totalDeductions =
-      Number(formData.creditCards || 0) +
-      Number(formData.debt || 0) +
-      Number(formData.councilTax || 0) +
-      Number(formData.businessInvoices || 0) +
-      Number(formData.mortgage || 0);
-    const netAssets = totalAssets - totalDeductions;
-
-    const zakatDue = netAssets >= NISAB_THRESHOLD ? (netAssets * 0.025) : 0;
-
-    setZakat({
-      totalAssets,
-      totalDeductions,
-      netAssets,
-      zakatDue,
-      meetsNisab: netAssets >= NISAB_THRESHOLD,
-      stocksOriginalValue: Number(formData.stocks || 0),
-      stocksZakatableValue: Number(formData.stocks || 0) * 0.4
-    });
+  const prevStep = () => {
+    if (currentStep > 1) setCurrentStep(c => c - 1);
+    window.scrollTo(0, 0);
   };
 
-  const handlePayZakat = () => {
-    window.open(PAYPAL_URL, '_blank', 'noopener,noreferrer');
+  const getStepTitle = (step) => {
+    const titles = {
+      1: 'Gold & Silver',
+      2: 'Cash & Investments',
+      3: 'Business Assets',
+      4: 'Money Owed to You',
+      5: 'Pension',
+      6: 'Debts & Liabilities',
+      7: 'Zakat Summary'
+    };
+    return titles[step];
   };
 
-  const handleDonate = () => {
-    window.open(PAYPAL_URL, '_blank', 'noopener,noreferrer');
-  };
-
-  const renderNumberInput = (field, label, step = 1, min = 0) => (
-    <div className="form-group">
-      <input
-        type="number"
-        id={field}
-        value={formData[field]}
-        onChange={e => handleInputChange(field, e.target.value)}
-        min={min}
-        step={step}
-        placeholder="0.00"
-        style={{ paddingRight: 44 }}
-      />
-      <label htmlFor={field}>{label}</label>
-      <span className="custom-arrows">
-        <button
-          type="button"
-          className="arrow-btn"
-          tabIndex={-1}
-          aria-label="Increase"
-          onClick={() => handleInputChange(field, String(Number(formData[field] || 0) + Number(step)))}
-        >
-          ▲
-        </button>
-        <button
-          type="button"
-          className="arrow-btn"
-          tabIndex={-1}
-          aria-label="Decrease"
-          onClick={() => handleInputChange(field, String(Math.max(Number(formData[field] || 0) - Number(step), min)))}
-        >
-          ▼
-        </button>
-      </span>
-    </div>
-  );
+  if (loading) return <div className="zakat-calculator-wizard"><div className="loading"><div className="spinner"></div><p>Loading Rates...</p></div></div>;
 
   return (
-    <div className="zakat-calculator-container">
-      <div className="zakat-header">
-        <h1 className="text-center">Calculate & Give Zakat</h1>
-      </div>
-
-      <div className="calculator-layout">
-        <div className="calculator-form-section">
-
-
-          <div className="card zakat-form-card">
-            <h1
-              className="text-center"
-              style={{ marginTop: 0, marginBottom: '0.5rem', color: 'var(--primary-green)', fontWeight: 700 }}
-            >
-              Zakat Calculator
-            </h1>
-            <p className="text-center zakat-subtitle" style={{ marginTop: 0, marginBottom: '1.5rem' }}>
-              Calculate your estimated Zakat amount
-            </p>
-            <h2>Your Assets</h2>
-            <form onSubmit={handleCalculate} className="zakat-form">
-              {errors.general && (
-                <div className="error-message">
-                  {errors.general}
-                </div>
-              )}
-
-              <div className="form-section">
-                <h3>Gold & Silver</h3>
-                {renderNumberInput('gold', 'Gold (£)', 50, 0)}
-                {renderNumberInput('silver', 'Silver (£)', 50, 0)}
-              </div>
-
-              <div className="form-section">
-                <h3>Cash</h3>
-                {renderNumberInput('cashInHand', 'Cash in Hand (£)', 10, 0)}
-                {renderNumberInput('cashInISA', 'Cash in ISA (£)', 100, 0)}
-                {renderNumberInput('bankAccounts', 'Bank Accounts (£)', 100, 0)}
-                {renderNumberInput('paypal', 'PayPal (£)', 10, 0)}
-              </div>
-
-              <div className="form-section">
-                <h3>Crypto</h3>
-                {renderNumberInput('crypto', 'Cryptocurrency (£)', 50, 0)}
-              </div>
-
-              <div className="form-section">
-                <h3>Stocks/Shares</h3>
-                {renderNumberInput('stocks', 'Stocks & Shares (£)', 100, 0)}
-                <p style={{ fontSize: '0.9rem', color: '#666', margin: '0.5rem 0' }}>Note: Stocks are subject to 1% Zakat rate (calculated as 2.5% of 40% value)</p>
-              </div>
-
-              <div className="form-section">
-                <h3>Business</h3>
-                {renderNumberInput('businessAccount', 'Business Account (£)', 100, 0)}
-                {renderNumberInput('businessStock', 'Stock Value (£)', 100, 0)}
-                {renderNumberInput('moniesOwed', 'Monies Owed by Others (£)', 50, 0)}
-              </div>
-
-              <div className="form-section">
-                <h3>Pension</h3>
-                {renderNumberInput('pension', 'Pension (£)', 100, 0)}
-              </div>
-
-              <h2>Your Liabilities</h2>
-              <div className="form-section deductions-section">
-                {renderNumberInput('creditCards', 'Credit Cards (£)', 50, 0)}
-                {renderNumberInput('debt', 'Other Debt (£)', 100, 0)}
-                {renderNumberInput('councilTax', 'Council Tax Arrears (£)', 50, 0)}
-                {renderNumberInput('businessInvoices', 'Business Invoices Due (£)', 100, 0)}
-                {renderNumberInput('mortgage', 'Mortgage (1 year) (£)', 500, 0)}
-              </div>
-
-              <button type="submit" className="modern-btn calculate-btn">
-                Calculate My Zakat
-              </button>
-
-              <div className="disclaimer" style={{ marginTop: '2rem' }}>
-                <p><strong>Important Disclaimer:</strong> This calculator provides an estimate only and does not constitute advice from an Islamic scholar. Please consult with a qualified Islamic scholar or religious authority for guidance on your specific Zakat obligations. Individual circumstances may require different calculations or considerations not covered by this tool.</p>
-              </div>
-            </form>
-          </div>
+    <div className="zakat-calculator-wizard">
+      <div className="container">
+        <div className="header">
+          <h1>Zakat Calculator</h1>
+          <p>Gloucester Zakat Fund</p>
+        </div>
+        {/* Global Controls */}
+        <div className="currency-selector">
+          <label>Currency:</label>
+          <select
+            value={state.currency}
+            onChange={(e) => updateState('currency', e.target.value)}
+          >
+            {currencies.map(c => (
+              <option key={c.code} value={c.code}>{c.code} - {c.name}</option>
+            ))}
+          </select>
         </div>
 
-        {zakat !== null && (
-          <div className="calculator-result-section" ref={resultRef}>
-            <div className="card zakat-result-card">
-              <div className="result-header">
-                <h2>Your Zakat Calculation</h2>
-              </div>
-
-              <div className="calculation-breakdown">
-                <div className="breakdown-item">
-                  <span className="label">Total Assets:</span>
-                  <span className="value">£{zakat.totalAssets.toFixed(2)}</span>
-                </div>
-                {zakat.stocksOriginalValue > 0 && (
-                  <div className="breakdown-item">
-                    <span className="label">Stocks (£{zakat.stocksOriginalValue.toFixed(2)} × 40%):</span>
-                    <span className="value">£{zakat.stocksZakatableValue.toFixed(2)}</span>
-                  </div>
-                )}
-                <div className="breakdown-item">
-                  <span className="label">Total Deductions:</span>
-                  <span className="value">-£{zakat.totalDeductions.toFixed(2)}</span>
-                </div>
-                <div className="breakdown-item total">
-                  <span className="label">Net Zakatable Assets:</span>
-                  <span className="value">£{zakat.netAssets.toFixed(2)}</span>
-                </div>
-              </div>
-
-              <div className="nisab-status">
-                {zakat.meetsNisab ? (
-                  <div className="nisab-met">
-                    <span className="status-icon">✅</span>
-                    <span>Your assets meet the Nisab threshold (£{NISAB_THRESHOLD.toLocaleString()})</span>
-                  </div>
-                ) : (
-                  <div className="nisab-not-met">
-                    <span className="status-icon">ℹ️</span>
-                    <span>Your assets are below the Nisab threshold. No Zakat is due.</span>
-                  </div>
-                )}
-              </div>
-
-              <div className="zakat-due-section">
-                <div className="zakat-amount">
-                  <h3>Zakat Due:</h3>
-                  <div className="amount">£{zakat.zakatDue.toFixed(2)}</div>
-                  {zakat.zakatDue > 0 && (
-                    <p className="rate-info">This is 2.5% of your net zakatable assets</p>
-                  )}
-                </div>
-
-                {zakat.zakatDue > 0 && (
-                  <div className="payment-section">
-                    <button
-                      onClick={handlePayZakat}
-                      className="modern-btn pay-zakat-btn"
-                    >
-                      Pay Zakat Now
-                    </button>
-                    <p className="payment-info">
-                      Secure payment powered by Stripe
-                    </p>
-                  </div>
-                )}
-              </div>
-            </div>
+        <div className="nisab-card">
+          <h2>📊 Nisab Threshold</h2>
+          {/* Note converting NISAB to selected currency for display */}
+          <div className="nisab-value">
+            {new Intl.NumberFormat('en-GB', { style: 'currency', currency: state.currency }).format(
+              state.prices.nisab * (state.currency === 'GBP' ? 1 : (exchangeRates[state.currency] || 1))
+            )}
           </div>
-        )}
-
-        <div className="standalone-donate-section">
-          <div className="card donate-card">
-            <h2>Make a Donation</h2>
-            <p>Want to donate zakat without calculating first? You can make a direct donation to support our community now.</p>
-
-            <div className="donate-action" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem' }}>
-              <button
-                onClick={handleDonate}
-                className="modern-btn donate-btn"
-                style={{ width: '100%' }}
-              >
-                Donate Now
-              </button>
-
-
-            </div>
-          </div>
-
-          <div className="gift-aid-message" style={{
-            marginTop: '1.5rem',
-            background: 'var(--bg-secondary)',
-            padding: '1rem',
-            borderRadius: '8px',
-            border: '1px dashed var(--primary-green)',
-            fontSize: '0.95rem',
-            color: 'var(--text-primary)',
-            textAlign: 'center'
-          }}>
-            <p style={{ margin: 0 }}>
-              We kindly ask that you click the <strong>Gift Aid</strong> button on your emailed receipt. This allows us to reclaim an extra 25p for every £1 you donate at no extra cost to you, which allows us to pay our admin costs.
-            </p>
-          </div>
+          <p>Based on Silver (Hanafi). Updated Daily.</p>
         </div>
+
+        {/* Wizard Progress */}
+        <WizardProgress
+          currentStep={currentStep}
+          totalSteps={TOTAL_STEPS}
+          stepTitle={getStepTitle(currentStep)}
+        />
+
+        {/* Content Area */}
+        <div className="content-card">
+          {currentStep === 1 && <GoldSilverStep state={state} updateState={updateState} exchangeRates={exchangeRates} />}
+          {currentStep === 2 && <LiquidAssetsStep state={state} updateState={updateState} exchangeRates={exchangeRates} />}
+          {currentStep === 3 && <BusinessAssetsStep state={state} updateState={updateState} />}
+          {currentStep === 4 && <ReceivablesStep state={state} updateState={updateState} />}
+          {currentStep === 5 && <PensionStep state={state} updateState={updateState} />}
+          {currentStep === 6 && <LiabilitiesStep state={state} updateState={updateState} />}
+          {currentStep === 7 && <ZakatSummary state={state} exchangeRates={exchangeRates} />}
+        </div>
+
+        {/* Nav Buttons */}
+        <div className="navigation-buttons">
+          {currentStep > 1 && (
+            <button className="btn btn-previous" onClick={prevStep}>⬅ Previous</button>
+          )}
+          {currentStep < TOTAL_STEPS && (
+            <button className="btn btn-next" onClick={nextStep}>Next ➡</button>
+          )}
+        </div>
+
       </div>
-
-
-
-
     </div>
   );
 }

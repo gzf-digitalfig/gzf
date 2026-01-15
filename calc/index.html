@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Calculate your Zakat obligation with the Gloucester Zakat Fund calculator. Easy-to-use, comprehensive, and follows Islamic guidelines.">
+    <meta name="theme-color" content="#7CB342">
+    
+    <title>Zakat Calculator | Gloucester Zakat Fund</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'></text></svg>">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- PayPal SDK - Sandbox Mode -->
+    <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=GBP&intent=capture&components=buttons&disable-funding=credit,card"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="loading">
+            <div class="spinner"></div>
+            <p>Loading Zakat Calculator...</p>
+        </div>
+    </div>
+    
+    <!-- Calculator Script -->
+    <script src="calculator.js"></script>
+</body>
+</html>
