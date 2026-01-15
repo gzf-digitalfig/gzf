@@ -2209,3 +2209,36 @@ img {
     font-size: 0.9rem;
   }
 }
+
+/* Donate Page Responsive Styles */
+.donation-type-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.donation-type-btn {
+  flex: 1 1 auto;
+  max-width: 180px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 2px solid var(--primary-green);
+  font-weight: 600;
+  cursor: pointer;
+  text-transform: capitalize;
+  transition: all 0.2s ease;
+}
+
+@media (max-width: 768px) {
+  .donation-type-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .donation-type-btn {
+    max-width: 100%;
+    width: 100%;
+  }
+}

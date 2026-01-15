@@ -110,11 +110,11 @@ export default function FAQ() {
         </FAQItem>
 
         <FAQItem
-          question="Do you only accept Zakat, or can I give Sadaqah too?"
+          question="Do you only accept Zakat, or can I give Sadaqa too?"
           isOpen={openItems['donors-3']}
           onToggle={() => toggleItem('donors-3')}
         >
-          <p>We accept both Zakat and Sadaqah. While Zakat has strict guidelines, Sadaqah allows more flexibility to support a broader range of needs including non-Muslims, community projects, and urgent hardship.</p>
+          <p>We accept both Zakat and Sadaqa. While Zakat has strict guidelines, Sadaqa allows more flexibility to support a broader range of needs including non-Muslims, community projects, and urgent hardship.</p>
         </FAQItem>
 
         <FAQItem

@@ -11,7 +11,7 @@ export default function Footer() {
         <div className="footer-section">
           <h4>Gloucester Zakat Charity</h4>
           <p>
-            Collecting and distributing Zakat and Sadaqah to support our local community with transparency and care.
+            Collecting and distributing Zakat and Sadaqa to support our local community with transparency and care.
           </p>
           <p>
             Registered Charity No. 1215932

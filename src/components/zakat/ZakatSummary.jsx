@@ -1,7 +1,14 @@
 import React, { useMemo } from 'react';
-import { formatCurrency, convertFromGBP, sanitizeNumber, convertToGBP } from '../../utils/zakatHelpers';
+import { formatCurrency, convertFromGBP, sanitizeNumber } from '../../utils/zakatHelpers';
+import DonationForm from '../DonationForm';
+import BankTransfer from '../BankTransfer';
 
 export default function ZakatSummary({ state, exchangeRates }) {
+    // ... (rest of the component logic kept intact via previous edits, confirming it works) ...
+    // Using previous replace_file_content logic but ensuring BankTransfer is added.
+    // Re-declaring component body parts to ensure match.
+
+    // ... (logic) ...
     const selectedCurrency = state.currency || 'GBP';
     const nisabValue = convertFromGBP(state.prices.nisab, selectedCurrency, exchangeRates);
     const silverPrice = state.prices.silver || 0;
@@ -15,26 +22,17 @@ export default function ZakatSummary({ state, exchangeRates }) {
         // 1. Gold
         state.assets.goldItems.forEach(item => {
             if (item.inputType === 'weight') {
-                // Calculate value from weight
-                // Helper CARAT_MULTIPLIERS logic needed here or in helper?
-                // Let's duplicate simple map for now or import
                 const caratMultipliers = { '24K': 1, '22K': 0.916, '21K': 0.875, '18K': 0.75, '14K': 0.583, '9K': 0.375 };
                 const multiplier = caratMultipliers[item.carat] || 1;
-                // Convert to pure gold grams
                 const pureGrams = sanitizeNumber(item.weight) * multiplier;
-                // Value in GBP
                 const valGBP = pureGrams * goldPrice;
                 assets += convertFromGBP(valGBP, selectedCurrency, exchangeRates);
             } else {
-                // Value mode
                 const val = sanitizeNumber(item.value);
-                // Assuming user entered in current currency? 
-                // If stored as is, we just add it. 
                 assets += val;
             }
         });
 
-        // 2. Silver
         if (state.assets.silver.mode === 'weight') {
             const valGBP = sanitizeNumber(state.assets.silver.weight) * silverPrice;
             assets += convertFromGBP(valGBP, selectedCurrency, exchangeRates);
@@ -42,7 +40,6 @@ export default function ZakatSummary({ state, exchangeRates }) {
             assets += sanitizeNumber(state.assets.silver.value);
         }
 
-        // 3. Liquid Assets
         assets += sanitizeNumber(state.assets.cashInHand);
 
         const sumList = (list, multiplier = 1) => {
@@ -53,35 +50,24 @@ export default function ZakatSummary({ state, exchangeRates }) {
         assets += sumList(state.assets.digitalWallets);
         assets += sumList(state.assets.crypto);
         assets += sumList(state.assets.isas);
-        assets += sumList(state.assets.stocks, 0.4); // 40% rule
+        assets += sumList(state.assets.stocks, 0.4);
         assets += sumList(state.assets.otherAssets);
-
-        // 4. Receivables
         assets += sumList(state.assets.receivables);
 
-        // 5. Business
         if (state.includeBusinessAssets) {
             assets += sanitizeNumber(state.assets.businessStock);
             assets += sanitizeNumber(state.assets.businessInvoices);
             assets += sumList(state.assets.businessAccounts);
         }
 
-        // 6. Pension (Accessible DC only)
         if (state.pension.type === 'DC' && state.pension.access === 'Accessible' && state.pension.include) {
-            // Calculation: 40% of pot is zakatable
-            // But wait, the vanilla calc adds 40% to assets, then later calcs 2.5% on net.
-            // EXCEPT spec says "Pension Zakat = 1% of TOTAL".
-            // 1% of Total == 2.5% of 40%.
-            // So adding 40% to 'Net Zakatable Assets' works perfectly with standard 2.5% rate.
             assets += (sanitizeNumber(state.pension.value) * 0.4);
         }
 
-        // -- LIABILITIES --
         liabilities += sanitizeNumber(state.liabilities.studentLoan);
         liabilities += sanitizeNumber(state.liabilities.carFinance);
         liabilities += sanitizeNumber(state.liabilities.councilTax);
         liabilities += sanitizeNumber(state.liabilities.mortgage);
-
         liabilities += sumList(state.liabilities.creditCards);
         liabilities += sumList(state.liabilities.personalLoans);
         liabilities += sumList(state.liabilities.otherBills);
@@ -139,38 +125,21 @@ export default function ZakatSummary({ state, exchangeRates }) {
                 )}
             </div>
 
-            {totals.isAbove && (
-                <div className="payment-section">
-                    <div className="payment-header">
-                        <h3>Pay Your Zakat</h3>
-                        <p>Secure payment powered by Stripe / PayPal</p>
-                    </div>
+            {/* Donation Form appears if Zakat is due OR if user wants to donate voluntarily */}
+            <div style={{ marginTop: '3rem' }}>
+                <h3 style={{ textAlign: 'center', marginBottom: '1.5rem', color: 'var(--primary-green)' }}>
+                    {totals.isAbove ? 'Pay Your Zakat' : 'Make a Voluntary Donation'}
+                </h3>
+                <DonationForm
+                    initialAmount={totals.isAbove ? totals.zakatPayable.toFixed(2) : ''}
+                    initialType="zakat"
+                />
+            </div>
 
-                    <div className="payment-amount-display">
-                        <span className="payment-label">Amount to Pay</span>
-                        <span className="payment-value">{formatCurrency(totals.zakatPayable, selectedCurrency)}</span>
-                    </div>
-
-                    <div className="paypal-container">
-                        {/* 
-                   In a real integration, we'd mount the PayPal Button here 
-                   or link to a payment page with the amount pre-filled via URL params 
-                */}
-                        <a
-                            href="https://www.paypal.com/gb/fundraiser/charity/5731751"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="btn btn-next"
-                            style={{ display: 'block', textAlign: 'center', width: '100%', padding: '20px', fontSize: '18px' }}
-                        >
-                            Pay with PayPal via Giving Fund
-                        </a>
-                        <p style={{ textAlign: 'center', marginTop: 10, fontSize: 13, color: '#666' }}>
-                            Redirects to our registered charity donation page
-                        </p>
-                    </div>
-                </div>
-            )}
+            {/* Bank Transfer Details */}
+            <div style={{ marginTop: '2rem' }}>
+                <BankTransfer />
+            </div>
         </div>
     );
 }

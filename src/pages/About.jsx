@@ -23,7 +23,7 @@ export default function About() {
         <h1>About Gloucester Zakat Charity</h1>
         <p className="tagline">Your Local Neighbourhood Zakat Distributors</p>
         <p className="primary-message">
-          Collecting zakat and sadaqah to assist local residents in Gloucester
+          Collecting zakat and sadaqa to assist local residents in Gloucester
         </p>
       </div>
 
@@ -201,7 +201,7 @@ export default function About() {
           <h2>Partner Organisations</h2>
           <p>
             We work closely with local organisations to ensure effective
-            distribution of zakat and sadaqah:
+            distribution of zakat and sadaqa:
           </p>
           <div className="organisations-grid">
             {aboutData.organizations.map((org, index) => (
