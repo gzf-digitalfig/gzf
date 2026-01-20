@@ -2,7 +2,7 @@ import contactData from "../content/pages/contact.json";
 
 export default function Contact() {
   return (
-    <div>
+    <div className="container" style={{ paddingBottom: '4rem', paddingTop: '2rem' }}>
       <h1>{contactData.title}</h1>
       <p>Email: {contactData.email}</p>
       <p>For correspondence only: {contactData.address}</p>

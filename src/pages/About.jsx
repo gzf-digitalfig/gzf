@@ -1,245 +1,271 @@
+import { useState, useEffect } from "react";
 import aboutData from "../content/pages/about.json";
+import "./About.css";
 
-// Use import.meta.glob to load all JSON files from the activities content directory
-const activityModules = import.meta.glob("../content/activities/*.json", {
-  eager: true,
-});
+const trustees = [
+  {
+    name: "Imam Abdullah Patel",
+    role: "Chairperson",
+    bio: "Imam Abdullah Abdul Samad Patel is a highly respected figure in the local Muslim community and serves as an Imam at Masjid e Umar. He is also the Head Teacher at Al-Ashraf Primary School, the first Islamic Primary School in the Southwest, and leads Peace Inclusion, advocating for educational access and community cohesion. Since 2025, he has served as a trustee for the Gloucester Rugby Charitable Foundation."
+  },
+  {
+    name: "Farouq Ginwalla",
+    role: "Trustee",
+    bio: "Farouq Ginwalla brings extensive professional experience to the board as the Director of FG Immigration Ltd. As a long-standing resident of Gloucester, his expertise in governance and regulation ensures the charity operates with high standards of compliance and integrity, overseeing the responsible distribution of funds to those most in need."
+  },
+  {
+    name: "Kamel Boulkenafet",
+    role: "Trustee",
+    bio: "Kamel Boulkenafet is a dedicated community advocate who previously served as a Director for Gloucestershire Action for Refugees and Asylum Seekers (GARAS). He was honored with the \"Community Upstander Award\" for his exceptional efforts in supporting vulnerable youth, reflecting the compassionate values at the heart of the Gloucester Zakat Charity."
+  },
+  {
+    name: "Mariam Qureshi",
+    role: "Trustee",
+    bio: "Mariam Qureshi is an active trustee dedicated to social welfare within Gloucester. Her role involves assessing complex hardship cases and ensuring the fund's resources are directed towards impactful interventions for local families, helping to maintain the vital link between the charity and the community it serves."
+  },
+  {
+    name: "Hashim Moolla",
+    role: "Trustee",
+    bio: "Hashim Moolla serves as a trustee with a focus on operational efficiency and community outreach. He assists in the rigorous verification of zakat applications, ensuring that every donation is accounted for and reaches eligible recipients in accordance with both charitable law and Islamic principles."
+  }
+];
 
-// Convert the modules object into an array of activity objects
-const activities = Object.values(activityModules)
-  .map((mod) => mod.default || mod) // Handle default export if present, or raw JSON
-  .sort((a, b) => new Date(b.date) - new Date(a.date)); // Sort by date descending
+function TrusteeCard({ name, role, bio }) {
+  const [expanded, setExpanded] = useState(false);
+
+  return (
+    <div className={`trustee-card ${expanded ? 'expanded' : ''}`}>
+      <div className="trustee-image">
+        <span className="material-symbols-outlined">person</span>
+      </div>
+      <h3>{name}</h3>
+      <span className="trustee-role">{role}</span>
+      <p className={`trustee-bio ${expanded ? 'expanded' : ''}`}>
+        {bio}
+      </p>
+      <span
+        className="read-more-link"
+        onClick={() => setExpanded(!expanded)}
+        role="button"
+        tabIndex={0}
+      >
+        {expanded ? "Read Less" : "Read More"}
+      </span>
+    </div>
+  );
+}
 
 export default function About() {
-  // Helper to format date as "Month Year"
-  const formatDate = (dateString) => {
-    if (!dateString) return "";
-    const date = new Date(dateString);
-    return date.toLocaleDateString("en-US", { month: "long", year: "numeric" });
-  };
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="about-page">
-      <div className="hero-section">
-        <h1>About Gloucester Zakat Charity</h1>
-        <p className="tagline">Your Local Neighbourhood Zakat Distributors</p>
-        <p className="primary-message">
-          Collecting zakat and sadaqa to assist local residents in Gloucester
-        </p>
-      </div>
-
-      <div className="services-section">
-        <h2>Our Key Services</h2>
-        <div className="services-grid">
-          <div className="service-item">
-            <h3>Qualify Individuals for Zakat</h3>
-            <p>
-              We carefully assess applications to ensure zakat reaches those who
-              are genuinely eligible according to Islamic principles.
-            </p>
-          </div>
-          <div className="service-item">
-            <h3>Pay Zakat Online and via Mobile</h3>
-            <p>
-              Convenient and secure online payment system allowing you to fulfill
-              your zakat obligations from anywhere.
-            </p>
-          </div>
-          <div className="service-item">
-            <h3>Direct Local Distribution</h3>
-            <p>
-              We ensure your zakat goes directly to those in need within the
-              Gloucester community.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div className="trustees-section">
-        <h2>Meet the Trustees</h2>
-        <p>
-          To ensure good effective governance, provide leadership and vision it
-          is essential for a charity to have trustees who have particular
-          qualities and specialised skills. This allows the charity to fulfil
-          its purpose in a manner that instils confidence in the hearts and
-          minds of its supporters and beneficiaries.
-        </p>
-        <p>
-          The Gloucester Zakat Charity is overseen by five trustees who are
-          well-known reputable members of Gloucester&apos;s Muslim community. All
-          the trustees have extensive experience in leadership roles which,
-          combined with the experience gained from managing other successful
-          local charities, provide the Gloucester Zakat Charity vision and
-          strategic direction.
-        </p>
-
-        <div className="trustees-grid">
-          <div className="trustee-card">
-            <h3>Imam Abdullah Patel (Chair)</h3>
-            <p>
-              Imam Abdullah Abdul Samad Patel is a highly respected figure in the
-              local Muslim community and serves as an Imam at Masjid e Umar. He is
-              also the Head Teacher at Al-Ashraf Primary School, the first Islamic
-              Primary School in the Southwest, and leads Peace Inclusion, advocating
-              for educational access and community cohesion. Since 2025, he has
-              served as a trustee for the Gloucester Rugby Charitable Foundation.
-            </p>
-          </div>
-
-          <div className="trustee-card">
-            <h3>Farouq Ginwalla (Trustee)</h3>
-            <p>
-              Farouq Ginwalla brings extensive professional experience to the
-              board as the Director of FG Immigration Ltd. As a long-standing
-              resident of Gloucester, his expertise in governance and regulation
-              ensures the charity operates with high standards of compliance and
-              integrity, overseeing the responsible distribution of funds to those
-              most in need.
-            </p>
-          </div>
-
-          <div className="trustee-card">
-            <h3>Kamel Boulkenafet (Trustee)</h3>
-            <p>
-              Kamel Boulkenafet is a dedicated community advocate who previously
-              served as a Director for Gloucestershire Action for Refugees and
-              Asylum Seekers (GARAS). He was honored with the &quot;Community
-              Upstander Award&quot; for his exceptional efforts in supporting
-              vulnerable youth, reflecting the compassionate values at the heart
-              of the Gloucester Zakat Charity.
-            </p>
-          </div>
-
-          <div className="trustee-card">
-            <h3>Mariam Qureshi (Trustee)</h3>
-            <p>
-              Mariam Qureshi is an active trustee dedicated to social welfare within
-              Gloucester. Her role involves assessing complex hardship cases and
-              ensuring the fund&apos;s resources are directed towards impactful
-              interventions for local families, helping to maintain the vital link
-              between the charity and the community it serves.
-            </p>
-          </div>
-
-          <div className="trustee-card">
-            <h3>Hashim Moolla (Trustee)</h3>
-            <p>
-              Hashim Moolla serves as a trustee with a focus on operational
-              efficiency and community outreach. He assists in the rigorous
-              verification of zakat applications, ensuring that every donation is
-              accounted for and reaches eligible recipients in accordance with
-              both charitable law and Islamic principles.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div className="charity-info">
-        <h2>Charity Information</h2>
-        <div className="charity-details">
-          <div className="detail-row">
-            <span className="label">Charity Number:</span>
-            <span className="value">1215932</span>
-          </div>
-          <div className="detail-row">
-            <span className="label">Registration:</span>
-            <span className="value">Registered Charity in England and Wales</span>
-          </div>
-          <div className="detail-row">
-            <span className="label">Geographic Focus:</span>
-            <span className="value">Gloucester and surrounding areas</span>
-          </div>
-          <div className="detail-row">
-            <span className="label">Target Community:</span>
-            <span className="value">Local residents, particularly Muslim community</span>
-          </div>
-        </div>
-      </div>
-
-      <div className="community-section">
-        <h2>Gloucester Zakat Charity in the Community</h2>
-        <p>
-          Throughout the year the Gloucester Zakat Charity provides assistance to a
-          number of local charities, vulnerable residents and families.
-          Alhamdulillah most of us are blessed with good health, wealth and
-          family and friends to provide support in challenging times. However
-          there are a number of neighbours and families who aren&apos;t as
-          fortunate right here on our local doorstep.
-        </p>
-
-        <div className="community-services">
-          <div className="service-block">
-            <h3>Supermarket Vouchers</h3>
-            <p>
-              The Gloucester Zakat Charity provides local charities and
-              organisations with a regular supply of supermarket gift
-              cards/vouchers which can be used by local families and individuals
-              in need to purchase food and other basic supplies.
-            </p>
-          </div>
-
-          <div className="service-block">
-            <h3>Emergency Support Grants</h3>
-            <p>
-              We provide small grants to families in crisis situations to assist
-              with essential expenses such as utilities, rent assistance, and
-              emergency food supplies.
-            </p>
-          </div>
-
-          <div className="service-block">
-            <h3>School Support</h3>
-            <p>
-              The Fund provides assistance to families struggling with
-              school-related costs, including uniform grants and educational
-              supplies for children in need.
-            </p>
-          </div>
-        </div>
-
-        <div className="beneficiary-organisations">
-          <div style={{ height: "3rem" }}></div>
-          <h2>Partner Organisations</h2>
+      {/* ============================================
+          1. HERO SECTION
+          ============================================ */}
+      <header className="about-hero">
+        <div className="about-hero-content">
+          <h1>
+            About Gloucester<br />
+            <span>Zakat Charity</span>
+          </h1>
           <p>
-            We work closely with local organisations to ensure effective
-            distribution of zakat and sadaqa:
+            Your Local Neighbourhood Zakat Distributors. Collecting zakat and sadaqa
+            to assist local residents in Gloucester.
           </p>
-          <div className="organisations-grid">
-            {aboutData.organizations.map((org, index) => (
-              <div key={index} className="org-item">{org.name}</div>
+          <div className="hero-buttons">
+            <a href="/donate" className="btn">
+              Donate Now
+              <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>volunteer_activism</span>
+            </a>
+            <a href="/apply" className="btn btn-secondary" style={{ background: 'white', border: '1px solid #e5e7eb' }}>
+              Apply for Help
+            </a>
+          </div>
+        </div>
+      </header>
+
+      {/* ============================================
+          2. KEY SERVICES SECTION (was Mission/Vision)
+          ============================================ */}
+      <section className="mission-section">
+        <div className="mission-container">
+          <div className="timeline-header" style={{ marginBottom: '3rem' }}>
+            <h2>Our Key Services</h2>
+            <p>
+              We strive to identify the most vulnerable in our community and provide them with dignified support.
+            </p>
+          </div>
+
+          <div className="mission-grid">
+            {/* Service 1 */}
+            <div className="mission-card">
+              <div className="mission-icon">
+                <span className="material-symbols-outlined" style={{ fontSize: '28px' }}>verified_user</span>
+              </div>
+              <h2>Qualify Individuals</h2>
+              <p>
+                We carefully assess applications to ensure zakat reaches those who are genuinely eligible according to Islamic principles (As-Sadaqat).
+              </p>
+            </div>
+
+            {/* Service 2 */}
+            <div className="mission-card">
+              <div className="mission-icon">
+                <span className="material-symbols-outlined" style={{ fontSize: '28px' }}>payments</span>
+              </div>
+              <h2>Secure Payments</h2>
+              <p>
+                Convenient and secure online payment system allowing you to fulfill your zakat obligations from anywhere, anytime.
+              </p>
+            </div>
+
+            {/* Service 3 */}
+            <div className="mission-card">
+              <div className="mission-icon">
+                <span className="material-symbols-outlined" style={{ fontSize: '28px' }}>handshake</span>
+              </div>
+              <h2>Local Distribution</h2>
+              <p>
+                We ensure your zakat goes directly to those in need within the Gloucester community, strengthening local bonds.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================
+          3. CHARITY INFORMATION SECTION
+          ============================================ */}
+      <section className="policy-section">
+        <div className="policy-container">
+          <div className="policy-card">
+            <div className="policy-content">
+              <div className="policy-text">
+                <span className="policy-badge">
+                  <span className="material-symbols-outlined" style={{ fontSize: '14px' }}>verified</span>
+                  Registered Charity
+                </span>
+                <h2>Charity Information</h2>
+                <p>
+                  The Gloucester Zakat Charity is a registered entity dedicated to transparency and adhering to UK charity laws.
+                </p>
+                <div style={{ marginTop: '2rem' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', padding: '1rem 0', borderBottom: '1px solid #e5e7eb' }}>
+                    <span style={{ fontWeight: 600 }}>Charity Number</span>
+                    <span style={{ color: 'rgba(16,24,20,0.7)' }}>1215932</span>
+                  </div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', padding: '1rem 0', borderBottom: '1px solid #e5e7eb' }}>
+                    <span style={{ fontWeight: 600 }}>Registration</span>
+                    <span style={{ color: 'rgba(16,24,20,0.7)' }}>England & Wales</span>
+                  </div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', padding: '1rem 0', borderBottom: '1px solid #e5e7eb' }}>
+                    <span style={{ fontWeight: 600 }}>Focus Area</span>
+                    <span style={{ color: 'rgba(16,24,20,0.7)' }}>Gloucester & Surrounds</span>
+                  </div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', padding: '1rem 0', borderBottom: '1px solid #e5e7eb' }}>
+                    <span style={{ fontWeight: 600 }}>Target Community</span>
+                    <span style={{ color: 'rgba(16,24,20,0.7)' }}>Local Residents In Need</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================
+          4. TRUSTEES SECTION
+          ============================================ */}
+      <section className="trustees-section">
+        <div className="trustees-container">
+          <div className="trustees-header">
+            <div className="trustees-header-text">
+              <h2>Meet the Trustees</h2>
+              <p>
+                To ensure effective governance, leadership, and vision, our trustees bring specialized skills and extensive experience to the charity.
+              </p>
+            </div>
+            {/* Link removed as requested */}
+            <div></div>
+          </div>
+
+          <div className="trustees-grid">
+            {trustees.map((trustee, index) => (
+              <TrusteeCard key={index} {...trustee} />
             ))}
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className="achievements-section">
-        <h2>Community Stories</h2>
-        <div className="testimonials-grid">
-          <div className="testimonial card">
+      {/* ============================================
+          5. GZF IN THE COMMUNITY (Timeline)
+          ============================================ */}
+      <section className="timeline-section">
+        <div className="timeline-container">
+          <div className="timeline-header">
+            <h2>GZF in the Community</h2>
             <p>
-              "The food vouchers from Gloucester Zakat Charity were a lifesaver for
-              my family. We are incredibly grateful for their support during a
-              difficult time."
+              Alhamdulillah, most of us are blessed, but many neighbors aren't as fortunate. We provide assistance to local charities and vulnerable families right here on our doorstep.
             </p>
-            <cite>- A grateful mother</cite>
           </div>
-          <div className="testimonial card">
-            <p>
-              "I was struggling to pay my rent and was on the verge of being
-              evicted. The emergency grant from GZF gave me the breathing room I
-              needed to get back on my feet."
-            </p>
-            <cite>- A local resident</cite>
-          </div>
-          <div className="testimonial card">
-            <p>
-              "Thanks to the school uniform grant, my children could start the
-              new school year with confidence and a sense of belonging. Thank
-              you, GZF!"
-            </p>
-            <cite>- A happy parent</cite>
+
+          <div className="timeline-list">
+            {/* Item 1 */}
+            <div className="timeline-item">
+              <div className="timeline-marker"></div>
+              <div className="timeline-item-content">
+                <span className="timeline-badge">Food Support</span>
+                <h3>Supermarket Vouchers</h3>
+                <p>
+                  We provide ongoing supplies of supermarket gift cards to partner organizations, allowing families in need to purchase food and basic dignity supplies discreetly.
+                </p>
+              </div>
+            </div>
+
+            {/* Item 2 */}
+            <div className="timeline-item">
+              <div className="timeline-marker"></div>
+              <div className="timeline-item-content">
+                <span className="timeline-badge">Crisis Aid</span>
+                <h3>Emergency Support Grants</h3>
+                <p>
+                  Small grants for families in crisis to assist with essential expenses such as utilities, rent arrears, and emergency food supplies during critical times.
+                </p>
+              </div>
+            </div>
+
+            {/* Item 3 */}
+            <div className="timeline-item">
+              <div className="timeline-marker"></div>
+              <div className="timeline-item-content">
+                <span className="timeline-badge">Education</span>
+                <h3>School Support</h3>
+                <p>
+                  Assisting families with school-related costs, including uniform grants and educational supplies, ensuring every child can attend school with confidence.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div >
+      </section>
+
+      {/* ============================================
+          6. PARTNER ORGANISATIONS SECTION
+          ============================================ */}
+      <section className="partners-section">
+        <div className="partners-container">
+          <h3>Partner Organisations</h3>
+          <p>We work closely with local organizations to ensure effective distribution of Zakat and Sadaqa.</p>
+          <div className="org-tags">
+            {aboutData.organizations.map((org, index) => (
+              <span key={index} className="org-tag">{org.name}</span>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }

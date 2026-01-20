@@ -22,10 +22,10 @@ export default function Home() {
   };
 
   return (
-    <div>
+    <div className="home-page">
       {/* Hero Section */}
       <section
-        className="section text-center home-hero"
+        className="home-section text-center home-hero"
         style={{ backgroundImage: `url(${heroImage})` }}
       >
         <div className="container">
@@ -46,7 +46,7 @@ export default function Home() {
 
       {/* Latest News Section */}
       {latestActivities.length > 0 && (
-        <section className="section" style={{ backgroundColor: 'var(--bg-secondary)' }}>
+        <section className="home-section" style={{ backgroundColor: 'var(--bg-secondary)' }}>
           <div className="container">
             <div className="text-center mb-4">
               <h2>Latest news</h2>
@@ -74,20 +74,30 @@ export default function Home() {
       )}
 
       {/* How It Works Section */}
-      <section className="section" style={{ backgroundColor: 'var(--bg-secondary)' }}>
+      <section className="home-section" style={{ backgroundColor: 'var(--bg-secondary)' }}>
         <div className="container">
           <div className="text-center mb-8">
             <h2>A Simple & Transparent Process</h2>
             <p className="lead">Your Zakat journey with us is clear, simple, and impactful.</p>
           </div>
           <div className="grid grid-3">
-            {homeData.steps.map((step, index) => (
-              <div key={index} className="card text-center slide-up" style={{ animationDelay: `${index * 0.2}s` }}>
-                <div style={{ fontSize: '3rem', marginBottom: '1rem', color: 'var(--primary-green)' }}>{step.number}</div>
-                <h3>{step.title}</h3>
-                <p>{step.description}</p>
-              </div>
-            ))}
+            {homeData.steps.map((step, index) => {
+              const icons = ["calculate", "volunteer_activism", "diversity_3"];
+              const links = ["/calculatezakat", "/donate", "/about"];
+              return (
+                <div key={index} className="step-card slide-up" style={{ animationDelay: `${index * 0.2}s` }}>
+                  <div className="step-icon-wrapper">
+                    <span className="material-symbols-outlined" style={{ fontSize: '2rem' }}>{icons[index]}</span>
+                  </div>
+                  <h3>
+                    <Link to={links[index]} className="step-link">
+                      {step.number}. {step.title}
+                    </Link>
+                  </h3>
+                  <p>{step.description}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>

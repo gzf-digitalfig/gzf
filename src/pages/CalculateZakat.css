@@ -76,7 +76,7 @@
     width: 48px;
     height: 48px;
     border: 4px solid var(--primary-light);
-    border-top-color: var(--primary);
+    border-top-color: var(--primary-green);
     border-radius: 50%;
     animation: zakat-spin 1s linear infinite;
 }
@@ -91,7 +91,7 @@
    HEADER
    ============================================================================ */
 .zakat-calculator-wizard .header {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-green-dark) 100%);
     color: white;
     padding: var(--spacing-lg) var(--spacing-md);
     text-align: center;
@@ -155,7 +155,7 @@
 
 .zakat-calculator-wizard .currency-selector select:focus {
     outline: none;
-    border-color: var(--primary);
+    border-color: var(--primary-green);
 }
 
 /* ============================================================================
@@ -172,7 +172,7 @@
 }
 
 .zakat-calculator-wizard .nisab-card h2 {
-    color: var(--primary-dark);
+    color: var(--primary-green-dark);
     font-size: 16px;
     margin-bottom: var(--spacing-xs);
 }
@@ -180,7 +180,7 @@
 .zakat-calculator-wizard .nisab-value {
     font-size: 32px;
     font-weight: 800;
-    color: var(--primary);
+    color: var(--primary-green);
     margin: var(--spacing-sm) 0;
 }
 
@@ -199,7 +199,7 @@
 .zakat-calculator-wizard .step-title {
     font-size: 20px;
     font-weight: 700;
-    color: var(--primary-dark);
+    color: var(--primary-green-dark);
     margin-bottom: var(--spacing-sm);
 }
 
@@ -213,7 +213,7 @@
 
 .zakat-calculator-wizard .progress-fill {
     height: 100%;
-    background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
+    background: linear-gradient(90deg, var(--primary-green) 0%, var(--primary-green-dark) 100%);
     border-radius: 4px;
     transition: width 0.3s ease;
 }
@@ -261,7 +261,7 @@
 
 .zakat-calculator-wizard .form-input:focus {
     outline: none;
-    border-color: var(--primary);
+    border-color: var(--primary-green);
     box-shadow: 0 0 0 3px rgba(124, 179, 66, 0.1);
 }
 
@@ -290,7 +290,7 @@
     padding: var(--spacing-md);
     border-radius: var(--radius-md);
     margin-bottom: var(--spacing-lg);
-    border-left: 4px solid var(--primary);
+    border-left: 4px solid var(--primary-green);
     font-size: 14px;
     line-height: 1.6;
 }
@@ -311,7 +311,7 @@
 }
 
 .zakat-calculator-wizard .info-box strong {
-    color: var(--primary-dark);
+    color: var(--primary-green-dark);
 }
 
 /* ============================================================================
@@ -327,7 +327,7 @@
 
 .zakat-calculator-wizard .result-box-success {
     background: var(--primary-bg);
-    color: var(--primary-dark);
+    color: var(--primary-green-dark);
 }
 
 /* ============================================================================
@@ -337,7 +337,7 @@
     display: flex;
     gap: 0;
     margin-bottom: var(--spacing-md);
-    border: 2px solid var(--primary);
+    border: 2px solid var(--primary-green);
     border-radius: var(--radius-md);
     overflow: hidden;
 }
@@ -347,7 +347,7 @@
     padding: var(--spacing-sm) var(--spacing-md);
     border: none;
     background: var(--bg-white);
-    color: var(--primary);
+    color: var(--primary-green);
     font-weight: 600;
     font-size: 14px;
     cursor: pointer;
@@ -355,7 +355,7 @@
 }
 
 .zakat-calculator-wizard .segmented-control button.active {
-    background: var(--primary);
+    background: var(--primary-green);
     color: white;
 }
 
@@ -384,7 +384,7 @@
 .zakat-calculator-wizard .checkbox-group input[type="checkbox"] {
     width: 20px;
     height: 20px;
-    accent-color: var(--primary);
+    accent-color: var(--primary-green);
     cursor: pointer;
 }
 
@@ -434,9 +434,9 @@
     display: block;
     width: 100%;
     padding: var(--spacing-sm) var(--spacing-md);
-    border: 2px dashed var(--primary);
+    border: 2px dashed var(--primary-green);
     background: transparent;
-    color: var(--primary);
+    color: var(--primary-green);
     border-radius: var(--radius-md);
     font-weight: 600;
     font-size: 14px;
@@ -451,12 +451,12 @@
 
 .zakat-calculator-wizard .btn-add-primary {
     border-style: solid;
-    background: var(--primary);
+    background: var(--primary-green);
     color: white;
 }
 
 .zakat-calculator-wizard .btn-add-primary:hover {
-    background: var(--primary-dark);
+    background: var(--primary-green-dark);
 }
 
 /* ============================================================================
@@ -518,11 +518,11 @@
     padding: var(--spacing-lg);
     border-radius: var(--radius-lg);
     margin-bottom: var(--spacing-lg);
-    border: 2px solid var(--primary);
+    border: 2px solid var(--primary-green);
 }
 
 .zakat-calculator-wizard .quick-calculator h4 {
-    color: var(--primary-dark);
+    color: var(--primary-green-dark);
     margin-bottom: var(--spacing-md);
     font-size: 16px;
 }
@@ -534,7 +534,7 @@
 .zakat-calculator-wizard .quick-calc-row label {
     display: block;
     font-weight: 600;
-    color: var(--primary-dark);
+    color: var(--primary-green-dark);
     margin-bottom: var(--spacing-xs);
     font-size: 14px;
 }
@@ -562,12 +562,12 @@
 
 .zakat-calculator-wizard .quick-calc-value {
     font-weight: 700;
-    color: var(--primary);
+    color: var(--primary-green);
 }
 
 .zakat-calculator-wizard .quick-calc-item.highlight .quick-calc-value {
     font-size: 18px;
-    color: var(--primary-dark);
+    color: var(--primary-green-dark);
 }
 
 /* ============================================================================
@@ -578,7 +578,7 @@
     padding: var(--spacing-md);
     border-radius: var(--radius-md);
     margin-top: var(--spacing-md);
-    border-left: 4px solid var(--primary);
+    border-left: 4px solid var(--primary-green);
     font-size: 14px;
 }
 
@@ -586,7 +586,7 @@
     display: block;
     margin-top: var(--spacing-sm);
     font-size: 18px;
-    color: var(--primary-dark);
+    color: var(--primary-green-dark);
 }
 
 /* ============================================================================
@@ -610,13 +610,13 @@
 }
 
 .zakat-calculator-wizard .summary-status.status-above {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-green-dark) 100%);
     color: white;
 }
 
 .zakat-calculator-wizard .summary-status.status-below {
     background: linear-gradient(135deg, var(--primary-bg) 0%, var(--primary-light) 100%);
-    color: var(--primary-dark);
+    color: var(--primary-green-dark);
 }
 
 .zakat-calculator-wizard .status-icon {
@@ -653,7 +653,7 @@
 }
 
 .zakat-calculator-wizard .summary-header h3 {
-    color: var(--primary-dark);
+    color: var(--primary-green-dark);
     margin-bottom: 4px;
 }
 
@@ -675,7 +675,7 @@
 }
 
 .zakat-calculator-wizard .summary-row-final {
-    border-top: 3px solid var(--primary);
+    border-top: 3px solid var(--primary-green);
     border-bottom: none !important;
     margin-top: var(--spacing-md);
     padding-top: var(--spacing-md);
@@ -684,7 +684,7 @@
 }
 
 .zakat-calculator-wizard .value-positive {
-    color: var(--primary);
+    color: var(--primary-green);
     font-weight: 600;
 }
 
@@ -699,7 +699,7 @@
 }
 
 .zakat-calculator-wizard .value-zakat {
-    color: var(--primary-dark);
+    color: var(--primary-green-dark);
     font-weight: 800;
     font-size: 24px;
 }
@@ -721,7 +721,7 @@
 }
 
 .zakat-calculator-wizard .payment-header h3 {
-    color: var(--primary-dark);
+    color: var(--primary-green-dark);
     font-size: 24px;
     margin-bottom: 4px;
 }
@@ -741,7 +741,7 @@
 
 .zakat-calculator-wizard .payment-label {
     font-size: 14px;
-    color: var(--primary-dark);
+    color: var(--primary-green-dark);
     font-weight: 600;
     margin-bottom: var(--spacing-xs);
     display: block;
@@ -750,7 +750,7 @@
 .zakat-calculator-wizard .payment-value {
     font-size: 48px;
     font-weight: 900;
-    color: var(--primary-dark);
+    color: var(--primary-green-dark);
 }
 
 .zakat-calculator-wizard .paypal-container {
@@ -789,14 +789,13 @@
 }
 
 .zakat-calculator-wizard .btn-next {
-    background: var(--primary);
+    background: var(--primary-green);
     color: white;
     margin-left: auto;
     /* Push to right */
 }
 
-background: var(--primary-dark);
-}
+
 
 /* ============================================================================
    DONATE STYLES (Restored)

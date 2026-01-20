@@ -2,7 +2,7 @@ import "./Apply.css";
 
 export default function Apply() {
   return (
-    <div className="apply-page">
+    <div className="apply-page container" style={{ paddingBottom: '4rem', paddingTop: '2rem' }}>
       <h1>Apply for Assistance</h1>
       <p>
         If you are a Gloucester resident in need, you can apply for zakat or

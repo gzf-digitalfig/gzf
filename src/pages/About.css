@@ -1,0 +1,784 @@
+/* About Page - Direct Translation from Reference HTML */
+
+/* Base Page */
+.about-page {
+    animation: fadeIn 0.4s ease-out;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   1. HERO SECTION
+   Reference: relative overflow-hidden pt-16 pb-24 lg:pt-32 lg:pb-40
+   ============================================ */
+.about-hero {
+    position: relative;
+    overflow: hidden;
+    padding: 4rem 0 6rem;
+}
+
+@media (min-width: 1024px) {
+    .about-hero {
+        padding: 8rem 0 10rem;
+    }
+}
+
+/* SVG Background - Islamic Geometric Star Pattern */
+.about-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-color: #ffffff;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill='none' stroke='%2349a746' stroke-width='1.5' stroke-opacity='0.2'%3E%3Cpath d='M 50 20 L 58 42 L 80 50 L 58 58 L 50 80 L 42 58 L 20 50 L 42 42 Z'/%3E%3Cpath d='M 50 0 L 65 35 L 100 50 L 65 65 L 50 100'/%3E%3Cpath d='M 50 0 L 35 35 L 0 50 L 35 65 L 50 100'/%3E%3Cpath d='M 0 50 L 35 35 L 50 0'/%3E%3Cpath d='M 100 50 L 65 35 L 50 0'/%3E%3Cpath d='M 0 50 L 35 65 L 50 100'/%3E%3Cpath d='M 100 50 L 65 65 L 50 100'/%3E%3Cpath d='M 80 50 L 100 50 L 100 30'/%3E%3Cpath d='M 50 20 L 50 0 L 70 0'/%3E%3Cpath d='M 20 50 L 0 50 L 0 70'/%3E%3Cpath d='M 50 80 L 50 100 L 30 100'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 50px 50px;
+    background-repeat: repeat;
+}
+
+.about-hero-content {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.about-hero h1 {
+    font-size: clamp(2.25rem, 5vw, 3.75rem);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+}
+
+.about-hero h1 span {
+    color: var(--primary-green);
+}
+
+.about-hero p {
+    font-size: clamp(1.125rem, 2vw, 1.25rem);
+    color: rgba(16, 24, 20, 0.7);
+    /* text-dark/70 */
+    max-width: 42rem;
+    margin: 0 auto 2.5rem;
+    line-height: 1.7;
+    font-weight: 300;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (min-width: 640px) {
+    .hero-buttons {
+        flex-direction: row;
+    }
+}
+
+/* ============================================
+   2. MISSION & VISION SECTION
+   Reference: py-20 bg-surface-light border-y border-gray-100
+   ============================================ */
+.mission-section {
+    padding: 5rem 0;
+    background: #f9fbfa;
+    /* surface-light */
+    border-top: 1px solid #f3f4f6;
+    /* gray-100 */
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.mission-container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.mission-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+    .mission-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Mission/Vision Cards */
+.mission-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem;
+    border-radius: 1rem;
+    background: white;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    border: 1px solid #f3f4f6;
+    transition: transform 0.3s ease;
+}
+
+.mission-card:hover {
+    transform: translateY(-4px);
+}
+
+.mission-icon {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 9999px;
+    background: rgba(73, 167, 70, 0.1);
+    /* primary/10 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-green);
+    margin-bottom: 0.5rem;
+}
+
+.mission-card h2 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.mission-card p {
+    font-size: 1.125rem;
+    color: rgba(16, 24, 20, 0.7);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* ============================================
+   3. 100% ZAKAT POLICY SECTION
+   Reference: py-24 relative overflow-hidden (has bg-primary/5 overlay)
+   Contains a CARD: bg-white rounded-3xl shadow-xl border
+   ============================================ */
+.policy-section {
+    padding: 6rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background Overlay */
+.policy-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(73, 167, 70, 0.05);
+    /* primary/5 */
+    z-index: -10;
+}
+
+.policy-container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* The actual card */
+.policy-card {
+    position: relative;
+    background: white;
+    border-radius: 1.5rem;
+    padding: 2rem;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #f3f4f6;
+    overflow: hidden;
+}
+
+@media (min-width: 768px) {
+    .policy-card {
+        padding: 3rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .policy-card {
+        padding: 4rem;
+    }
+}
+
+/* Decorative blur circle */
+.policy-card::after {
+    content: '';
+    position: absolute;
+    top: -6rem;
+    right: -6rem;
+    width: 16rem;
+    height: 16rem;
+    background: rgba(73, 167, 70, 0.1);
+    border-radius: 9999px;
+    filter: blur(48px);
+}
+
+.policy-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    background: rgba(73, 167, 70, 0.1);
+    color: var(--primary-green);
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.policy-content {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    align-items: center;
+}
+
+@media (min-width: 1024px) {
+    .policy-content {
+        flex-direction: row;
+    }
+}
+
+.policy-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.policy-text h2 {
+    font-size: clamp(1.875rem, 3vw, 2.25rem);
+    font-weight: 800;
+    line-height: 1.25;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.policy-text p {
+    font-size: clamp(1.125rem, 2vw, 1.25rem);
+    color: rgba(16, 24, 20, 0.7);
+    line-height: 1.7;
+    font-weight: 300;
+    margin: 0;
+}
+
+.policy-text p strong {
+    font-weight: 600;
+}
+
+.policy-text .secondary-text {
+    font-size: 1rem;
+    color: rgba(16, 24, 20, 0.6);
+}
+
+/* ============================================
+   4. TIMELINE SECTION
+   Reference: py-20 bg-surface-light
+   ============================================ */
+.timeline-section {
+    padding: 5rem 0;
+    background: #f9fbfa;
+    /* surface-light */
+}
+
+.timeline-container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.timeline-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.timeline-header h2 {
+    font-size: clamp(1.875rem, 3vw, 2.25rem);
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.timeline-header p {
+    color: rgba(16, 24, 20, 0.6);
+    max-width: 42rem;
+    margin: 0 auto;
+}
+
+.timeline-list {
+    position: relative;
+}
+
+/* Vertical Line */
+.timeline-list::before {
+    content: '';
+    position: absolute;
+    left: 1rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #e5e7eb;
+    /* gray-200 */
+    margin-left: -1px;
+}
+
+@media (min-width: 768px) {
+    .timeline-list::before {
+        left: 50%;
+    }
+}
+
+.timeline-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+    .timeline-item {
+        flex-direction: row;
+        margin-bottom: 5rem;
+    }
+
+    .timeline-item:nth-child(even) {
+        flex-direction: row-reverse;
+    }
+
+    .timeline-item-content {
+        width: 50%;
+        text-align: right;
+        padding-right: 3rem;
+    }
+
+    .timeline-item:nth-child(even) .timeline-item-content {
+        text-align: left;
+        padding-right: 0;
+        padding-left: 3rem;
+    }
+}
+
+.timeline-item-content {
+    padding-left: 3rem;
+}
+
+@media (min-width: 768px) {
+    .timeline-item-content {
+        padding-left: 0;
+    }
+}
+
+.timeline-marker {
+    position: absolute;
+    left: 1rem;
+    top: 0;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 9999px;
+    border: 4px solid white;
+    background: var(--primary-green);
+    margin-left: -0.5rem;
+    z-index: 10;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+@media (min-width: 768px) {
+    .timeline-marker {
+        left: 50%;
+    }
+}
+
+.timeline-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.25rem;
+    background: rgba(73, 167, 70, 0.1);
+    color: var(--primary-green);
+    font-weight: 700;
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-item h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-item p {
+    color: rgba(16, 24, 20, 0.7);
+    margin: 0;
+}
+
+/* ============================================
+   5. TRUSTEES SECTION
+   Reference: py-24 bg-white
+   ============================================ */
+.trustees-section {
+    padding: 6rem 0;
+    background: white;
+}
+
+.trustees-container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.trustees-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 3rem;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .trustees-header {
+        flex-direction: row;
+    }
+}
+
+.trustees-header-text {
+    max-width: 36rem;
+}
+
+.trustees-header h2 {
+    font-size: clamp(1.875rem, 3vw, 2.25rem);
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.trustees-header p {
+    font-size: 1.125rem;
+    color: rgba(16, 24, 20, 0.7);
+    margin: 0;
+}
+
+.trustees-header a {
+    color: var(--primary-green);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    flex-shrink: 0;
+    text-decoration: none;
+}
+
+.trustees-header a:hover {
+    text-decoration: underline;
+}
+
+.trustees-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+    .trustees-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .trustees-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Trustee Card - Reference: group bg-surface-light rounded-xl p-4 ... */
+.trustee-card {
+    background: #f9fbfa;
+    /* surface-light */
+    border-radius: 0.75rem;
+    padding: 1rem;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.trustee-card:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+    transform: translateY(-4px);
+    border-color: #f3f4f6;
+}
+
+/* Image Placeholder - Reference: aspect-square w-full rounded-lg ... grayscale group-hover:grayscale-0 */
+.trustee-image {
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    background: #e5e7eb;
+    /* gray-200 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: grayscale(100%);
+    transition: all 0.5s ease;
+}
+
+.trustee-card:hover .trustee-image {
+    filter: grayscale(0%);
+    background: var(--primary-green-light);
+}
+
+.trustee-image .material-symbols-outlined {
+    font-size: 4rem;
+    color: #9ca3af;
+    /* gray-400 */
+    transition: color 0.5s ease;
+}
+
+.trustee-card:hover .trustee-image .material-symbols-outlined {
+    color: var(--primary-green);
+}
+
+.trustee-card h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.trustee-role {
+    color: var(--primary-green);
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+    display: block;
+}
+
+.trustee-bio {
+    font-size: 0.875rem;
+    color: rgba(16, 24, 20, 0.6);
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.trustee-bio.expanded {
+    display: block;
+    overflow: visible;
+    -webkit-line-clamp: unset;
+    line-clamp: unset;
+}
+
+.read-more-link {
+    all: unset;
+    cursor: pointer;
+    color: var(--primary-green);
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 0;
+    margin-top: 0.5rem;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    display: inline-block;
+}
+
+.read-more-link:hover {
+    color: var(--primary-green-dark);
+}
+
+/* ============================================
+   6. DOCUMENTS & TRANSPARENCY SECTION
+   Reference: py-16 bg-surface-light border-t
+   Contains a CARD: bg-primary rounded-2xl p-8 md:p-12
+   ============================================ */
+.transparency-section {
+    padding: 4rem 0;
+    background: #f9fbfa;
+    /* surface-light */
+    border-top: 1px solid #f3f4f6;
+}
+
+.transparency-container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* The Banner Card - Reference: bg-primary rounded-2xl ... */
+.transparency-banner {
+    background: var(--primary-green);
+    border-radius: 1rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+@media (min-width: 768px) {
+    .transparency-banner {
+        flex-direction: row;
+        padding: 3rem;
+    }
+}
+
+/* Decorative blur */
+.transparency-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: -2rem;
+    margin-right: -2rem;
+    width: 10rem;
+    height: 10rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 9999px;
+    filter: blur(32px);
+}
+
+.transparency-text {
+    position: relative;
+    z-index: 10;
+}
+
+.transparency-text h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.transparency-text p {
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 28rem;
+    margin: 0;
+}
+
+.transparency-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: relative;
+    z-index: 10;
+    width: 100%;
+}
+
+@media (min-width: 640px) {
+    .transparency-buttons {
+        flex-direction: row;
+        width: auto;
+    }
+}
+
+@media (min-width: 768px) {
+    .transparency-buttons {
+        width: auto;
+    }
+}
+
+.transparency-buttons .btn-white {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: white;
+    color: var(--primary-green);
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.transparency-buttons .btn-white:hover {
+    background: #f9fafb;
+}
+
+.transparency-buttons .btn-outline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: rgba(36, 110, 73, 0.3);
+    /* primary-dark/30 */
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 700;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.transparency-buttons .btn-outline:hover {
+    background: rgba(36, 110, 73, 0.5);
+}
+
+/* ============================================
+   7. PARTNER ORGANISATIONS (original style)
+   ============================================ */
+.partners-section {
+    padding: 4rem 0;
+    background: white;
+    border-top: 1px solid #f3f4f6;
+}
+
+.partners-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 1rem;
+}
+
+.partners-container h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.partners-container>p {
+    color: rgba(16, 24, 20, 0.7);
+    margin-bottom: 2rem;
+}
+
+.org-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+.org-tag {
+    background: var(--primary-green-light);
+    color: var(--primary-green);
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
