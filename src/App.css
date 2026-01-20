@@ -89,6 +89,15 @@ nav {
   position: relative;
 }
 
+.nav-toggle:hover,
+.nav-toggle:active,
+.nav-toggle:focus {
+  background: transparent !important;
+  transform: none !important;
+  box-shadow: none !important;
+  color: var(--primary-green) !important;
+}
+
 nav a {
   color: var(--text-secondary);
   font-weight: 500;
