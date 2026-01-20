@@ -3,22 +3,28 @@
     "introText": "We work closely with local organisations to ensure effective distribution of zakat and sadaqa:",
     "organizations": [
         {
-            "name": "The Friendship Cafe"
+            "name": "The Friendship Cafe",
+            "url": "https://thefriendshipcafe.com/"
         },
         {
-            "name": "Masjid-e-Umar"
+            "name": "Masjid-e-Umar",
+            "url": "https://masjideumar.org"
         },
         {
-            "name": "Gloucester Feed The Hungry"
+            "name": "Gloucester Feed The Hungry",
+            "url": "https://www.facebook.com/Gloucester-Feed-The-Hungry-CIC-1765597536990249/"
         },
         {
-            "name": "Gloucester Muslim Welfare Association"
+            "name": "Gloucester Muslim Welfare Association",
+            "url": "https://masjidenoor.org.uk/"
         },
         {
-            "name": "Gloucester Muslim Burial Association"
+            "name": "Gloucester Muslim Burial Association",
+            "url": "https://masjidenoor.org.uk/gmbc/"
         },
         {
-            "name": "Gloucestershire Action for Refugees & Asylum Seekers"
+            "name": "Gloucestershire Action for Refugees & Asylum Seekers",
+            "url": "https://www.garas.org.uk"
         }
     ]
 }

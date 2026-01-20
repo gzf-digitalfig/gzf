@@ -2060,15 +2060,13 @@ img {
   transform: none;
 }
 
+/* Removed restrictive global grid item sizing that caused mobile overflow */
 .services-grid>*,
 .trustees-grid>*,
 .community-services>*,
 .organisations-grid>*,
 .testimonials-grid>*,
 .beneficiary-organisations .organisations-grid>* {
-  flex: 1 1 320px;
-  max-width: 420px;
-  min-width: 320px;
   margin-bottom: 2rem;
 }
 
@@ -2078,17 +2076,6 @@ img {
 }
 
 @media (min-width: 600px) {
-
-  .services-grid>*,
-  .trustees-grid>*,
-  .community-services>*,
-  .organisations-grid>*,
-  .testimonials-grid>*,
-  .beneficiary-organisations .organisations-grid>* {
-    flex: 1 1 28%;
-    max-width: 32%;
-    min-width: 280px;
-  }
 
   .standalone-donate-section .donate-card {
     flex: 1;

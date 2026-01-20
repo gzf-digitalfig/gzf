@@ -30,32 +30,58 @@ const trustees = [
   }
 ];
 
-function TrusteeCard({ name, role, bio }) {
-  const [expanded, setExpanded] = useState(false);
-
+function TrusteeCard({ name, role, bio, onReadMore }) {
   return (
-    <div className={`trustee-card ${expanded ? 'expanded' : ''}`}>
+    <div className="trustee-card">
       <div className="trustee-image">
         <span className="material-symbols-outlined">person</span>
       </div>
-      <h3>{name}</h3>
-      <span className="trustee-role">{role}</span>
-      <p className={`trustee-bio ${expanded ? 'expanded' : ''}`}>
-        {bio}
-      </p>
-      <span
-        className="read-more-link"
-        onClick={() => setExpanded(!expanded)}
-        role="button"
-        tabIndex={0}
-      >
-        {expanded ? "Read Less" : "Read More"}
-      </span>
+      <div className="trustee-content">
+        <h3>{name}</h3>
+        <span className="trustee-role">{role}</span>
+        <p className="trustee-bio-preview">
+          {bio}
+        </p>
+        <button
+          className="read-more-link"
+          onClick={onReadMore}
+        >
+          Read More
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function BioModal({ trustee, onClose }) {
+  if (!trustee) return null;
+
+  return (
+    <div className="bio-modal-overlay" onClick={onClose}>
+      <div className="bio-modal-content" onClick={e => e.stopPropagation()}>
+        <button className="bio-modal-close" onClick={onClose}>
+          <span className="material-symbols-outlined">close</span>
+        </button>
+        <div className="bio-modal-header">
+          <div className="bio-modal-avatar">
+            <span className="material-symbols-outlined">person</span>
+          </div>
+          <div>
+            <h2>{trustee.name}</h2>
+            <span className="trustee-role">{trustee.role}</span>
+          </div>
+        </div>
+        <div className="bio-modal-body">
+          <p>{trustee.bio}</p>
+        </div>
+      </div>
     </div>
   );
 }
 
 export default function About() {
+  const [selectedTrustee, setSelectedTrustee] = useState(null);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -87,15 +113,63 @@ export default function About() {
       </header>
 
       {/* ============================================
-          2. KEY SERVICES SECTION (was Mission/Vision)
+          2. CHARITY INFORMATION SECTION
+          ============================================ */}
+      <section className="policy-section">
+        <div className="policy-container">
+          <div className="policy-card">
+            <div className="policy-content">
+              <div className="policy-text">
+                <span className="policy-badge">
+                  <span className="material-symbols-outlined" style={{ fontSize: '14px' }}>verified</span>
+                  Registered Charity
+                </span>
+                <h2>Charity Information</h2>
+                <p>
+                  The Gloucester Zakat Charity is a registered entity dedicated to transparency and adhering to UK charity laws.
+                </p>
+
+                <div className="charity-info-table-wrapper">
+                  <table className="charity-info-table">
+                    <tbody>
+                      <tr>
+                        <td>Charity Number</td>
+                        <td>1215932</td>
+                      </tr>
+                      <tr>
+                        <td>Registration</td>
+                        <td>England & Wales</td>
+                      </tr>
+                      <tr>
+                        <td>Focus Area</td>
+                        <td>Gloucester & Surrounds</td>
+                      </tr>
+                      <tr>
+                        <td>Target Community</td>
+                        <td>Local Residents In Need</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================
+          3. KEY SERVICES SECTION (was Mission/Vision)
           ============================================ */}
       <section className="mission-section">
         <div className="mission-container">
-          <div className="timeline-header" style={{ marginBottom: '3rem' }}>
-            <h2>Our Key Services</h2>
-            <p>
-              We strive to identify the most vulnerable in our community and provide them with dignified support.
-            </p>
+          <div className="trustees-header">
+            <div className="trustees-header-text">
+              <h2>Our Key Services</h2>
+              <p>
+                We strive to identify the most vulnerable in our community and provide them with dignified support.
+              </p>
+            </div>
+            <div></div>
           </div>
 
           <div className="mission-grid">
@@ -135,45 +209,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* ============================================
-          3. CHARITY INFORMATION SECTION
-          ============================================ */}
-      <section className="policy-section">
-        <div className="policy-container">
-          <div className="policy-card">
-            <div className="policy-content">
-              <div className="policy-text">
-                <span className="policy-badge">
-                  <span className="material-symbols-outlined" style={{ fontSize: '14px' }}>verified</span>
-                  Registered Charity
-                </span>
-                <h2>Charity Information</h2>
-                <p>
-                  The Gloucester Zakat Charity is a registered entity dedicated to transparency and adhering to UK charity laws.
-                </p>
-                <div style={{ marginTop: '2rem' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', padding: '1rem 0', borderBottom: '1px solid #e5e7eb' }}>
-                    <span style={{ fontWeight: 600 }}>Charity Number</span>
-                    <span style={{ color: 'rgba(16,24,20,0.7)' }}>1215932</span>
-                  </div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', padding: '1rem 0', borderBottom: '1px solid #e5e7eb' }}>
-                    <span style={{ fontWeight: 600 }}>Registration</span>
-                    <span style={{ color: 'rgba(16,24,20,0.7)' }}>England & Wales</span>
-                  </div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', padding: '1rem 0', borderBottom: '1px solid #e5e7eb' }}>
-                    <span style={{ fontWeight: 600 }}>Focus Area</span>
-                    <span style={{ color: 'rgba(16,24,20,0.7)' }}>Gloucester & Surrounds</span>
-                  </div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', padding: '1rem 0', borderBottom: '1px solid #e5e7eb' }}>
-                    <span style={{ fontWeight: 600 }}>Target Community</span>
-                    <span style={{ color: 'rgba(16,24,20,0.7)' }}>Local Residents In Need</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* ============================================
           4. TRUSTEES SECTION
@@ -193,11 +228,22 @@ export default function About() {
 
           <div className="trustees-grid">
             {trustees.map((trustee, index) => (
-              <TrusteeCard key={index} {...trustee} />
+              <TrusteeCard
+                key={index}
+                {...trustee}
+                onReadMore={() => setSelectedTrustee(trustee)}
+              />
             ))}
           </div>
         </div>
       </section>
+
+      {/* Bio Modal */}
+      <BioModal
+        trustee={selectedTrustee}
+        onClose={() => setSelectedTrustee(null)}
+      />
+
 
       {/* ============================================
           5. GZF IN THE COMMUNITY (Timeline)
@@ -248,20 +294,23 @@ export default function About() {
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* ============================================
-          6. PARTNER ORGANISATIONS SECTION
-          ============================================ */}
-      <section className="partners-section">
-        <div className="partners-container">
-          <h3>Partner Organisations</h3>
-          <p>We work closely with local organizations to ensure effective distribution of Zakat and Sadaqa.</p>
-          <div className="org-tags">
-            {aboutData.organizations.map((org, index) => (
-              <span key={index} className="org-tag">{org.name}</span>
-            ))}
+          {/* Merged Partners Section */}
+          <div className="partners-inline-content">
+            <h3>Partner Organisations</h3>
+            <p>We work closely with local organizations to ensure effective distribution of Zakat and Sadaqa.</p>
+            <div className="org-tags">
+              {aboutData.organizations.map((org, index) => (
+                <a
+                  key={index}
+                  href={org.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="org-tag"
+                >
+                  {org.name}
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </section>

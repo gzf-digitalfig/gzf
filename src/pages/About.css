@@ -99,12 +99,19 @@
    Reference: py-20 bg-surface-light border-y border-gray-100
    ============================================ */
 .mission-section {
-    padding: 5rem 0;
-    background: #f9fbfa;
-    /* surface-light */
-    border-top: 1px solid #f3f4f6;
-    /* gray-100 */
-    border-bottom: 1px solid #f3f4f6;
+    padding: 6rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background Overlay moved from policy-section */
+.mission-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(73, 167, 70, 0.05);
+    /* primary/5 */
+    z-index: -10;
 }
 
 .mission-container {
@@ -125,46 +132,48 @@
     }
 }
 
-/* Mission/Vision Cards */
+/* Mission/Vision Cards - Matched to Step Card format */
 .mission-card {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    /* Removed gap to use margins like step-card */
     padding: 2rem;
     border-radius: 1rem;
-    background: white;
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    border: 1px solid #f3f4f6;
+    background: var(--bg-secondary);
+    box-shadow: var(--shadow-soft);
+    border: 1px solid var(--border-color-light);
     transition: transform 0.3s ease;
+    text-align: left;
+    height: 100%;
 }
 
-/* Hover effect removed */
+/* Hover effect removed previously */
 
 .mission-icon {
     width: 3.5rem;
     height: 3.5rem;
     border-radius: 9999px;
-    background: rgba(73, 167, 70, 0.1);
+    background: var(--primary-green-light);
     /* primary/10 */
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--primary-green);
-    margin-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    /* Matches step-card margin */
 }
 
 .mission-card h2 {
-    font-size: 1.875rem;
+    font-size: 1.25rem;
     font-weight: 700;
-    letter-spacing: -0.025em;
+    letter-spacing: normal;
     color: var(--text-primary);
-    margin: 0;
+    margin-bottom: 0.75rem;
 }
 
 .mission-card p {
-    font-size: 1.125rem;
-    color: rgba(16, 24, 20, 0.7);
-    line-height: 1.7;
+    color: var(--text-secondary);
+    line-height: 1.6;
     margin: 0;
 }
 
@@ -174,19 +183,12 @@
    Contains a CARD: bg-white rounded-3xl shadow-xl border
    ============================================ */
 .policy-section {
-    padding: 6rem 0;
-    position: relative;
-    overflow: hidden;
-}
-
-/* Background Overlay */
-.policy-section::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(73, 167, 70, 0.05);
-    /* primary/5 */
-    z-index: -10;
+    padding: 5rem 0;
+    background: #f9fbfa;
+    /* surface-light */
+    border-top: 1px solid #f3f4f6;
+    /* gray-100 */
+    border-bottom: 1px solid #f3f4f6;
 }
 
 .policy-container {
@@ -283,6 +285,42 @@
 
 .policy-text p strong {
     font-weight: 600;
+}
+
+/* Charity Info Table - Left Aligned & Truly Invisible */
+.charity-info-table-wrapper {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: flex-start;
+    /* Corrected to left */
+}
+
+.charity-info-table {
+    width: 100%;
+    max-width: 400px;
+    /* Keep it compact */
+    border-collapse: collapse;
+}
+
+.charity-info-table td {
+    padding: 0.75rem 0;
+    border: none;
+    /* Removed all borders */
+    text-align: left;
+    /* Corrected to left */
+    color: rgba(16, 24, 20, 0.7);
+    font-size: 0.95rem;
+}
+
+.charity-info-table td:first-child {
+    font-weight: 600;
+    color: var(--text-primary);
+    padding-right: 2rem;
+    /* Space between columns */
+}
+
+.charity-info-table tr:last-child td {
+    border: none;
 }
 
 .policy-text .secondary-text {
@@ -490,20 +528,61 @@
 }
 
 .trustees-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+@media (max-width: 480px) {
+    .trustees-grid {
+        gap: 0.75rem;
+    }
+
+    .trustee-card {
+        padding: 0.75rem;
+    }
+
+    .trustee-card h3 {
+        font-size: 0.95rem;
+    }
+
+    .trustee-role {
+        font-size: 0.8rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .trustee-image {
+        margin-bottom: 0.75rem;
+    }
 }
 
 @media (min-width: 640px) {
     .trustees-grid {
-        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
     }
 }
 
+/* Tablet/Desktop Grid Logic via Flex */
 @media (min-width: 1024px) {
-    .trustees-grid {
-        grid-template-columns: repeat(4, 1fr);
+    .trustee-card {
+        flex: 0 1 calc(33.333% - 1rem);
+        /* 3 columns */
+        min-width: 300px;
+    }
+}
+
+@media (max-width: 1023px) and (min-width: 640px) {
+    .trustee-card {
+        flex: 0 1 calc(50% - 0.75rem);
+        /* 2 columns */
+    }
+}
+
+@media (max-width: 639px) {
+    .trustee-card {
+        flex: 0 1 calc(50% - 0.5rem);
+        /* 2 columns mobile */
     }
 }
 
@@ -553,6 +632,14 @@
     font-size: 1.125rem;
     font-weight: 700;
     margin-bottom: 0.25rem;
+    /* Enforce 2-line height for alignment */
+    min-height: 2.925rem;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .trustee-role {
@@ -563,7 +650,7 @@
     display: block;
 }
 
-.trustee-bio {
+.trustee-bio-preview {
     font-size: 0.875rem;
     color: rgba(16, 24, 20, 0.6);
     line-height: 1.6;
@@ -574,16 +661,10 @@
     overflow: hidden;
 }
 
-.trustee-bio.expanded {
-    display: block;
-    overflow: visible;
-    -webkit-line-clamp: unset;
-    line-clamp: unset;
-}
-
 .read-more-link {
     all: unset;
-    cursor: pointer;
+    cursor: default;
+    /* No cursor change */
     color: var(--primary-green);
     font-weight: 600;
     font-size: 0.85rem;
@@ -592,10 +673,136 @@
     text-decoration: underline;
     text-underline-offset: 2px;
     display: inline-block;
+    border: none;
+    background: none;
 }
 
-.read-more-link:hover {
-    color: var(--primary-green-dark);
+.read-more-link:hover,
+.read-more-link:active,
+.read-more-link:focus {
+    color: var(--primary-green);
+    border: none;
+    background: none;
+    text-decoration: underline;
+    outline: none;
+}
+
+/* Bio Modal Styles */
+.bio-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    padding: 1.5rem;
+    animation: fadeInModal 0.3s ease-out;
+}
+
+.bio-modal-content {
+    background: white;
+    width: 100%;
+    max-width: 550px;
+    border-radius: 1.5rem;
+    padding: 2.5rem;
+    position: relative;
+    box-shadow: var(--shadow-lg);
+    animation: slideUpModal 0.3s ease-out;
+}
+
+.bio-modal-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: #f3f4f6;
+    border: none;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--text-secondary);
+    transition: all 0.2s;
+}
+
+.bio-modal-close:hover {
+    background: #e5e7eb;
+    color: var(--text-primary);
+}
+
+.bio-modal-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #f3f4f6;
+    padding-bottom: 1.5rem;
+}
+
+.bio-modal-avatar {
+    width: 5rem;
+    height: 5rem;
+    background: var(--primary-green-light);
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-green);
+}
+
+.bio-modal-avatar .material-symbols-outlined {
+    font-size: 2.5rem;
+}
+
+.bio-modal-header h2 {
+    margin: 0 0 0.25rem 0;
+    font-size: 1.75rem;
+    font-weight: 800;
+}
+
+.bio-modal-body p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    white-space: pre-wrap;
+}
+
+@keyframes fadeInModal {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUpModal {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 640px) {
+    .bio-modal-content {
+        padding: 1.5rem;
+    }
+
+    .bio-modal-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
 }
 
 /* ============================================
@@ -733,30 +940,28 @@
 }
 
 /* ============================================
-   7. PARTNER ORGANISATIONS (original style)
+   6. PARTNER ORGANISATIONS (Merged)
    ============================================ */
-.partners-section {
-    padding: 4rem 0;
-    background: white;
-    border-top: 1px solid #f3f4f6;
-}
-
-.partners-container {
-    max-width: 1000px;
-    margin: 0 auto;
+.partners-inline-content {
+    margin-top: 4rem;
+    padding-top: 3rem;
+    border-top: 1px solid #e5e7eb;
     text-align: center;
-    padding: 0 1rem;
 }
 
-.partners-container h3 {
+.partners-inline-content h3 {
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
+    color: var(--text-primary);
 }
 
-.partners-container>p {
+.partners-inline-content p {
     color: rgba(16, 24, 20, 0.7);
     margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .org-tags {
@@ -773,4 +978,11 @@
     border-radius: 9999px;
     font-size: 0.875rem;
     font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.org-tag:hover {
+    background: rgba(73, 167, 70, 0.15);
+    text-decoration: none;
 }
