@@ -78,7 +78,6 @@ export default function About() {
           <div className="hero-buttons">
             <a href="/donate" className="btn">
               Donate Now
-              <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>volunteer_activism</span>
             </a>
             <a href="/apply" className="btn btn-secondary" style={{ background: 'white', border: '1px solid #e5e7eb' }}>
               Apply for Help

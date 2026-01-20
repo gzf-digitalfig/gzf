@@ -138,9 +138,7 @@
     transition: transform 0.3s ease;
 }
 
-.mission-card:hover {
-    transform: translateY(-4px);
-}
+/* Hover effect removed */
 
 .mission-icon {
     width: 3.5rem;
@@ -520,8 +518,7 @@
 }
 
 .trustee-card:hover {
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
-    transform: translateY(-4px);
+    /* No hover effect */
     border-color: #f3f4f6;
 }
 
@@ -541,10 +538,7 @@
     transition: all 0.5s ease;
 }
 
-.trustee-card:hover .trustee-image {
-    filter: grayscale(0%);
-    background: var(--primary-green-light);
-}
+/* Hover effect removed */
 
 .trustee-image .material-symbols-outlined {
     font-size: 4rem;
@@ -553,9 +547,7 @@
     transition: color 0.5s ease;
 }
 
-.trustee-card:hover .trustee-image .material-symbols-outlined {
-    color: var(--primary-green);
-}
+/* Hover effect removed */
 
 .trustee-card h3 {
     font-size: 1.125rem;

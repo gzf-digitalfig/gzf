@@ -248,6 +248,7 @@ footer {
 
 /* Allow browser default number input arrows */
 .form-group input[type="number"] {
+  appearance: textfield;
   -moz-appearance: textfield;
 }
 
@@ -550,12 +551,7 @@ footer {
   overflow: hidden;
 }
 
-.card:hover {
-  transform: translateY(-10px) scale(1.02);
-  /* More pronounced hover effect */
-  box-shadow: var(--shadow-lg);
-  border-color: var(--primary-green-light);
-}
+/* Hover effect removed */
 
 .card-icon {
   font-size: 3rem;
@@ -585,17 +581,7 @@ footer {
   margin-bottom: 0;
 }
 
-.service-item:hover,
-.trustee-card:hover,
-.community-services>.service-block:hover,
-.organisations-grid>.org-item:hover,
-.achievement-item:hover,
-.beneficiary-organisations .org-item:hover,
-.achievements-list>.achievement-item:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-4px) scale(1.02);
-  border-color: var(--primary-green-light);
-}
+/* Hover effect removed */
 
 .service-item h3,
 .trustee-card h3,
@@ -650,11 +636,7 @@ footer {
   flex-direction: column;
 }
 
-.step-card:hover {
-  box-shadow: var(--shadow-hover);
-  transform: translateY(-5px);
-  border-color: var(--primary-green-light);
-}
+/* Hover effect removed */
 
 .step-icon-wrapper {
   width: 3.5rem;
@@ -669,9 +651,7 @@ footer {
   transition: transform 0.3s ease;
 }
 
-.step-card:hover .step-icon-wrapper {
-  transform: scale(1.1);
-}
+/* Hover effect removed */
 
 .step-number {
   font-size: 1.5rem;
@@ -897,9 +877,7 @@ footer {
   transition: all 0.2s ease;
 }
 
-.faq-item:hover {
-  box-shadow: var(--shadow-md);
-}
+/* Hover effect removed */
 
 .faq-item[open] {
   box-shadow: var(--shadow-md);
@@ -1333,10 +1311,7 @@ img {
   }
 }
 
-.zakat-form-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08), 0 4px 10px rgba(0, 0, 0, 0.03);
-}
+/* Hover effect removed */
 
 .zakat-form-card h2 {
   color: var(--primary-green);
@@ -1370,10 +1345,7 @@ img {
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.form-section:hover {
-  border-color: rgba(0, 128, 0, 0.2);
-  box-shadow: 0 5px 15px rgba(0, 128, 0, 0.05);
-}
+/* Hover effect removed */
 
 .form-section h3 {
   color: var(--text-primary);
@@ -1416,11 +1388,7 @@ img {
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
-.calculate-btn:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 8px 20px rgba(0, 128, 0, 0.3);
-  background: linear-gradient(135deg, #048056 0%, #059669 100%);
-}
+/* Hover effect removed */
 
 .calculate-btn span {
   font-size: 1.2rem;
@@ -1456,11 +1424,7 @@ img {
   background: linear-gradient(90deg, var(--primary-green) 0%, #059669 100%);
 }
 
-.zakat-result-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 30px rgba(0, 128, 0, 0.1), 0 4px 10px rgba(0, 0, 0, 0.03);
-  border-color: rgba(0, 128, 0, 0.2);
-}
+/* Hover effect removed */
 
 .result-header h2 {
   color: var(--primary-green);
@@ -1494,9 +1458,7 @@ img {
   transition: box-shadow 0.3s ease;
 }
 
-.calculation-breakdown:hover {
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05), inset 0 0 10px rgba(0, 128, 0, 0.03);
-}
+/* Hover effect removed */
 
 .breakdown-item {
   display: flex;
@@ -1549,10 +1511,7 @@ img {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.nisab-status:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-}
+/* Hover effect removed */
 
 .nisab-met {
   background: rgba(220, 252, 231, 0.6);
@@ -1581,10 +1540,7 @@ img {
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-.zakat-due-section:hover {
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-  transform: translateY(-3px);
-}
+/* Hover effect removed */
 
 .zakat-amount {
   margin-bottom: 1.5rem;
@@ -1629,9 +1585,7 @@ img {
   transition: box-shadow 0.3s ease;
 }
 
-.payment-section:hover {
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-}
+/* Hover effect removed */
 
 .pay-zakat-btn {
   background: linear-gradient(135deg, #059669 0%, var(--primary-green) 100%);
@@ -1648,11 +1602,7 @@ img {
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
-.pay-zakat-btn:hover {
-  transform: translateY(-3px) scale(1.03);
-  box-shadow: 0 8px 25px rgba(0, 128, 0, 0.3);
-  background: linear-gradient(135deg, #048056 0%, #059669 100%);
-}
+/* Hover effect removed */
 
 /* Standalone donate section */
 .standalone-donate-section {
@@ -1824,9 +1774,7 @@ img {
   transition: all 0.2s ease;
 }
 
-.payment-method:hover {
-  border-color: var(--primary-green);
-}
+/* Hover effect removed */
 
 .payment-method.active {
   border-color: var(--primary-green);
