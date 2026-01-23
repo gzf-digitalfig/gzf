@@ -325,7 +325,7 @@ footer {
 
   .main-content {
     padding: 0;
-    padding-top: 120px;
+    padding-top: 101px;
     width: 100%;
     overflow-x: hidden;
   }
@@ -1354,7 +1354,6 @@ img {
   }
 
   /* GLOBAL RESET FOR MOBILE < 769px */
-  .main-content,
   body,
   html,
   #root {
@@ -2462,7 +2461,6 @@ img {
 @media (max-width: 768px) {
 
   /* Mobile Layout/Spacing Fixes */
-  .main-content,
   .about-page,
   .charity-details {
     padding: 0.5rem 0.5rem;
