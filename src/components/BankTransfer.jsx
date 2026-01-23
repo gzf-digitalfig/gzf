@@ -13,9 +13,9 @@ export default function BankTransfer() {
                     <span style={{ fontWeight: '600', color: 'var(--text-primary)' }}>Bank:</span>
                     <span>HSBC</span>
                 </div>
-                <div style={{ marginBottom: '0.8rem', display: 'flex', justifyContent: 'space-between' }}>
-                    <span style={{ fontWeight: '600', color: 'var(--text-primary)' }}>Account Name:</span>
-                    <span>Gloucester Zakat Fund</span>
+                <div style={{ marginBottom: '0.8rem', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '8px' }}>
+                    <span style={{ fontWeight: '600', color: 'var(--text-primary)', whiteSpace: 'nowrap' }}>Account Name:</span>
+                    <span style={{ textAlign: 'right', flex: '1', minWidth: '150px' }}>Gloucester Zakat Fund</span>
                 </div>
                 <div style={{ marginBottom: '0.8rem', display: 'flex', justifyContent: 'space-between' }}>
                     <span style={{ fontWeight: '600', color: 'var(--text-primary)' }}>Sort Code:</span>

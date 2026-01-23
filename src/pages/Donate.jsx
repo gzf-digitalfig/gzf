@@ -25,7 +25,7 @@ export default function Donate() {
             {/* Bank Transfer */}
             <BankTransfer />
 
-            <div style={{ textAlign: 'center', marginTop: '2rem' }}>
+            <div style={{ textAlign: 'center', marginTop: '2rem', marginBottom: '4rem' }}>
                 <NavLink to="/calculatezakat" className="btn btn-secondary" style={{ padding: '0.8rem 2rem' }}>
                     Need to calculate your Zakat first?
                 </NavLink>
