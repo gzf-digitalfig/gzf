@@ -9,7 +9,7 @@ public_folder: /assets/images
 
 collections:
   - name: "activities"
-    label: "Community Activities"
+    label: "News & Updates"
     folder: "src/content/activities"
     create: true
     slug: "{{year}}-{{slug}}"
