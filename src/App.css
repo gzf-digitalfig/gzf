@@ -325,7 +325,7 @@ footer {
 
   .main-content {
     padding: 0;
-    padding-top: 101px;
+    padding-top: 151px;
     width: 100%;
     overflow-x: hidden;
   }
@@ -389,6 +389,10 @@ footer {
 
   .nav-brand img {
     height: 60px;
+  }
+
+  .main-content {
+    padding-top: 101px;
   }
 
   .nav-toggle {
