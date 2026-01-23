@@ -332,10 +332,7 @@ footer {
     overflow-x: hidden;
   }
 
-  /* About page handles its own full-width sections */
-  .main-content:has(.about-page) {
-    padding: 0;
-  }
+
 
   /* Reset hero margin since main padding was removed/adjusted */
   .home-hero {
