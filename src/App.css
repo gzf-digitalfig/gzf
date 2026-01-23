@@ -6,7 +6,7 @@
 
 /* Clean Navigation */
 nav {
-  position: fixed;
+  position: sticky;
   top: 0;
   width: 100%;
   z-index: 1000;
@@ -326,8 +326,6 @@ footer {
 
   .main-content {
     padding: 0;
-    padding-top: 140px;
-    /* Increased mobile header height compensation */
     width: 100%;
     overflow-x: hidden;
   }
