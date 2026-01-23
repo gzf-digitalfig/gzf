@@ -2469,7 +2469,7 @@ img {
 
   /* Fix hero margins on tablet/mobile */
   .home-hero {
-    margin: -0.5rem -0.5rem 1.5rem;
+    margin: 0 0 1.5rem;
   }
 
   .services-grid>*,
