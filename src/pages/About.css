@@ -567,6 +567,11 @@
     .trustee-image {
         margin-bottom: 0.75rem;
     }
+
+    .read-more-link {
+        font-size: 0.75rem;
+        margin-top: 0.25rem;
+    }
 }
 
 @media (min-width: 640px) {
@@ -685,6 +690,7 @@
     text-decoration: underline;
     text-underline-offset: 2px;
     display: inline-block;
+    white-space: nowrap;
     border: none;
     background: none;
 }
