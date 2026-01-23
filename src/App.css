@@ -326,8 +326,8 @@ footer {
 
   .main-content {
     padding: 0;
-    padding-top: 110px;
-    /* Mobile header height compensation */
+    padding-top: 140px;
+    /* Increased mobile header height compensation */
     width: 100%;
     overflow-x: hidden;
   }
