@@ -134,17 +134,39 @@
 
 /* Mission/Vision Cards - Matched to Step Card format */
 .mission-card {
-    display: flex;
-    flex-direction: column;
-    /* Removed gap to use margins like step-card */
+    position: relative;
+    background: #ffffff;
     padding: 2rem;
     border-radius: 1rem;
-    background: var(--bg-secondary);
-    box-shadow: var(--shadow-soft);
-    border: 1px solid var(--border-color-light);
+    border: 1px solid var(--primary-green-dark);
+    box-shadow: none;
+    /* Shadow removed as requested */
     transition: transform 0.3s ease;
     text-align: left;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Green tinge decorative blur */
+.mission-card::after {
+    content: '';
+    position: absolute;
+    top: -6rem;
+    right: -6rem;
+    width: 16rem;
+    height: 16rem;
+    background: rgba(73, 167, 70, 0.1);
+    border-radius: 9999px;
+    filter: blur(48px);
+    z-index: 0;
+}
+
+/* Ensure content sits above blur */
+.mission-card>* {
+    position: relative;
+    z-index: 1;
 }
 
 /* Hover effect removed previously */

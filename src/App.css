@@ -663,19 +663,45 @@ footer {
 /* Step Card Styles */
 .step-card,
 .testimonial-card {
-  background: rgba(240, 255, 240, 0.85);
-  /* Mobile Header Light Green */
+  position: relative;
+  background: #ffffff;
+  /* White background */
   padding: 2rem;
   border-radius: 1rem;
-  border-radius: 1rem;
+  /* Reverted from 1.5rem to match previous style */
   border: 1px solid var(--primary-green-dark);
-  /* Darker green border, 1px */
-  box-shadow: var(--shadow-soft);
+  /* Reverted to Green Border */
+  box-shadow: none;
+  /* Shadow removed as requested */
+  overflow: hidden;
   transition: all 0.3s ease;
   text-align: left;
   height: 100%;
   display: flex;
   flex-direction: column;
+}
+
+/* Add the 'green tinge' decorative blur like Charity Info */
+.step-card::after,
+.testimonial-card::after {
+  content: '';
+  position: absolute;
+  top: -6rem;
+  right: -6rem;
+  width: 16rem;
+  height: 16rem;
+  background: rgba(73, 167, 70, 0.1);
+  border-radius: 9999px;
+  filter: blur(48px);
+  z-index: 0;
+  /* Ensure it sits behind content */
+}
+
+/* Ensure content sits above the blur */
+.step-card>*,
+.testimonial-card>* {
+  position: relative;
+  z-index: 1;
 }
 
 /* Hover effect removed */
@@ -2472,6 +2498,21 @@ img {
 
   .card {
     padding: 0.75rem;
+  }
+
+  /* Responsive Footer */
+  .footer-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .footer-separator {
+    display: none;
+  }
+
+  .footer-credit {
+    display: block;
   }
 
   blockquote {

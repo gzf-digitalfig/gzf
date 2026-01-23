@@ -46,7 +46,9 @@ export default function Footer() {
       </div>
 
       <div className="footer-bottom">
-        &copy; {currentYear} Gloucester Zakat Fund. All rights reserved.
+        <span>&copy; {currentYear} Gloucester Zakat Fund</span>
+        <span className="footer-separator"> | </span>
+        <span className="footer-credit">Powered by <a href="https://digitalfig.com" target="_blank" rel="noopener noreferrer" style={{ color: '#374151', textDecoration: 'none', fontWeight: 'bold' }}>Digital Fig</a></span>
       </div>
     </footer>
   );
