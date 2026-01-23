@@ -83,14 +83,10 @@ nav {
   cursor: pointer;
   margin-left: 1rem;
   z-index: 1201;
-  width: 40px;
-  height: 40px;
   padding: 10px;
   position: relative;
-  -webkit-appearance: none;
-  appearance: none;
-  background: transparent !important;
-  border: none !important;
+  width: 40px;
+  height: 40px;
 }
 
 .nav-toggle:hover,

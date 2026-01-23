@@ -121,7 +121,7 @@ p {
 }
 
 /* Modern Button */
-button,
+button:not(.nav-toggle),
 .btn {
   display: inline-block;
   border-radius: 12px;
@@ -139,7 +139,7 @@ button,
   box-shadow: var(--shadow-md);
 }
 
-button:hover,
+button:not(.nav-toggle):hover,
 .btn:hover {
   /* No hover effect as requested */
   background: var(--gradient-primary);
