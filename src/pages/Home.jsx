@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import placeholder from "../assets/placeholder.webp";
+import localImpactImage from "../assets/donation.webp";
 import heroImage from "../assets/zakat.webp";
 import homeData from "../content/pages/home.json";
 
@@ -113,7 +113,7 @@ export default function Home() {
             </div>
             <div className="slide-up impact-image">
               <img
-                src={placeholder}
+                src={localImpactImage}
                 alt="Community support"
                 style={{ width: '100%', borderRadius: '16px', boxShadow: 'var(--shadow-lg)' }}
               />
@@ -130,7 +130,7 @@ export default function Home() {
           </div>
           <div className="grid grid-3">
             {homeData.testimonials.map((testimonial, index) => (
-              <div key={index} className="card slide-up" style={{ animationDelay: `${index * 0.2}s` }}>
+              <div key={index} className="card testimonial-card slide-up" style={{ animationDelay: `${index * 0.2}s` }}>
                 <blockquote>"{testimonial.quote}"</blockquote>
                 <p style={{ fontWeight: '600', marginTop: '1rem', color: 'var(--text-primary)' }}>- {testimonial.author}</p>
               </div>
@@ -141,11 +141,11 @@ export default function Home() {
 
       {/* CTA Section */}
       <section className="section" style={{ paddingBottom: '3rem' }}>
-        <div className="container text-center">
-          <div className="card" style={{ background: 'var(--gradient-primary)', color: 'white', maxWidth: '800px', margin: '0 auto' }}>
-            <h2 style={{ color: 'white' }}>{homeData.ctaTitle}</h2>
-            <p style={{ color: 'rgba(255,255,255,0.9)' }}>{homeData.ctaText}</p>
-            <Link to="/calculatezakat" className="btn btn-secondary">{homeData.ctaBtnText}</Link>
+        <div className="container">
+          <div className="card cta-geometric-box" style={{ maxWidth: '800px', margin: '0 auto' }}>
+            <h2>{homeData.ctaTitle}</h2>
+            <p>{homeData.ctaText}</p>
+            <Link to="/calculatezakat" className="btn">{homeData.ctaBtnText}</Link>
           </div>
         </div>
       </section>

@@ -141,8 +141,11 @@ button,
 
 button:hover,
 .btn:hover {
-  background: var(--primary-green-dark);
-  color: #fff;
+  /* No hover effect as requested */
+  background: var(--gradient-primary);
+  color: white;
+  transform: none;
+  box-shadow: var(--shadow-md);
 }
 
 .btn-secondary {
@@ -152,8 +155,10 @@ button:hover,
 }
 
 .btn-secondary:hover {
-  background: var(--primary-green-light);
-  border-color: var(--primary-green);
+  /* No hover effect as requested */
+  background: var(--bg-secondary);
+  color: var(--primary-green);
+  border: 1px solid var(--border-color);
 }
 
 *:focus-visible {

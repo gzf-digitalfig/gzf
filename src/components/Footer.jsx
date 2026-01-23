@@ -9,7 +9,7 @@ export default function Footer() {
     <footer>
       <div className="footer-content">
         <div className="footer-section">
-          <h4>Gloucester Zakat Charity</h4>
+          <h4>Gloucester Zakat Fund</h4>
           <p>
             Collecting and distributing Zakat and Sadaqa to support our local community with transparency and care.
           </p>
@@ -46,7 +46,7 @@ export default function Footer() {
       </div>
 
       <div className="footer-bottom">
-        &copy; {currentYear} Gloucester Zakat Charity. All rights reserved.
+        &copy; {currentYear} Gloucester Zakat Fund. All rights reserved.
       </div>
     </footer>
   );

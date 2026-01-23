@@ -16,7 +16,7 @@ const trustees = [
   {
     name: "Kamel Boulkenafet",
     role: "Trustee",
-    bio: "Kamel Boulkenafet is a dedicated community advocate who previously served as a Director for Gloucestershire Action for Refugees and Asylum Seekers (GARAS). He was honored with the \"Community Upstander Award\" for his exceptional efforts in supporting vulnerable youth, reflecting the compassionate values at the heart of the Gloucester Zakat Charity."
+    bio: "Kamel Boulkenafet is a dedicated community advocate who previously served as a Director for Gloucestershire Action for Refugees and Asylum Seekers (GARAS). He was honored with the \"Community Upstander Award\" for his exceptional efforts in supporting vulnerable youth, reflecting the compassionate values at the heart of the Gloucester Zakat Fund."
   },
   {
     name: "Mariam Qureshi",
@@ -95,7 +95,7 @@ export default function About() {
         <div className="about-hero-content">
           <h1>
             About Gloucester<br />
-            <span>Zakat Charity</span>
+            <span>Zakat Fund</span>
           </h1>
           <p>
             Your Local Neighbourhood Zakat Distributors. Collecting zakat and sadaqa
@@ -126,7 +126,7 @@ export default function About() {
                 </span>
                 <h2>Charity Information</h2>
                 <p>
-                  The Gloucester Zakat Charity is a registered entity dedicated to transparency and adhering to UK charity laws.
+                  The Gloucester Zakat Fund is a registered entity dedicated to transparency and adhering to UK charity laws.
                 </p>
 
                 <div className="charity-info-table-wrapper">

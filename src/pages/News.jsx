@@ -41,7 +41,7 @@ export default function News() {
       <div className="about-page">
         <div className="hero-section">
           <h1>Community news</h1>
-          <p className="tagline">Updates from Gloucester Zakat Charity</p>
+          <p className="tagline">Updates from Gloucester Zakat Fund</p>
         </div>
         <p>No news entries are available yet.</p>
       </div>
@@ -52,7 +52,7 @@ export default function News() {
     <div className="about-page">
       <div className="hero-section">
         <h1>Community news</h1>
-        <p className="tagline">Updates from Gloucester Zakat Charity</p>
+        <p className="tagline">Updates from Gloucester Zakat Fund</p>
       </div>
 
       <div className="achievements-section">

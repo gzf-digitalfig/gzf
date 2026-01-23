@@ -51,7 +51,7 @@ export default function FAQ() {
               </details>
               <details className="faq-item">
                 <summary className="faq-summary">
-                  <span>What is the purpose of the Gloucester Zakat Charity?</span>
+                  <span>What is the purpose of the Gloucester Zakat Fund?</span>
                   <span className="material-symbols-outlined expand-icon">expand_more</span>
                 </summary>
                 <div className="faq-answer-content">
