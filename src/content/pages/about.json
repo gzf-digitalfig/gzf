@@ -1,114 +1,115 @@
 {
-    "heroTitle": "About Gloucester\nZakat Fund",
-    "heroSubtitle": "Your Local Neighbourhood Zakat Distributors. Collecting zakat and sadaqa to assist local residents in Gloucester.",
-    "policySection": {
-        "title": "Charity Information",
-        "intro": "The Gloucester Zakat Fund is a registered charity dedicated to transparency and adhering to UK charity laws.",
-        "charityNumber": "1215932",
-        "registration": "England & Wales",
-        "focusArea": "Gloucester & Surrounds",
-        "targetCommunity": "Local Residents In Need"
+  "organizations": [
+    {
+      "name": "The Friendship Cafe",
+      "url": "https://thefriendshipcafe.com/"
     },
-    "keyServices": {
-        "title": "Our Key Services",
-        "intro": "We strive to identify the most vulnerable in our community and provide them with dignified support.",
-        "services": [
-            {
-                "icon": "verified_user",
-                "title": "Qualify Individuals",
-                "description": "We carefully assess applications to ensure zakat reaches those who are genuinely eligible according to Islamic principles (As-Sadaqat)."
-            },
-            {
-                "icon": "payments",
-                "title": "Secure Payments",
-                "description": "Convenient and secure online payment system allowing you to fulfill your zakat obligations from anywhere, anytime."
-            },
-            {
-                "icon": "handshake",
-                "title": "Local Distribution",
-                "description": "We ensure your zakat goes directly to those in need within the Gloucester community, strengthening local bonds."
-            }
-        ]
+    {
+      "name": "Masjid-e-Umar",
+      "url": "https://masjideumar.org"
     },
-    "trustees": {
-        "title": "Meet the Trustees",
-        "intro": "To ensure effective governance, leadership, and vision, our trustees bring specialized skills and extensive experience to the charity.",
-        "list": [
-            {
-                "name": "Imam Abdullah Patel",
-                "role": "Chairperson",
-                "image": "/uploads/test-trustee.webp",
-                "bio": "Imam Abdullah Abdul Samad Patel is a highly respected figure in the local Muslim community and serves as an Imam at Masjid e Umar. He is also the Head Teacher at Al-Ashraf Primary School, the first Islamic Primary School in the Southwest, and leads Peace Inclusion, advocating for educational access and community cohesion. Since 2025, he has served as a trustee for the Gloucester Rugby Charitable Foundation."
-            },
-            {
-                "name": "Farouq Ginwalla",
-                "role": "Trustee",
-                "bio": "Farouq Ginwalla brings extensive professional experience to the board as the Director of FG Immigration Ltd. As a long-standing resident of Gloucester, his expertise in governance and regulation ensures the charity operates with high standards of compliance and integrity, overseeing the responsible distribution of funds to those most in need."
-            },
-            {
-                "name": "Kamel Boulkenafet",
-                "role": "Trustee",
-                "bio": "Kamel Boulkenafet is a dedicated community advocate who previously served as a Director for Gloucestershire Action for Refugees and Asylum Seekers (GARAS). He was honored with the \"Community Upstander Award\" for his exceptional efforts in supporting vulnerable youth, reflecting the compassionate values at the heart of the Gloucester Zakat Fund."
-            },
-            {
-                "name": "Mariam Qureshi",
-                "role": "Trustee",
-                "bio": "Mariam Qureshi is an active trustee dedicated to social welfare within Gloucester. Her role involves assessing complex hardship cases and ensuring the fund's resources are directed towards impactful interventions for local families, helping to maintain the vital link between the charity and the community it serves."
-            },
-            {
-                "name": "Hashim Moolla",
-                "role": "Trustee",
-                "bio": "Hashim Moolla serves as a trustee with a focus on operational efficiency and community outreach. He assists in the rigorous verification of zakat applications, ensuring that every donation is accounted for and reaches eligible recipients in accordance with both charitable law and Islamic principles."
-            }
-        ]
+    {
+      "name": "Gloucester Feed The Hungry",
+      "url": "https://www.facebook.com/Gloucester-Feed-The-Hungry-CIC-1765597536990249/"
     },
-    "timeline": {
-        "title": "GZF in the Community",
-        "intro": "Alhamdulillah, most of us are blessed, but many neighbors aren't as fortunate. We provide assistance to local charities and vulnerable families right here on our doorstep.",
-        "items": [
-            {
-                "badge": "Food Support",
-                "title": "Supermarket Vouchers",
-                "description": "We provide ongoing supplies of supermarket gift cards to partner organizations, allowing families in need to purchase food and basic dignity supplies discreetly."
-            },
-            {
-                "badge": "Crisis Aid",
-                "title": "Emergency Support Grants",
-                "description": "Small grants for families in crisis to assist with essential expenses such as utilities, rent arrears, and emergency food supplies during critical times."
-            },
-            {
-                "badge": "Education",
-                "title": "School Support",
-                "description": "Assisting families with school-related costs, including uniform grants and educational supplies, ensuring every child can attend school with confidence."
-            }
-        ]
+    {
+      "name": "Gloucester Muslim Welfare Association",
+      "url": "https://masjidenoor.org.uk/"
     },
-    "introTitle": "Partner Organisations",
-    "introText": "We work closely with local organisations to ensure effective distribution of zakat and sadaqa:",
-    "organizations": [
-        {
-            "name": "The Friendship Cafe",
-            "url": "https://thefriendshipcafe.com/"
-        },
-        {
-            "name": "Masjid-e-Umar",
-            "url": "https://masjideumar.org"
-        },
-        {
-            "name": "Gloucester Feed The Hungry",
-            "url": "https://www.facebook.com/Gloucester-Feed-The-Hungry-CIC-1765597536990249/"
-        },
-        {
-            "name": "Gloucester Muslim Welfare Association",
-            "url": "https://masjidenoor.org.uk/"
-        },
-        {
-            "name": "Gloucester Muslim Burial Association",
-            "url": "https://masjidenoor.org.uk/gmbc/"
-        },
-        {
-            "name": "Gloucestershire Action for Refugees & Asylum Seekers",
-            "url": "https://www.garas.org.uk"
-        }
+    {
+      "name": "Gloucester Muslim Burial Association",
+      "url": "https://masjidenoor.org.uk/gmbc/"
+    },
+    {
+      "name": "Gloucestershire Action for Refugees & Asylum Seekers",
+      "url": "https://www.garas.org.uk"
+    }
+  ],
+  "timeline": {
+    "title": "GZF in the Community",
+    "intro": "Alhamdulillah, most of us are blessed, but many neighbors aren't as fortunate. We provide assistance to local charities and vulnerable families right here on our doorstep.",
+    "items": [
+      {
+        "badge": "Food Support",
+        "title": "Supermarket Vouchers",
+        "description": "We provide ongoing supplies of supermarket gift cards to partner organizations, allowing families in need to purchase food and basic dignity supplies discreetly."
+      },
+      {
+        "badge": "Crisis Aid",
+        "title": "Emergency Support Grants",
+        "description": "Small grants for families in crisis to assist with essential expenses such as utilities, rent arrears, and emergency food supplies during critical times."
+      },
+      {
+        "badge": "Education",
+        "title": "School Support",
+        "description": "Assisting families with school-related costs, including uniform grants and educational supplies, ensuring every child can attend school with confidence."
+      }
     ]
+  },
+  "introTitle": "Partner Organisations",
+  "heroSubtitle": "Your Local Neighbourhood Zakat Distributors. Collecting zakat and sadaqa to assist local residents in Gloucester.",
+  "policySection": {
+    "title": "Charity Information",
+    "intro": "The Gloucester Zakat Fund is a registered charity dedicated to transparency and adhering to UK charity laws.",
+    "charityNumber": "1215932",
+    "registration": "England & Wales",
+    "focusArea": "Gloucester & Surrounds",
+    "targetCommunity": "Local Residents In Need"
+  },
+  "introText": "We work closely with local organisations to ensure effective distribution of zakat and sadaqa:",
+  "trustees": {
+    "title": "Meet the Trustees",
+    "intro": "To ensure effective governance, leadership, and vision, our trustees bring specialized skills and extensive experience to the charity.",
+    "list": [
+      {
+        "name": "Imam Abdullah Patel",
+        "role": "Chairperson",
+        "image": "/uploads/test-trustee.webp",
+        "bio": "Imam Abdullah Abdul Samad Patel is a highly respected figure in the local Muslim community and serves as an Imam at Masjid e Umar. He is also the Head Teacher at Al-Ashraf Primary School, the first Islamic Primary School in the Southwest, and leads Peace Inclusion, advocating for educational access and community cohesion. Since 2025, he has served as a trustee for the Gloucester Rugby Charitable Foundation."
+      },
+      {
+        "name": "Farouq Ginwalla",
+        "role": "Trustee",
+        "bio": "Farouq Ginwalla brings extensive professional experience to the board as the Director of FG Immigration Ltd. As a long-standing resident of Gloucester, his expertise in governance and regulation ensures the charity operates with high standards of compliance and integrity, overseeing the responsible distribution of funds to those most in need.",
+        "image": "/uploads/screenshot-2026-01-13-103420.png"
+      },
+      {
+        "name": "Kamel Boulkenafet",
+        "role": "Trustee",
+        "bio": "Kamel Boulkenafet is a dedicated community advocate who previously served as a Director for Gloucestershire Action for Refugees and Asylum Seekers (GARAS). He was honored with the \"Community Upstander Award\" for his exceptional efforts in supporting vulnerable youth, reflecting the compassionate values at the heart of the Gloucester Zakat Fund."
+      },
+      {
+        "name": "Mariam Qureshi",
+        "role": "Trustee",
+        "bio": "Mariam Qureshi is an active trustee dedicated to social welfare within Gloucester. Her role involves assessing complex hardship cases and ensuring the fund's resources are directed towards impactful interventions for local families, helping to maintain the vital link between the charity and the community it serves."
+      },
+      {
+        "name": "Hashim Moolla",
+        "role": "Trustee",
+        "bio": "Hashim Moolla serves as a trustee with a focus on operational efficiency and community outreach. He assists in the rigorous verification of zakat applications, ensuring that every donation is accounted for and reaches eligible recipients in accordance with both charitable law and Islamic principles."
+      }
+    ]
+  },
+  "keyServices": {
+    "title": "Our Key Services",
+    "intro": "We strive to identify the most vulnerable in our community and provide them with dignified support.",
+    "services": [
+      {
+        "icon": "verified_user",
+        "title": "Qualify Individuals",
+        "description": "We carefully assess applications to ensure zakat reaches those who are genuinely eligible according to Islamic principles (As-Sadaqat)."
+      },
+      {
+        "icon": "payments",
+        "title": "Secure Payments",
+        "description": "Convenient and secure online payment system allowing you to fulfill your zakat obligations from anywhere, anytime."
+      },
+      {
+        "icon": "handshake",
+        "title": "Local Distribution",
+        "description": "We ensure your zakat goes directly to those in need within the Gloucester community, strengthening local bonds."
+      }
+    ]
+  },
+  "heroTitle": "About Gloucester\nZakat Fund"
 }
