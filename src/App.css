@@ -55,6 +55,12 @@ nav {
   gap: 1rem;
 }
 
+.nav-brand img {
+  height: 110px;
+  margin-right: 24px;
+  vertical-align: middle;
+}
+
 /* Logo styling removed to maintain native transparent background */
 
 
@@ -328,6 +334,7 @@ footer {
     padding-top: calc(1.25rem + 110px + 1.25rem + 1px);
     width: 100%;
     overflow-x: hidden;
+    overflow-y: auto;
   }
 
 
@@ -387,12 +394,9 @@ footer {
     margin-bottom: 2rem;
   }
 
-  .nav-brand img {
-    height: 60px;
-  }
-
   .main-content {
-    padding-top: calc(1.25rem + 60px + 1.25rem + 1px);
+    padding-top: calc(1.25rem + 110px + 1.25rem + 1px);
+    overflow-y: auto;
   }
 
   .nav-toggle {
@@ -2498,10 +2502,6 @@ img {
     border-radius: 10px;
   }
 
-  .nav-brand img {
-    height: 50px;
-  }
-
   .container {
     padding: 0 0.5rem;
   }
@@ -2555,7 +2555,6 @@ img {
 
   /* Adjust hero offset to match container padding on very small screens */
   .home-hero {
-    margin-top: -0.5rem;
     margin-left: -0.5rem;
     margin-right: -0.5rem;
   }
@@ -2589,10 +2588,6 @@ img {
   .community-section,
   .achievements-section {
     margin-bottom: 2rem;
-  }
-
-  .nav-brand img {
-    height: 60px;
   }
 
   .nav-toggle {

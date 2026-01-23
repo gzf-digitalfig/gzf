@@ -79,7 +79,6 @@ export default function Navbar() {
             <img
               src={logo}
               alt="Gloucester Zakat Fund Logo"
-              style={{ height: 110, marginRight: 24, verticalAlign: 'middle' }}
             />
           </NavLink>
         </div>
