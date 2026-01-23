@@ -6,7 +6,7 @@
 
 /* Clean Navigation */
 nav {
-  position: sticky;
+  position: fixed;
   top: 0;
   width: 100%;
   z-index: 1000;
@@ -126,6 +126,8 @@ nav a.active {
 .main-content {
   flex: 1;
   width: 100%;
+  padding-top: 160px;
+  /* Compensate for fixed header */
 }
 
 /* Clean Footer */
@@ -324,6 +326,8 @@ footer {
 
   .main-content {
     padding: 0;
+    padding-top: 110px;
+    /* Mobile header height compensation */
     width: 100%;
     overflow-x: hidden;
   }
