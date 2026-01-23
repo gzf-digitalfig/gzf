@@ -48,9 +48,54 @@ collections:
         label: "About Page"
         file: "src/content/pages/about.json"
         fields:
-          - { label: "Intro Title", name: "introTitle", widget: "string" }
-          - { label: "Intro Text", name: "introText", widget: "text" }
-          - { label: "Partner Organizations", name: "organizations", widget: "list", fields: [{label: "Name", name: "name", widget: "string"}] }
+          - { label: "Hero Title", name: "heroTitle", widget: "string" }
+          - { label: "Hero Subtitle", name: "heroSubtitle", widget: "text" }
+          
+          - { label: "Policy Section", name: "policySection", widget: "object", fields: [
+              { label: "Title", name: "title", widget: "string" },
+              { label: "Intro", name: "intro", widget: "text" },
+              { label: "Charity Number", name: "charityNumber", widget: "string" },
+              { label: "Registration Region", name: "registration", widget: "string" },
+              { label: "Focus Area", name: "focusArea", widget: "string" },
+              { label: "Target Community", name: "targetCommunity", widget: "string" }
+            ]}
+
+          - { label: "Key Services Section", name: "keyServices", widget: "object", fields: [
+              { label: "Title", name: "title", widget: "string" },
+              { label: "Intro", name: "intro", widget: "text" },
+              { label: "Services List", name: "services", widget: "list", fields: [
+                  { label: "Icon Name (Material Symbols)", name: "icon", widget: "string" },
+                  { label: "Title", name: "title", widget: "string" },
+                  { label: "Description", name: "description", widget: "text" }
+              ]}
+            ]}
+
+          - { label: "Trustees Section", name: "trustees", widget: "object", fields: [
+              { label: "Title", name: "title", widget: "string" },
+              { label: "Intro", name: "intro", widget: "text" },
+              { label: "Trustees List", name: "list", widget: "list", fields: [
+                  { label: "Name", name: "name", widget: "string" },
+                  { label: "Role", name: "role", widget: "string" },
+                  { label: "Bio", name: "bio", widget: "text" }
+              ]}
+            ]}
+
+          - { label: "Timeline Section", name: "timeline", widget: "object", fields: [
+              { label: "Title", name: "title", widget: "string" },
+              { label: "Intro", name: "intro", widget: "text" },
+              { label: "Timeline Items", name: "items", widget: "list", fields: [
+                  { label: "Badge Text", name: "badge", widget: "string" },
+                  { label: "Title", name: "title", widget: "string" },
+                  { label: "Description", name: "description", widget: "text" }
+              ]}
+            ]}
+
+          - { label: "Partners Title", name: "introTitle", widget: "string" }
+          - { label: "Partners Intro", name: "introText", widget: "text" }
+          - { label: "Partner Organizations", name: "organizations", widget: "list", fields: [
+              { label: "Name", name: "name", widget: "string" },
+              { label: "URL", name: "url", widget: "string" }
+            ]}
 
       - name: "contact"
         label: "Contact Page"
@@ -63,3 +108,31 @@ collections:
           - { label: "Account Name", name: "accountName", widget: "string" }
           - { label: "Sort Code", name: "sortCode", widget: "string" }
           - { label: "Account Number", name: "accountNumber", widget: "string" }
+
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - name: "global"
+        label: "Global Settings (Footer etc)"
+        file: "src/content/settings/global.json"
+        fields:
+          - { label: "Site Title", name: "siteTitle", widget: "string" }
+          - { label: "Footer", name: "footer", widget: "object", fields: [
+              { label: "Description Text", name: "text", widget: "text" },
+              { label: "Charity Number", name: "charityNumber", widget: "string" },
+              { label: "Copyright Holder", name: "copyright", widget: "string" },
+              { label: "Powered By Name", name: "powerBy", widget: "string" },
+              { label: "Powered By URL", name: "powerByUrl", widget: "string" },
+              { label: "Quick Links", name: "links", widget: "list", fields: [
+                 {label: "Label", name: "label", widget: "string"},
+                 {label: "URL", name: "url", widget: "string"}
+              ]},
+              { label: "Contact Links", name: "contactLinks", widget: "list", fields: [
+                 {label: "Label", name: "label", widget: "string"},
+                 {label: "URL", name: "url", widget: "string"}
+              ]},
+              { label: "Legal Links", name: "legalLinks", widget: "list", fields: [
+                 {label: "Label", name: "label", widget: "string"},
+                 {label: "URL", name: "url", widget: "string"}
+              ]}
+            ]}
