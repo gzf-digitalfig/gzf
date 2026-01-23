@@ -139,13 +139,9 @@ button:not(.nav-toggle):not(.bio-modal-close),
   box-shadow: var(--shadow-md);
 }
 
-button:not(.nav-toggle):not(.bio-modal-close):hover,
 .btn:hover {
   /* No hover effect as requested */
-  background: var(--gradient-primary);
   color: white;
-  transform: none;
-  box-shadow: var(--shadow-md);
 }
 
 .btn-secondary {

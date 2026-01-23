@@ -742,8 +742,8 @@
 }
 
 .bio-modal-close:hover {
-    background: #e5e7eb;
-    color: var(--text-primary);
+    background: #f3f4f6;
+    color: var(--text-secondary);
 }
 
 .bio-modal-header {
@@ -928,7 +928,7 @@
 }
 
 .transparency-buttons .btn-white:hover {
-    background: #f9fafb;
+    background: white;
 }
 
 .transparency-buttons .btn-outline {
@@ -948,7 +948,7 @@
 }
 
 .transparency-buttons .btn-outline:hover {
-    background: rgba(36, 110, 73, 0.5);
+    background: rgba(36, 110, 73, 0.3);
 }
 
 /* ============================================

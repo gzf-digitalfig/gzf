@@ -5,7 +5,7 @@
 }
 
 /* Clean Navigation */
-nav {
+.navbar {
   position: fixed;
   top: 0;
   width: 100%;
@@ -108,7 +108,7 @@ nav {
   color: var(--primary-green) !important;
 }
 
-nav a {
+.navbar a {
   color: var(--text-secondary);
   font-weight: 500;
   font-size: 1rem;
@@ -117,15 +117,32 @@ nav a {
   transition: all 0.3s ease;
 }
 
-nav a:hover {
+.navbar a:hover {
   color: var(--text-primary);
   background: var(--bg-tertiary);
 }
 
-nav a.active {
+.navbar a.active {
   color: var(--primary-green);
   background: var(--primary-green-light);
   font-weight: 600;
+}
+
+.navbar .btn,
+.navbar .btn:visited,
+.navbar .btn.active {
+  color: #fff;
+  background: var(--gradient-primary);
+}
+
+.navbar .btn:hover,
+.navbar .btn:active,
+.navbar .btn:focus,
+.navbar .btn.active:hover {
+  color: #fff;
+  background: var(--gradient-primary);
+  transform: none;
+  box-shadow: var(--shadow-md);
 }
 
 /* Main Content */
@@ -322,8 +339,9 @@ footer {
 }
 
 .modern-btn:hover {
-  background: var(--primary-green);
-  transform: translateY(-2px) scale(1.01);
+  background: var(--gradient-primary);
+  transform: none;
+  box-shadow: var(--shadow-md);
 }
 
 /* Responsive Design */
@@ -773,6 +791,10 @@ footer {
 }
 
 /* FAQ Layout Styles */
+.faq-page {
+  padding-top: 1.5rem;
+}
+
 .faq-layout {
   display: flex;
   flex-direction: column;
@@ -1461,6 +1483,7 @@ img {
   justify-content: center;
   gap: 0.5rem;
   background: linear-gradient(135deg, #059669 0%, var(--primary-green) 100%);
+  color: #fff;
   border-radius: 12px;
   box-shadow: 0 5px 15px rgba(0, 128, 0, 0.2);
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
@@ -1667,6 +1690,7 @@ img {
 
 .pay-zakat-btn {
   background: linear-gradient(135deg, #059669 0%, var(--primary-green) 100%);
+  color: #fff;
   padding: 1.2rem 1.8rem;
   font-size: 1.1rem;
   display: flex;
@@ -1719,6 +1743,7 @@ img {
   width: 100%;
   margin-top: 1rem;
   background: linear-gradient(135deg, #059669 0%, var(--primary-green) 100%);
+  color: #fff;
 }
 
 /* Stripe Payment Modal Styles */
@@ -1789,8 +1814,8 @@ img {
 }
 
 .close-btn:hover {
-  background: var(--bg-tertiary);
-  color: var(--text-primary);
+  background: none;
+  color: var(--text-tertiary);
 }
 
 .payment-amount {
@@ -1884,6 +1909,7 @@ img {
   padding: 1.25rem;
   font-size: 1.1rem;
   background: linear-gradient(135deg, #059669 0%, var(--primary-green) 100%);
+  color: #fff;
   margin-bottom: 1.5rem;
   display: flex;
   align-items: center;
@@ -2347,6 +2373,14 @@ img {
   height: auto;
 }
 
+.nav-buttons-group .btn:hover,
+.nav-links .btn:hover {
+  background: var(--gradient-primary);
+  color: #fff;
+  transform: none;
+  box-shadow: var(--shadow-md);
+}
+
 /* Overlay for mobile nav - can be removed if menu is full screen opaque */
 .mobile-nav-overlay {
   display: none;
@@ -2405,7 +2439,7 @@ img {
     transform: translateX(0);
   }
 
-  nav a {
+  .navbar a {
     color: var(--text-primary);
     font-size: 1rem;
     font-weight: 500;
@@ -2416,12 +2450,12 @@ img {
     border-bottom: none;
   }
 
-  nav a:hover {
+  .navbar a:hover {
     background: var(--bg-tertiary);
     color: var(--primary-green);
   }
 
-  nav a.active {
+  .navbar a.active {
     background: var(--primary-green-light);
     color: var(--primary-green);
     font-weight: 600;
@@ -2546,7 +2580,7 @@ img {
     text-align: left;
   }
 
-  nav {
+  .navbar {
     background: rgba(240, 255, 240, 0.85);
   }
 }

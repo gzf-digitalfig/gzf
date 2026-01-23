@@ -360,7 +360,8 @@
 }
 
 .zakat-calculator-wizard .segmented-control button:not(.active):hover {
-    background: var(--primary-bg);
+    background: var(--bg-white);
+    color: var(--primary-green);
 }
 
 /* ============================================================================
@@ -427,7 +428,8 @@
 }
 
 .zakat-calculator-wizard .btn-remove:hover {
-    background: #FFCDD2;
+    background: #FFEBEE;
+    color: var(--error);
 }
 
 .zakat-calculator-wizard .btn-add {
@@ -446,7 +448,8 @@
 }
 
 .zakat-calculator-wizard .btn-add:hover {
-    background: var(--primary-bg);
+    background: transparent;
+    color: var(--primary-green);
 }
 
 .zakat-calculator-wizard .btn-add-primary {
@@ -456,7 +459,8 @@
 }
 
 .zakat-calculator-wizard .btn-add-primary:hover {
-    background: var(--primary-green-dark);
+    background: var(--primary-green);
+    color: white;
 }
 
 /* ============================================================================
@@ -502,7 +506,7 @@
 }
 
 .zakat-calculator-wizard .btn-icon:hover {
-    background: var(--border-light);
+    background: transparent;
 }
 
 .zakat-calculator-wizard .gold-item-details {
@@ -784,8 +788,8 @@
 }
 
 .zakat-calculator-wizard .btn-previous:hover {
-    background: #E0E0E0;
-    color: var(--text-primary);
+    background: #F0F0F0;
+    color: var(--text-secondary);
 }
 
 .zakat-calculator-wizard .btn-next {
@@ -793,6 +797,11 @@
     color: white;
     margin-left: auto;
     /* Push to right */
+}
+
+.zakat-calculator-wizard .btn-next:hover {
+    background: var(--primary-green);
+    color: white;
 }
 
 
@@ -844,7 +853,8 @@
 }
 
 .zakat-calculator-wizard .donate-btn:hover {
-    background: #005ea6;
+    background: #0070BA;
+    color: white;
 }
 
 .zakat-calculator-wizard .gift-aid-notice {
