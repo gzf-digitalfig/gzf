@@ -325,7 +325,7 @@ footer {
 
   .main-content {
     padding: 0;
-    padding-top: 100px;
+    padding-top: 120px;
     width: 100%;
     overflow-x: hidden;
   }
@@ -792,14 +792,14 @@ footer {
     /* 256px approx */
     flex-shrink: 0;
     position: sticky;
-    top: 9rem;
+    top: calc(150px + 2rem);
   }
 }
 
 @media (max-width: 1023px) {
   .faq-sidebar {
     position: sticky;
-    top: 5rem;
+    top: calc(100px + 1rem);
     /* Below header */
     z-index: 900;
     background: var(--bg-primary);
