@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "../App.css";
-import ccLogo from "../assets/cc.webp";
+import defaultCcLogo from "../assets/cc.webp";
 import globalData from "../content/settings/global.json";
 
 export default function Footer() {
@@ -18,7 +18,7 @@ export default function Footer() {
           <p>
             Registered Charity No. {footer.charityNumber}
           </p>
-          <img src={ccLogo} alt="Registered Charity" className="footer-cc-logo" />
+          <img src={footer.ccLogo || defaultCcLogo} alt="Registered Charity" className="footer-cc-logo" />
         </div>
 
         <div className="footer-section">

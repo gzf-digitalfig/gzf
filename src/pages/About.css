@@ -48,6 +48,19 @@
     background-repeat: repeat;
 }
 
+.about-hero.with-bg-image::before {
+    display: none;
+}
+
+.about-hero.with-bg-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.85);
+    /* Overlay to maintain text readability */
+    z-index: 0;
+}
+
 .about-hero-content {
     max-width: 960px;
     margin: 0 auto;
@@ -630,7 +643,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    filter: grayscale(100%);
     transition: all 0.5s ease;
 }
 

@@ -66,7 +66,14 @@ export default function News() {
               >
                 {formatDate(activity.date)}
               </span>
-              <span className="description">{activity.description}</span>
+              <div className="achievement-content" style={{ display: 'flex', gap: '1.5rem', alignItems: 'center', flexWrap: 'wrap' }}>
+                {activity.image && (
+                  <div className="achievement-image" style={{ width: '120px', height: '80px', flexShrink: 0 }}>
+                    <img src={activity.image} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '8px' }} />
+                  </div>
+                )}
+                <span className="description">{activity.description}</span>
+              </div>
             </div>
           ))}
         </div>

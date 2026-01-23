@@ -1,7 +1,8 @@
 import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
-import logo from "../assets/gzflogo.webp";
+import defaultLogo from "../assets/gzflogo.webp";
 import "../App.css";
+import globalData from "../content/settings/global.json";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -77,7 +78,7 @@ export default function Navbar() {
         <div className="nav-brand">
           <NavLink to="/" onClick={closeMenu}>
             <img
-              src={logo}
+              src={globalData.logo || defaultLogo}
               alt="Gloucester Zakat Fund Logo"
             />
           </NavLink>

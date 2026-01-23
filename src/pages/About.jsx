@@ -4,11 +4,15 @@ import "./About.css";
 
 const trustees = aboutData.trustees.list || [];
 
-function TrusteeCard({ name, role, bio, onReadMore }) {
+function TrusteeCard({ name, role, bio, image, onReadMore }) {
   return (
     <div className="trustee-card">
       <div className="trustee-image">
-        <span className="material-symbols-outlined">person</span>
+        {image ? (
+          <img src={image} alt={name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+        ) : (
+          <span className="material-symbols-outlined">person</span>
+        )}
       </div>
       <div className="trustee-content">
         <h3>{name}</h3>
@@ -38,7 +42,11 @@ function BioModal({ trustee, onClose }) {
         </button>
         <div className="bio-modal-header">
           <div className="bio-modal-avatar">
-            <span className="material-symbols-outlined">person</span>
+            {trustee.image ? (
+              <img src={trustee.image} alt={trustee.name} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '1rem' }} />
+            ) : (
+              <span className="material-symbols-outlined">person</span>
+            )}
           </div>
           <div>
             <h2>{trustee.name}</h2>
@@ -65,7 +73,10 @@ export default function About() {
       {/* ============================================
           1. HERO SECTION
           ============================================ */}
-      <header className="about-hero">
+      <header
+        className={`about-hero ${aboutData.heroImage ? 'with-bg-image' : ''}`}
+        style={aboutData.heroImage ? { backgroundImage: `url(${aboutData.heroImage})`, backgroundSize: 'cover', backgroundPosition: 'center' } : {}}
+      >
         <div className="about-hero-content">
           <h1>
             {aboutData.heroTitle && aboutData.heroTitle.split('\n').map((line, i) => (

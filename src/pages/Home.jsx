@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import localImpactImage from "../assets/donation.webp";
-import heroImage from "../assets/zakat.webp";
+import defaultLocalImpactImage from "../assets/donation.webp";
+import defaultHeroImage from "../assets/zakat.webp";
 import homeData from "../content/pages/home.json";
 
 // Load activities from the CMS (JSON files)
@@ -26,7 +26,7 @@ export default function Home() {
       {/* Hero Section */}
       <section
         className="home-section text-center home-hero"
-        style={{ backgroundImage: `url(${heroImage})` }}
+        style={{ backgroundImage: `url(${homeData.heroImage || defaultHeroImage})` }}
       >
         <div className="container">
           <div className="fade-in">
@@ -60,7 +60,14 @@ export default function Home() {
                   >
                     {formatDate(activity.date)}
                   </span>
-                  <span className="description">{activity.description}</span>
+                  <div className="achievement-content" style={{ display: 'flex', gap: '1.5rem', alignItems: 'center', flexWrap: 'wrap' }}>
+                    {activity.image && (
+                      <div className="achievement-image" style={{ width: '120px', height: '80px', flexShrink: 0 }}>
+                        <img src={activity.image} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '8px' }} />
+                      </div>
+                    )}
+                    <span className="description">{activity.description}</span>
+                  </div>
                 </div>
               ))}
             </div>
@@ -113,7 +120,7 @@ export default function Home() {
             </div>
             <div className="slide-up impact-image">
               <img
-                src={localImpactImage}
+                src={homeData.impactImage || defaultLocalImpactImage}
                 alt="Community support"
                 style={{ width: '100%', borderRadius: '16px', boxShadow: 'var(--shadow-lg)' }}
               />

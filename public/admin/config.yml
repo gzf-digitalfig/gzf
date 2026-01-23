@@ -17,6 +17,7 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
+      - { label: "Image", name: "image", widget: "image", required: false }
       - { label: "Content", name: "description", widget: "text" }
 
   - name: "pages"
@@ -28,6 +29,7 @@ collections:
         fields:
           - { label: "Hero Title", name: "heroTitle", widget: "string" }
           - { label: "Hero Subtitle", name: "heroSubtitle", widget: "text" }
+          - { label: "Hero Image", name: "heroImage", widget: "image", required: false }
           - { label: "Steps", name: "steps", widget: "list", fields: [
               { label: "Number", name: "number", widget: "string" },
               { label: "Title", name: "title", widget: "string" },
@@ -35,6 +37,7 @@ collections:
             ]}
           - { label: "Impact Title", name: "impactTitle", widget: "string" }
           - { label: "Impact Text", name: "impactText", widget: "text" }
+          - { label: "Impact Image", name: "impactImage", widget: "image", required: false }
           - { label: "Impact Button Text", name: "impactBtnText", widget: "string" }
           - { label: "Testimonials", name: "testimonials", widget: "list", fields: [
               { label: "Quote", name: "quote", widget: "text" },
@@ -50,6 +53,7 @@ collections:
         fields:
           - { label: "Hero Title", name: "heroTitle", widget: "string" }
           - { label: "Hero Subtitle", name: "heroSubtitle", widget: "text" }
+          - { label: "Hero Image", name: "heroImage", widget: "image", required: false }
           
           - { label: "Policy Section", name: "policySection", widget: "object", fields: [
               { label: "Title", name: "title", widget: "string" },
@@ -76,6 +80,7 @@ collections:
               { label: "Trustees List", name: "list", widget: "list", fields: [
                   { label: "Name", name: "name", widget: "string" },
                   { label: "Role", name: "role", widget: "string" },
+                  { label: "Image", name: "image", widget: "image", required: false },
                   { label: "Bio", name: "bio", widget: "text" }
               ]}
             ]}
@@ -114,6 +119,7 @@ collections:
         file: "src/content/pages/faq.json"
         fields:
           - { label: "Page Title", name: "pageTitle", widget: "string" }
+          - { label: "Hero Image", name: "heroImage", widget: "image", required: false }
           - { label: "Intro Text", name: "introText", widget: "text" }
           - { label: "FAQ Sections", name: "sections", widget: "list", fields: [
               { label: "Section ID (no spaces, lowercase)", name: "id", widget: "string" },
@@ -130,6 +136,7 @@ collections:
         file: "src/content/pages/apply.json"
         fields:
           - { label: "Page Title", name: "pageTitle", widget: "string" }
+          - { label: "Hero Image", name: "heroImage", widget: "image", required: false }
           - { label: "Intro Text", name: "introText", widget: "text" }
           - { label: "Form Section", name: "formSection", widget: "object", fields: [
               { label: "Title", name: "title", widget: "string" },
@@ -150,9 +157,11 @@ collections:
         file: "src/content/settings/global.json"
         fields:
           - { label: "Site Title", name: "siteTitle", widget: "string" }
+          - { label: "Site Logo", name: "logo", widget: "image", required: false }
           - { label: "Footer", name: "footer", widget: "object", fields: [
               { label: "Description Text", name: "text", widget: "text" },
               { label: "Charity Number", name: "charityNumber", widget: "string" },
+              { label: "Charity Commission Logo", name: "ccLogo", widget: "image", required: false },
               { label: "Copyright Holder", name: "copyright", widget: "string" },
               { label: "Quick Links", name: "links", widget: "list", fields: [
                  {label: "Label", name: "label", widget: "string"},
