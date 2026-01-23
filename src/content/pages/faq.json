@@ -1,0 +1,132 @@
+{
+    "pageTitle": "Frequently Asked Questions",
+    "introText": "Find clear answers about your Zakat obligations, how we distribute funds locally, and transparency in our donation process.",
+    "sections": [
+        {
+            "id": "general",
+            "title": "General Questions",
+            "icon": "grid_view",
+            "items": [
+                {
+                    "question": "What is Zakat?",
+                    "answer": "Zakat is an obligatory form of charity for eligible Muslims, usually calculated as 2.5% of one's surplus wealth. It purifies wealth and supports those in financial difficulty. Zakat is one of the five pillars of Islam."
+                },
+                {
+                    "question": "What is the purpose of the Gloucester Zakat Fund?",
+                    "answer": "Our charity collects and distributes Zakat locally to eligible Muslims in Gloucestershire, with a particular focus on Gloucester, helping those in hardship while adhering to Islamic principles."
+                },
+                {
+                    "question": "Is the fund managed by qualified individuals?",
+                    "answer": "Yes, the fund is overseen by a trusted team including community leaders and advisors with knowledge of Islamic finance and local welfare needs. All applications are reviewed with confidentiality, care, and accountability."
+                }
+            ]
+        },
+        {
+            "id": "donors",
+            "title": "For Donors",
+            "icon": "volunteer_activism",
+            "items": [
+                {
+                    "question": "Can I give my Zakat to a local cause?",
+                    "answer": "Absolutely. Islam encourages giving Zakat to eligible individuals within your own locality (ahl al-balad), and our fund ensures it stays within the local community."
+                },
+                {
+                    "question": "How do you assess if someone is eligible to receive Zakat?",
+                    "answer": "We assess based on Islamic criteria, including assets, debts, income, and liabilities. The applicant must fall below the nisāb threshold and fit within one of the eight eligible categories mentioned in the Qur'ān (9:60)."
+                },
+                {
+                    "question": "Do you only accept Zakat, or can I give Sadaqa too?",
+                    "answer": "We accept both Zakat and Sadaqa. While Zakat has strict guidelines, Sadaqa allows more flexibility to support a broader range of needs including non-Muslims, community projects, and urgent hardship."
+                },
+                {
+                    "question": "Can I choose where my Zakat goes?",
+                    "answer": "Zakat donations are pooled to ensure fair distribution based on need and eligibility. While we can't guarantee donor-directed allocations, you're welcome to contact us if you have a preference for supporting specific causes (e.g., refugees, housing support)."
+                },
+                {
+                    "question": "Will I get a receipt?",
+                    "answer": "Receipts are automatically emailed for online donations. Receipts for cash and bank transfers can be arranged, if required."
+                },
+                {
+                    "question": "Is my donation secure and confidential?",
+                    "answer": "Yes. All donations are processed securely, and your personal data is protected under GDPR guidelines."
+                },
+                {
+                    "question": "What is the current niṣāb threshold?",
+                    "answer": "The niṣāb is the minimum wealth a Muslim must have before Zakat becomes obligatory. It is based on the value of: 87.48g of gold or 612.36g of silver. We recommend using the silver value to ensure more people benefit, but individuals may follow their preferred scholarly opinion. Please check updated prices before calculating your Zakat."
+                }
+            ]
+        },
+        {
+            "id": "applicants",
+            "title": "For Applicants",
+            "icon": "diversity_3",
+            "items": [
+                {
+                    "question": "Who can apply for Zakat through this fund?",
+                    "answer": "Muslims residing in Gloucestershire (particularly Gloucester) who are in financial hardship and fall below the niṣāb threshold may apply."
+                },
+                {
+                    "question": "How do I apply?",
+                    "answer": "You can apply using our online form, or request paper forms or in-person help. We will ask for ID and basic financial documents to assess eligibility."
+                },
+                {
+                    "question": "What kind of help can I get?",
+                    "answer": "If eligible, we may assist with: Rent or utility arrears, Essential food or clothing, School or education costs, Emergency living expenses."
+                },
+                {
+                    "question": "How long does the process take?",
+                    "answer": "We aim to respond to most applications within 5–10 working days. Emergency requests may be fast-tracked."
+                },
+                {
+                    "question": "Do I need to be on benefits to qualify?",
+                    "answer": "Not necessarily. Eligibility is based on Islamic criteria, not just benefit status. We consider your overall financial situation."
+                },
+                {
+                    "question": "Will applying for Zakat affect my benefits or immigration status?",
+                    "answer": "No. Zakat is classed as charitable support and does not count as income for benefit purposes. It is also safe for individuals with no recourse to public funds."
+                }
+            ]
+        },
+        {
+            "id": "volunteering",
+            "title": "Volunteering & Community",
+            "icon": "handshake",
+            "items": [
+                {
+                    "question": "How can I help?",
+                    "answer": "You can support our work by volunteering your time or skills. Please contact us using the details on our website to offer help."
+                }
+            ]
+        },
+        {
+            "id": "privacy",
+            "title": "Privacy & Transparency",
+            "icon": "security",
+            "items": [
+                {
+                    "question": "Is my information kept confidential?",
+                    "answer": "Yes. All data is stored securely, and only authorised reviewers will access it for the purpose of assessing need. We are fully GDPR compliant."
+                },
+                {
+                    "question": "Do you publish reports or audits?",
+                    "answer": "We intend to publish anonymised annual reports to show how Zakat was distributed, building community trust and transparency."
+                }
+            ]
+        },
+        {
+            "id": "compliance",
+            "title": "Islamic Compliance",
+            "icon": "balance",
+            "items": [
+                {
+                    "question": "How do you ensure Zakat is distributed correctly?",
+                    "answer": "Zakat is only given to those who meet the Islamic criteria in Qur'ān 9:60. There is no scenario in which Zakat is used for admin purposes, except where those directly reviewing or distributing it are themselves eligible to receive Zakat (e.g., ʿāmilīn ʿalayhā)."
+                },
+                {
+                    "question": "Which Islamic scholars or schools do you follow?",
+                    "answer": "Our understanding and application of Zakat is based on the Qur'ān and Sunnah, and predominantly the interpretation of Ḥanafī scholars."
+                }
+            ]
+        }
+    ]
+}

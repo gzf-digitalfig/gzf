@@ -1,0 +1,14 @@
+{
+    "pageTitle": "Apply for Assistance",
+    "introText": "If you are a Gloucester resident in need, you can apply for zakat or other support using our online form or by contacting us directly. We also accept referrals from local organisations and community leaders.",
+    "formSection": {
+        "title": "Online Application Form",
+        "intro": "Please fill out the form below to apply for assistance.",
+        "googleFormUrl": "https://docs.google.com/forms/d/e/1FAIpQLSc7TDJIWNNZuaxXMC7YxVP8YNO_Nhkit9muzRlzouRaKeUrhQ/viewform?embedded=true"
+    },
+    "locationSection": {
+        "title": "Application Location:",
+        "name": "Masjid E Umar",
+        "address": "14 Conduit St, Gloucester, GL1 4LX"
+    }
+}

@@ -109,6 +109,39 @@ collections:
           - { label: "Sort Code", name: "sortCode", widget: "string" }
           - { label: "Account Number", name: "accountNumber", widget: "string" }
 
+      - name: "faq"
+        label: "FAQ Page"
+        file: "src/content/pages/faq.json"
+        fields:
+          - { label: "Page Title", name: "pageTitle", widget: "string" }
+          - { label: "Intro Text", name: "introText", widget: "text" }
+          - { label: "FAQ Sections", name: "sections", widget: "list", fields: [
+              { label: "Section ID (no spaces, lowercase)", name: "id", widget: "string" },
+              { label: "Section Title", name: "title", widget: "string" },
+              { label: "Icon Name (Material Symbols)", name: "icon", widget: "string" },
+              { label: "Questions", name: "items", widget: "list", fields: [
+                  { label: "Question", name: "question", widget: "string" },
+                  { label: "Answer", name: "answer", widget: "markdown" }
+              ]}
+            ]}
+
+      - name: "apply"
+        label: "Apply Page"
+        file: "src/content/pages/apply.json"
+        fields:
+          - { label: "Page Title", name: "pageTitle", widget: "string" }
+          - { label: "Intro Text", name: "introText", widget: "text" }
+          - { label: "Form Section", name: "formSection", widget: "object", fields: [
+              { label: "Title", name: "title", widget: "string" },
+              { label: "Intro", name: "intro", widget: "text" },
+              { label: "Google Form Embed URL", name: "googleFormUrl", widget: "string" }
+            ]}
+          - { label: "Location Section", name: "locationSection", widget: "object", fields: [
+              { label: "Title", name: "title", widget: "string" },
+              { label: "Location Name", name: "name", widget: "string" },
+              { label: "Address", name: "address", widget: "string" }
+            ]}
+
   - name: "settings"
     label: "Site Settings"
     files:
