@@ -52,7 +52,7 @@ export default function Footer() {
       <div className="footer-bottom">
         <span>&copy; {currentYear} {footer.copyright}</span>
         <span className="footer-separator"> | </span>
-        <span className="footer-credit">Powered by <a href={footer.powerByUrl} target="_blank" rel="noopener noreferrer" style={{ color: '#374151', textDecoration: 'none', fontWeight: 'bold' }}>{footer.powerBy}</a></span>
+        <span className="footer-credit">Powered by <a href="https://digitalfig.com" target="_blank" rel="noopener noreferrer" style={{ color: '#374151', textDecoration: 'none', fontWeight: 'bold' }}>Digital Fig</a></span>
       </div>
     </footer>
   );

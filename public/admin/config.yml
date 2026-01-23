@@ -121,8 +121,6 @@ collections:
               { label: "Description Text", name: "text", widget: "text" },
               { label: "Charity Number", name: "charityNumber", widget: "string" },
               { label: "Copyright Holder", name: "copyright", widget: "string" },
-              { label: "Powered By Name", name: "powerBy", widget: "string" },
-              { label: "Powered By URL", name: "powerByUrl", widget: "string" },
               { label: "Quick Links", name: "links", widget: "list", fields: [
                  {label: "Label", name: "label", widget: "string"},
                  {label: "URL", name: "url", widget: "string"}
