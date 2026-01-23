@@ -5,7 +5,7 @@ import BankTransfer from '../components/BankTransfer';
 
 export default function Donate() {
     return (
-        <div className="container">
+        <div className="container" style={{ paddingTop: '4rem' }}>
             <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
                 <h1 style={{ color: 'var(--primary-green)', fontWeight: '700', marginBottom: '1rem' }}>Donate to Gloucester Zakat Fund</h1>
                 <p style={{ fontSize: '1.2rem', color: 'var(--text-secondary)', lineHeight: '1.6' }}>

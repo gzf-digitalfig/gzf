@@ -120,6 +120,7 @@
     max-width: 800px;
     /* Slightly wider for React app integration */
     margin: 0 auto;
+    padding-top: 4rem;
 }
 
 /* ============================================================================
@@ -351,7 +352,6 @@
     font-weight: 600;
     font-size: 14px;
     cursor: pointer;
-    transition: var(--transition);
 }
 
 .zakat-calculator-wizard .segmented-control button.active {
@@ -359,9 +359,9 @@
     color: white;
 }
 
-.zakat-calculator-wizard .segmented-control button:not(.active):hover {
-    background: var(--bg-white);
-    color: var(--primary-green);
+.zakat-calculator-wizard .segmented-control button.active {
+    background: var(--primary-green);
+    color: white;
 }
 
 /* ============================================================================
@@ -375,11 +375,6 @@
     padding: var(--spacing-md);
     background: var(--bg-light);
     border-radius: var(--radius-md);
-    transition: var(--transition);
-}
-
-.zakat-calculator-wizard .checkbox-group:hover {
-    background: var(--primary-bg);
 }
 
 .zakat-calculator-wizard .checkbox-group input[type="checkbox"] {
@@ -420,16 +415,10 @@
     border-radius: var(--radius-sm);
     cursor: pointer;
     font-size: 18px;
-    transition: var(--transition);
     flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.zakat-calculator-wizard .btn-remove:hover {
-    background: #FFEBEE;
-    color: var(--error);
 }
 
 .zakat-calculator-wizard .btn-add {
@@ -443,13 +432,7 @@
     font-weight: 600;
     font-size: 14px;
     cursor: pointer;
-    transition: var(--transition);
     margin-top: var(--spacing-sm);
-}
-
-.zakat-calculator-wizard .btn-add:hover {
-    background: transparent;
-    color: var(--primary-green);
 }
 
 .zakat-calculator-wizard .btn-add-primary {
@@ -458,7 +441,8 @@
     color: white;
 }
 
-.zakat-calculator-wizard .btn-add-primary:hover {
+.zakat-calculator-wizard .btn-add-primary {
+    border-style: solid;
     background: var(--primary-green);
     color: white;
 }
@@ -769,6 +753,7 @@
     justify-content: space-between;
     margin-top: var(--spacing-lg);
     padding-top: var(--spacing-lg);
+    margin-bottom: 4rem;
     border-top: 1px solid var(--border-light);
 }
 
@@ -779,15 +764,9 @@
     cursor: pointer;
     border: none;
     font-size: 16px;
-    transition: var(--transition);
 }
 
 .zakat-calculator-wizard .btn-previous {
-    background: #F0F0F0;
-    color: var(--text-secondary);
-}
-
-.zakat-calculator-wizard .btn-previous:hover {
     background: #F0F0F0;
     color: var(--text-secondary);
 }
@@ -797,11 +776,6 @@
     color: white;
     margin-left: auto;
     /* Push to right */
-}
-
-.zakat-calculator-wizard .btn-next:hover {
-    background: var(--primary-green);
-    color: white;
 }
 
 
@@ -816,13 +790,10 @@
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 123, 255, 0.1);
     text-align: center;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.zakat-calculator-wizard .donate-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 123, 255, 0.15);
-}
+
+
 
 .zakat-calculator-wizard .donate-card h3 {
     color: var(--primary);
@@ -846,16 +817,13 @@
     border-radius: 50px;
     text-decoration: none;
     font-size: 1.2rem;
-    transition: background 0.2s ease;
     width: 100%;
     margin-bottom: 1.5rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.zakat-calculator-wizard .donate-btn:hover {
-    background: #0070BA;
-    color: white;
-}
+
+
 
 .zakat-calculator-wizard .gift-aid-notice {
     background: #fff3cd;

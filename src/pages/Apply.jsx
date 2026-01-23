@@ -5,7 +5,7 @@ export default function Apply() {
   const { pageTitle, introText, formSection, locationSection } = applyData;
 
   return (
-    <div className="apply-page container" style={{ paddingBottom: '4rem', paddingTop: '2rem' }}>
+    <div className="apply-page container" style={{ paddingBottom: '4rem', paddingTop: '4rem' }}>
       <h1>{pageTitle}</h1>
       <p>
         {introText}

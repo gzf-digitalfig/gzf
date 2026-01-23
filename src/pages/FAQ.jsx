@@ -16,7 +16,7 @@ export default function FAQ() {
   }, []);
 
   return (
-    <div className="container faq-page" style={{ paddingBottom: '4rem' }}>
+    <div className="container faq-page" style={{ paddingBottom: '4rem', paddingTop: '4rem' }}>
       <div className="mb-8 max-w-3xl">
         <h1 className="mb-4">
           {pageTitle.split(' ').map((word, i, arr) => (
