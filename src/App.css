@@ -2280,6 +2280,7 @@ img {
   left: 50%;
   transform: translate(-50%, -50%);
   transition: all 0.3s ease;
+  box-shadow: none !important;
 }
 
 .hamburger::before,
@@ -2291,6 +2292,7 @@ img {
   height: 3px;
   background: var(--primary-green);
   transition: all 0.3s ease;
+  box-shadow: none !important;
 }
 
 .hamburger::before {
@@ -2303,11 +2305,19 @@ img {
 
 .nav-toggle.active .hamburger {
   background: transparent;
+  box-shadow: none !important;
 }
 
 .nav-toggle.active .hamburger::before {
   transform: translateY(8px) rotate(45deg);
   background: var(--primary-green);
+  box-shadow: none !important;
+}
+
+.nav-toggle.active .hamburger::after {
+  transform: translateY(-8px) rotate(-45deg);
+  background: var(--primary-green);
+  box-shadow: none !important;
 }
 
 .nav-toggle.active .hamburger::after {

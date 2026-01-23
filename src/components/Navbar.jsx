@@ -20,6 +20,22 @@ export default function Navbar() {
     };
   }, [isMenuOpen]);
 
+  // Click outside to close menu
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (isMenuOpen &&
+        !event.target.closest('.nav-links') &&
+        !event.target.closest('.nav-toggle')) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isMenuOpen]);
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
