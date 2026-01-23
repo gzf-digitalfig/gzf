@@ -89,6 +89,8 @@ nav {
   position: relative;
   -webkit-appearance: none;
   appearance: none;
+  background: transparent !important;
+  border: none !important;
 }
 
 .nav-toggle:hover,
