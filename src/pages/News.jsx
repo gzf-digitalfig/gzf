@@ -55,8 +55,7 @@ export default function News() {
         <p className="tagline">Updates from Gloucester Zakat Fund</p>
       </div>
 
-      <div className="achievements-section">
-        <h2>All news</h2>
+      <div className="container" style={{ paddingBottom: '4rem' }}>
         <div className="achievements-list">
           {pageActivities.map((activity, index) => (
             <div key={index} className="achievement-item">
