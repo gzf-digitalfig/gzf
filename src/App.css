@@ -17,6 +17,10 @@ nav {
   transition: all 0.3s ease;
 }
 
+.nav-hidden {
+  transform: translateY(-100%);
+}
+
 
 .container {
   width: 100%;

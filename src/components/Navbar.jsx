@@ -40,13 +40,39 @@ export default function Navbar() {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const controlNavbar = () => {
+      if (typeof window !== 'undefined') {
+        const currentScrollY = window.scrollY;
+
+        // Show if scrolling up or at top, hide if scrolling down and not at top
+        if (currentScrollY < lastScrollY || currentScrollY < 50) {
+          setIsVisible(true);
+        } else if (currentScrollY > lastScrollY && currentScrollY > 50) {
+          setIsVisible(false);
+        }
+
+        setLastScrollY(currentScrollY);
+      }
+    };
+
+    window.addEventListener('scroll', controlNavbar);
+
+    return () => {
+      window.removeEventListener('scroll', controlNavbar);
+    };
+  }, [lastScrollY]);
+
   const closeMenu = () => {
     setIsMenuOpen(false);
     window.scrollTo(0, 0);
   };
 
   return (
-    <nav>
+    <nav className={`navbar ${!isVisible && !isMenuOpen ? 'nav-hidden' : ''}`}>
       <div className="nav-container">
         <div className="nav-brand">
           <NavLink to="/" onClick={closeMenu}>
