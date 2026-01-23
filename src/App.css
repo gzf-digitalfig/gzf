@@ -126,7 +126,7 @@ nav a.active {
 .main-content {
   flex: 1;
   width: 100%;
-  padding-top: 150px;
+  padding-top: calc(1.25rem + 110px + 1.25rem + 1px);
 }
 
 /* Clean Footer */
@@ -325,7 +325,7 @@ footer {
 
   .main-content {
     padding: 0;
-    padding-top: 151px;
+    padding-top: calc(1.25rem + 60px + 1.25rem + 1px);
     width: 100%;
     overflow-x: hidden;
   }
@@ -389,10 +389,6 @@ footer {
 
   .nav-brand img {
     height: 60px;
-  }
-
-  .main-content {
-    padding-top: 101px;
   }
 
   .nav-toggle {
