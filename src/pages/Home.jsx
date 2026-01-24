@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import defaultLocalImpactImage from "../assets/donation.webp";
 import defaultHeroImage from "../assets/zakat.webp";
 import homeData from "../content/pages/home.json";
+import useScrollReveal from "../hooks/useScrollReveal";
 
 // Load activities from the CMS (JSON files)
 const activityModules = import.meta.glob("../content/activities/*.json", {
@@ -14,6 +15,7 @@ const activities = Object.values(activityModules)
 
 export default function Home() {
   const latestActivities = activities.slice(0, 5);
+  const pageRef = useScrollReveal();
 
   const formatDate = (dateString) => {
     if (!dateString) return "";
@@ -22,23 +24,23 @@ export default function Home() {
   };
 
   return (
-    <div className="home-page">
+    <div className="home-page" ref={pageRef}>
       {/* Hero Section */}
       <section
         className="home-section text-center home-hero"
         style={{ backgroundImage: `url(${homeData.heroImage || defaultHeroImage})` }}
       >
         <div className="container">
-          <div className="fade-in">
-            <h1 className="mb-4">
+          <div>
+            <h1 className="mb-4 hero-animate-left hero-delay-1">
               {homeData.heroTitle}
             </h1>
-            <p className="lead mb-8" style={{ maxWidth: '700px', margin: '0 auto 3rem' }}>
+            <p className="lead mb-8 hero-animate-right hero-delay-2" style={{ maxWidth: '700px', margin: '0 auto 3rem' }}>
               {homeData.heroSubtitle}
             </p>
             <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-              <Link to="/calculatezakat" className="btn btn-primary btn-large">Calculate & Give Zakat</Link>
-              <Link to="/apply" className="btn btn-secondary btn-large">Apply for Support</Link>
+              <Link to="/donate" className="btn btn-primary btn-large hero-animate-left hero-delay-3">Give Zakat or Sadaqa</Link>
+              <Link to="/apply" className="btn btn-secondary btn-large hero-animate-right hero-delay-4">Apply for Support</Link>
             </div>
           </div>
         </div>
@@ -48,12 +50,12 @@ export default function Home() {
       {latestActivities.length > 0 && (
         <section className="home-section" style={{ backgroundColor: 'var(--bg-secondary)' }}>
           <div className="container">
-            <div className="text-center mb-4">
+            <div className="text-center mb-4 section-reveal">
               <h2>Latest news</h2>
             </div>
             <div className="achievements-list">
               {latestActivities.map((activity, index) => (
-                <div key={index} className="achievement-item">
+                <div key={index} className={`achievement-item card-reveal reveal-delay-${(index % 6) + 1}`}>
                   <span
                     className="year"
                     style={{ width: "auto", padding: "0 1rem", borderRadius: "20px" }}
@@ -83,7 +85,7 @@ export default function Home() {
       {/* How It Works Section */}
       <section className="home-section" style={{ backgroundColor: 'var(--bg-secondary)' }}>
         <div className="container">
-          <div className="text-center mb-8">
+          <div className="text-center mb-8 section-reveal">
             <h2>A Simple & Transparent Process</h2>
             <p className="lead">Your Zakat journey with us is clear, simple, and impactful.</p>
           </div>
@@ -92,7 +94,7 @@ export default function Home() {
               const icons = ["calculate", "volunteer_activism", "diversity_3"];
               const links = ["/calculatezakat", "/donate", "/about"];
               return (
-                <div key={index} className="step-card slide-up" style={{ animationDelay: `${index * 0.2}s` }}>
+                <div key={index} className={`step-card card-reveal reveal-delay-${index + 1}`}>
                   <div className="step-icon-wrapper">
                     <span className="material-symbols-outlined" style={{ fontSize: '2rem' }}>{icons[index]}</span>
                   </div>
@@ -113,12 +115,12 @@ export default function Home() {
       <section className="section">
         <div className="container">
           <div className="impact-section">
-            <div className="fade-in impact-text">
+            <div className="reveal-on-scroll impact-text">
               <h2>{homeData.impactTitle}</h2>
               <p>{homeData.impactText}</p>
               <Link to="/about" className="btn">{homeData.impactBtnText}</Link>
             </div>
-            <div className="slide-up impact-image">
+            <div className="card-reveal reveal-delay-2 impact-image">
               <img
                 src={homeData.impactImage || defaultLocalImpactImage}
                 alt="Community support"
@@ -132,12 +134,12 @@ export default function Home() {
       {/* Testimonials Section */}
       <section className="section" style={{ backgroundColor: 'var(--bg-secondary)' }}>
         <div className="container">
-          <div className="text-center mb-8">
+          <div className="text-center mb-8 section-reveal">
             <h2>Voices from Our Community</h2>
           </div>
           <div className="grid grid-3">
             {homeData.testimonials.map((testimonial, index) => (
-              <div key={index} className="card testimonial-card slide-up" style={{ animationDelay: `${index * 0.2}s` }}>
+              <div key={index} className={`card testimonial-card card-reveal reveal-delay-${index + 1}`}>
                 <blockquote>"{testimonial.quote}"</blockquote>
                 <p style={{ fontWeight: '600', marginTop: '1rem', color: 'var(--text-primary)' }}>- {testimonial.author}</p>
               </div>
@@ -149,7 +151,7 @@ export default function Home() {
       {/* CTA Section */}
       <section className="section" style={{ paddingBottom: '3rem' }}>
         <div className="container">
-          <div className="card cta-geometric-box" style={{ maxWidth: '800px', margin: '0 auto' }}>
+          <div className="card cta-geometric-box card-reveal" style={{ maxWidth: '800px', margin: '0 auto' }}>
             <h2>{homeData.ctaTitle}</h2>
             <p>{homeData.ctaText}</p>
             <Link to="/calculatezakat" className="btn">{homeData.ctaBtnText}</Link>

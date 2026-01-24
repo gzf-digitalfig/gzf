@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import aboutData from "../content/pages/about.json";
+import useScrollReveal from "../hooks/useScrollReveal";
 import "./About.css";
 
 const trustees = aboutData.trustees.list || [];
@@ -63,13 +64,14 @@ function BioModal({ trustee, onClose }) {
 
 export default function About() {
   const [selectedTrustee, setSelectedTrustee] = useState(null);
+  const pageRef = useScrollReveal();
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   return (
-    <div className="about-page">
+    <div className="about-page" ref={pageRef}>
       {/* ============================================
           1. HERO SECTION
           ============================================ */}
@@ -78,20 +80,20 @@ export default function About() {
         style={aboutData.heroImage ? { backgroundImage: `url(${aboutData.heroImage})`, backgroundSize: 'cover', backgroundPosition: 'center' } : {}}
       >
         <div className="about-hero-content">
-          <h1>
+          <h1 className="hero-animate-left hero-delay-1">
             {aboutData.heroTitle && aboutData.heroTitle.split('\n').map((line, i) => (
               <span key={i} style={{ display: 'block', color: i === 1 ? 'var(--primary-green)' : 'inherit' }}>{line}</span>
             ))}
             {!aboutData.heroTitle && <>About Gloucester<br /><span>Zakat Fund</span></>}
           </h1>
-          <p>
+          <p className="hero-animate-right hero-delay-2">
             {aboutData.heroSubtitle}
           </p>
           <div className="hero-buttons">
-            <a href="/donate" className="btn">
+            <a href="/donate" className="btn hero-animate-left hero-delay-3">
               Donate Now
             </a>
-            <a href="/apply" className="btn btn-secondary" style={{ background: 'white', border: '1px solid #e5e7eb' }}>
+            <a href="/apply" className="btn btn-secondary hero-animate-right hero-delay-4" style={{ background: 'white', border: '1px solid #e5e7eb' }}>
               Apply for Help
             </a>
           </div>
@@ -103,7 +105,7 @@ export default function About() {
           ============================================ */}
       <section className="policy-section">
         <div className="policy-container">
-          <div className="policy-card">
+          <div className="policy-card card-reveal">
             <div className="policy-content">
               <div className="policy-text">
                 <span className="policy-badge">
@@ -148,7 +150,7 @@ export default function About() {
           ============================================ */}
       <section className="mission-section">
         <div className="mission-container">
-          <div className="trustees-header">
+          <div className="trustees-header section-reveal">
             <div className="trustees-header-text">
               <h2>{aboutData.keyServices?.title}</h2>
               <p>
@@ -160,7 +162,7 @@ export default function About() {
 
           <div className="mission-grid">
             {aboutData.keyServices?.services?.map((service, index) => (
-              <div className="mission-card" key={index}>
+              <div className={`mission-card card-reveal reveal-delay-${(index % 6) + 1}`} key={index}>
                 <div className="mission-icon">
                   <span className="material-symbols-outlined" style={{ fontSize: '28px' }}>{service.icon}</span>
                 </div>
@@ -178,7 +180,7 @@ export default function About() {
           ============================================ */}
       <section className="trustees-section">
         <div className="trustees-container">
-          <div className="trustees-header">
+          <div className="trustees-header section-reveal">
             <div className="trustees-header-text">
               <h2>{aboutData.trustees?.title}</h2>
               <p>
@@ -191,11 +193,12 @@ export default function About() {
 
           <div className="trustees-grid">
             {trustees.map((trustee, index) => (
-              <TrusteeCard
-                key={index}
-                {...trustee}
-                onReadMore={() => setSelectedTrustee(trustee)}
-              />
+              <div key={index} className={`card-reveal reveal-delay-${(index % 6) + 1}`}>
+                <TrusteeCard
+                  {...trustee}
+                  onReadMore={() => setSelectedTrustee(trustee)}
+                />
+              </div>
             ))}
           </div>
         </div>
@@ -213,7 +216,7 @@ export default function About() {
           ============================================ */}
       <section className="timeline-section">
         <div className="timeline-container">
-          <div className="timeline-header">
+          <div className="timeline-header section-reveal">
             <h2>{aboutData.timeline?.title}</h2>
             <p>
               {aboutData.timeline?.intro}
@@ -222,7 +225,7 @@ export default function About() {
 
           <div className="timeline-list">
             {aboutData.timeline?.items?.map((item, index) => (
-              <div className="timeline-item" key={index}>
+              <div className={`timeline-item card-reveal reveal-delay-${(index % 6) + 1}`} key={index}>
                 <div className="timeline-marker"></div>
                 <div className="timeline-item-content">
                   <span className="timeline-badge">{item.badge}</span>
