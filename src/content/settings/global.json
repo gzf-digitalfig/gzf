@@ -30,14 +30,6 @@
         ],
         "legalLinks": [
             {
-                "label": "Privacy Policy",
-                "url": "/privacy"
-            },
-            {
-                "label": "Terms of Service",
-                "url": "/terms"
-            },
-            {
                 "label": "Policies",
                 "url": "/policies"
             }
