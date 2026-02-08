@@ -3,73 +3,59 @@ import globalData from "../content/settings/global.json";
 import policiesData from "../content/pages/policies.json";
 
 export default function Policies() {
-    const { title, intro, policies } = policiesData;
+  const { title, intro, policies } = policiesData;
 
-    useEffect(() => {
-        document.title = `${title} | ${globalData.siteTitle}`;
-    }, [title]);
+  useEffect(() => {
+    document.title = `${title} | ${globalData.siteTitle}`;
+  }, [title]);
 
-    return (
-        <div className="page-container">
-            <div className="hero-small">
-                <div className="container">
-                    <h1>{title}</h1>
+  return (
+    <div className="container" style={{ paddingTop: '4rem' }}>
+      <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+        <h1 style={{ color: 'var(--primary-green)', fontWeight: '700', marginBottom: '1rem' }}>{title}</h1>
+        <p style={{ fontSize: '1.2rem', color: 'var(--text-secondary)', lineHeight: '1.6', maxWidth: '800px', margin: '0 auto' }}>
+          {intro}
+        </p>
+      </div>
+
+      <div className="policies-list">
+        {policies && policies.length > 0 ? (
+          <div className="grid-list">
+            {policies.map((policy, index) => (
+              <div key={index} className="policy-card">
+                <div className="policy-info">
+                  <h3>{policy.name}</h3>
                 </div>
-            </div>
+                <a
+                  href={policy.file}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-secondary"
+                >
+                  <span className="material-symbols-outlined">description</span>
+                  Download PDF
+                </a>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="empty-state">
+            <p>No policies are currently available for download.</p>
+          </div>
+        )}
+      </div>
 
-            <section className="section">
-                <div className="container" style={{ maxWidth: "800px" }}>
-                    <p className="lead-text">{intro}</p>
-
-                    <div className="policies-list">
-                        {policies && policies.length > 0 ? (
-                            <div className="grid-list">
-                                {policies.map((policy, index) => (
-                                    <div key={index} className="policy-card">
-                                        <div className="policy-info">
-                                            <h3>{policy.name}</h3>
-                                        </div>
-                                        <a
-                                            href={policy.file}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="btn btn-secondary"
-                                        >
-                                            <span className="material-symbols-outlined">description</span>
-                                            Download PDF
-                                        </a>
-                                    </div>
-                                ))}
-                            </div>
-                        ) : (
-                            <div className="empty-state">
-                                <p>No policies are currently available for download.</p>
-                            </div>
-                        )}
-                    </div>
-                </div>
-            </section>
-
-            <style>{`
-        .hero-small {
-          background-color: var(--primary-color);
-          color: white;
-          padding: 4rem 0 2rem;
-          margin-bottom: 2rem;
-        }
-        
-        .hero-small h1 {
-          font-size: 2.5rem;
-          margin: 0;
-        }
-
+      <style>{`
         .policies-list {
           margin-top: 3rem;
+          margin-bottom: 4rem;
         }
 
         .grid-list {
           display: grid;
           gap: 1.5rem;
+          max-width: 800px;
+          margin: 0 auto;
         }
 
         .policy-card {
@@ -137,6 +123,6 @@ export default function Policies() {
           }
         }
       `}</style>
-        </div>
-    );
+    </div>
+  );
 }
