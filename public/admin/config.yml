@@ -149,6 +149,17 @@ collections:
               { label: "Address", name: "address", widget: "string" }
             ]}
 
+      - name: "policies"
+        label: "Policies Page"
+        file: "src/content/pages/policies.json"
+        fields:
+          - { label: "Page Title", name: "title", widget: "string" }
+          - { label: "Intro Text", name: "intro", widget: "text" }
+          - { label: "Policies List", name: "policies", widget: "list", fields: [
+              { label: "Policy Name", name: "name", widget: "string" },
+              { label: "PDF File", name: "file", widget: "file", default: "/policies/" }
+            ]}
+
   - name: "settings"
     label: "Site Settings"
     files:

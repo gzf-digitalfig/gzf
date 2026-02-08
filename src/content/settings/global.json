@@ -36,6 +36,10 @@
             {
                 "label": "Terms of Service",
                 "url": "/terms"
+            },
+            {
+                "label": "Policies",
+                "url": "/policies"
             }
         ]
     }

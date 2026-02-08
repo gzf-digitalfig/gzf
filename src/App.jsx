@@ -10,6 +10,7 @@ import CalculateZakat from "./pages/CalculateZakat";
 import Contact from "./pages/Contact";
 import Donate from "./pages/Donate";
 import News from "./pages/News";
+import Policies from "./pages/Policies";
 import "./App.css";
 
 function ScrollToTop() {
@@ -44,6 +45,7 @@ function App() {
           <Route path="/apply" element={<Apply />} />
           <Route path="/calculatezakat" element={<CalculateZakat />} />
           <Route path="/donate" element={<Donate />} />
+          <Route path="/policies" element={<Policies />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </div>

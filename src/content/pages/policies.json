@@ -1,0 +1,86 @@
+{
+    "title": "Policies",
+    "intro": "Transparency is key to our operations. Below you can find our key policy documents available for download.",
+    "policies": [
+        {
+            "name": "Anti Bribery Policy",
+            "file": "/policies/Anti Bribery Policy v1.pdf"
+        },
+        {
+            "name": "Anti Money Laundering Policy",
+            "file": "/policies/Anti Money Laundering Policy v1.pdf"
+        },
+        {
+            "name": "Cash Handling Policy",
+            "file": "/policies/Cash Handling Policy v1.pdf"
+        },
+        {
+            "name": "Complaints Policy",
+            "file": "/policies/Complaints Policy v1.pdf"
+        },
+        {
+            "name": "Conflict of Interest Policy",
+            "file": "/policies/Conflict of Interest Policy v1.pdf"
+        },
+        {
+            "name": "Counter Extremism Policy",
+            "file": "/policies/Counter Extremism Policy v1.pdf"
+        },
+        {
+            "name": "Data Protection Policy",
+            "file": "/policies/Data Protection Policy v1.pdf"
+        },
+        {
+            "name": "Due Diligence Policy",
+            "file": "/policies/Due Diligence Policy v1.pdf"
+        },
+        {
+            "name": "Equality Diversity and Inclusion Policy",
+            "file": "/policies/Equality Diversity and Inclusion Policy v1.pdf"
+        },
+        {
+            "name": "Expenses Policy",
+            "file": "/policies/Expenses Policy v1.pdf"
+        },
+        {
+            "name": "Financial Reserves Policy",
+            "file": "/policies/Financial Reserves Policy v1.pdf"
+        },
+        {
+            "name": "Internal Financial Controls Policy",
+            "file": "/policies/Internal Financial Controls Policy v1.pdf"
+        },
+        {
+            "name": "Partner Selection Due Diligence Policy",
+            "file": "/policies/Partner Selection Due Diligence Policy v1.pdf"
+        },
+        {
+            "name": "Risk Management Policy",
+            "file": "/policies/Risk Management Policy v1.pdf"
+        },
+        {
+            "name": "Safeguarding Policy",
+            "file": "/policies/Safeguarding Policy v1.pdf"
+        },
+        {
+            "name": "Social Media Policy",
+            "file": "/policies/Social Media Policy v1.pdf"
+        },
+        {
+            "name": "Trustees Code of Conduct Policy",
+            "file": "/policies/Trustees Code of Conduct Policy v1.pdf"
+        },
+        {
+            "name": "Volunteer Management Policy",
+            "file": "/policies/Volunteer Management Policy v1.pdf"
+        },
+        {
+            "name": "Whistleblowing Policy",
+            "file": "/policies/Whistleblowing Policy v1.pdf"
+        },
+        {
+            "name": "Zakat Policy",
+            "file": "/policies/Zakat Policy v1.pdf"
+        }
+    ]
+}
