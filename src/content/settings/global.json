@@ -10,25 +10,17 @@
                 "url": "/about"
             },
             {
-                "label": "What is Zakat",
+                "label": "FAQ",
                 "url": "/faq"
             },
             {
                 "label": "Apply for Support",
                 "url": "/apply"
-            }
-        ],
-        "contactLinks": [
+            },
             {
                 "label": "Contact Us",
                 "url": "/contact"
             },
-            {
-                "label": "FAQ",
-                "url": "/faq"
-            }
-        ],
-        "legalLinks": [
             {
                 "label": "Policies",
                 "url": "/policies"

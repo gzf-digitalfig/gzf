@@ -108,6 +108,7 @@ collections:
         fields:
           - { label: "Page Title", name: "title", widget: "string" }
           - { label: "Email", name: "email", widget: "string" }
+          - { label: "Phone", name: "phone", widget: "string" }
           - { label: "Address", name: "address", widget: "string" }
           - { label: "Bank Name", name: "bankName", widget: "string" }
           - { label: "Account Name", name: "accountName", widget: "string" }
@@ -175,14 +176,6 @@ collections:
               { label: "Charity Commission Logo", name: "ccLogo", widget: "image", required: false },
               { label: "Copyright Holder", name: "copyright", widget: "string" },
               { label: "Quick Links", name: "links", widget: "list", fields: [
-                 {label: "Label", name: "label", widget: "string"},
-                 {label: "URL", name: "url", widget: "string"}
-              ]},
-              { label: "Contact Links", name: "contactLinks", widget: "list", fields: [
-                 {label: "Label", name: "label", widget: "string"},
-                 {label: "URL", name: "url", widget: "string"}
-              ]},
-              { label: "Legal Links", name: "legalLinks", widget: "list", fields: [
                  {label: "Label", name: "label", widget: "string"},
                  {label: "URL", name: "url", widget: "string"}
               ]}
