@@ -1,6 +1,11 @@
 {
     "pageTitle": "Apply for Assistance",
     "introText": "If you are a Gloucester resident in need, you can apply for zakat or other support using our online form or by contacting us directly. We also accept referrals from local organisations and community leaders.",
+    "asylumSection": {
+        "text": "Are you an asylum seeker in shared accommodation?",
+        "linkText": "Apply using this form",
+        "url": "https://docs.google.com/forms/d/e/1FAIpQLScKLIsgqUVu5c6Uwu603i7dVof_20wYiFB9MzSp4dnto0bXxQ/viewform?embedded=true"
+    },
     "formSection": {
         "title": "Online Application Form",
         "intro": "Please fill out the form below to apply for assistance.",
