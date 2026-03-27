@@ -13,7 +13,7 @@ export default function Apply() {
         {introText}
       </p>
 
-      <div className="apply-tabs" style={{ marginBottom: '2rem' }}>
+      <div className="apply-tabs">
         <button 
           onClick={() => setActiveTab('asylum')}
           className={`apply-tab ${activeTab === 'asylum' ? 'active' : ''}`}
