@@ -5,3 +5,55 @@
 .apply-page h2 {
   font-size: 1.25rem;
 }
+
+.apply-tabs {
+  display: flex;
+  border-bottom: 2px solid #d1d5db;
+  margin-bottom: 0;
+  gap: 0;
+}
+
+.apply-tab {
+  position: relative;
+  background: #f3f4f6;
+  border: 2px solid #d1d5db;
+  border-bottom: 2px solid #d1d5db;
+  border-radius: 0.6rem 0.6rem 0 0;
+  color: #6b7280;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.85rem 2rem;
+  cursor: pointer;
+  transition: color 0.2s, background 0.2s;
+  outline: none;
+  margin-right: -2px;
+  margin-bottom: -2px;
+}
+
+.apply-tab:hover {
+  color: #0f766e;
+  background: #f9fafb;
+}
+
+.apply-tab.active {
+  background: #ffffff;
+  color: #0f766e;
+  border-color: #d1d5db;
+  border-bottom-color: #ffffff;
+  z-index: 1;
+}
+
+.tab-content {
+  border: 2px solid #d1d5db;
+  border-top: none;
+  border-radius: 0 0 0.6rem 0.6rem;
+  padding: 1.5rem;
+  background: #ffffff;
+  margin-bottom: 2rem;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

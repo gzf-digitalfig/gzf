@@ -13,34 +13,16 @@ export default function Apply() {
         {introText}
       </p>
 
-      <div style={{ display: 'flex', gap: '1rem', marginBottom: '2rem', flexWrap: 'wrap' }}>
+      <div className="apply-tabs" style={{ marginBottom: '2rem' }}>
         <button 
           onClick={() => setActiveTab('asylum')}
-          style={{
-            padding: '0.75rem 1.5rem',
-            backgroundColor: activeTab === 'asylum' ? '#0f766e' : '#f3f4f6',
-            color: activeTab === 'asylum' ? 'white' : '#374151',
-            border: activeTab === 'asylum' ? '1px solid #0f766e' : '1px solid #d1d5db',
-            borderRadius: '0.5rem',
-            fontWeight: '600',
-            cursor: 'pointer',
-            transition: 'all 0.2s'
-          }}
+          className={`apply-tab ${activeTab === 'asylum' ? 'active' : ''}`}
         >
           Asylum Seeker Only
         </button>
         <button 
           onClick={() => setActiveTab('standard')}
-          style={{
-            padding: '0.75rem 1.5rem',
-            backgroundColor: activeTab === 'standard' ? '#0f766e' : '#f3f4f6',
-            color: activeTab === 'standard' ? 'white' : '#374151',
-            border: activeTab === 'standard' ? '1px solid #0f766e' : '1px solid #d1d5db',
-            borderRadius: '0.5rem',
-            fontWeight: '600',
-            cursor: 'pointer',
-            transition: 'all 0.2s'
-          }}
+          className={`apply-tab ${activeTab === 'standard' ? 'active' : ''}`}
         >
           Everyone Else
         </button>

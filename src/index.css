@@ -121,7 +121,7 @@ p {
 }
 
 /* Modern Button */
-button:not(.nav-toggle):not(.bio-modal-close),
+button:not(.nav-toggle):not(.bio-modal-close):not(.apply-tab),
 .btn {
   display: inline-block;
   border-radius: 12px;
