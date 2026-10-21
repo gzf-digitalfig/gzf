@@ -728,6 +728,20 @@ footer {
   flex-direction: column;
 }
 
+.testimonial-card blockquote {
+  margin: 0 0 1.5rem;
+}
+
+.testimonial-card blockquote p {
+  margin: 0;
+}
+
+.testimonial-card figcaption {
+  margin-top: auto;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
 /* Add the 'green tinge' decorative blur like Charity Info */
 .step-card::after,
 .testimonial-card::after {

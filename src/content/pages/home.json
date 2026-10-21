@@ -21,18 +21,32 @@
     "impactTitle": "Your Zakat, Your Local Impact",
     "impactText": "Every penny of your Zakat is a lifeline for someone in our community. We support families facing hardship, individuals seeking education, and those in critical need of assistance. Your contribution fosters a stronger, more resilient Gloucester for everyone.",
     "impactBtnText": "Learn More About Our Work",
+    "testimonialsTitle": "Words of Gratitude",
+    "testimonialsIntro": "These words were written to GZF by the people your zakat reached. They are shared anonymously.",
     "testimonials": [
         {
-            "quote": "The support from GZF was a blessing during a very difficult time for my family. We are so grateful.",
-            "author": "A Supported Family"
+            "quote": "Before the support, I was in a dark and depressing place, facing very unpredictable circumstances. With the support of GZF and the community, I can finally see some light in my life. From my heart, thank you so much.",
+            "author": "GZF recipient, 2025–26"
         },
         {
-            "quote": "Giving my Zakat through GZF gives me peace of mind, knowing it's helping people right here in my city.",
-            "author": "A Local Donor"
+            "quote": "I was so scared to ask for help and to be open about my circumstances. I was embarrassed. After seeing my family suffer because of fear or ego, I reached out. Now, with GZF and the community's support, I have started work.",
+            "author": "GZF recipient, 2025–26"
         },
         {
-            "quote": "As a student, the educational grant I received made all the difference. Thank you, GZF!",
-            "author": "A Student Recipient"
+            "quote": "I honestly cannot express how grateful I am. Your support has lifted such a huge burden off my shoulders. I finally have some peace of mind, Alhamdulillah.",
+            "author": "GZF recipient, 2025–26"
+        },
+        {
+            "quote": "I sincerely feel you have done more than enough for me, and I would be very happy for GZF to use its resources to support other brothers and sisters who may be in greater need.",
+            "author": "GZF recipient, 2025–26"
+        },
+        {
+            "quote": "Your support has been a real help to me during this difficult time. I am truly grateful.",
+            "author": "GZF recipient, 2025–26"
+        },
+        {
+            "quote": "As a family, we will always keep you all in our prayers. May Allah grant you all happiness, health and Jannah.",
+            "author": "GZF recipient, 2025–26"
         }
     ],
     "ctaTitle": "Ready to Fulfill Your Zakat?",

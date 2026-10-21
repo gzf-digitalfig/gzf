@@ -3,6 +3,7 @@ import defaultLocalImpactImage from "../assets/donation.webp";
 import defaultHeroImage from "../assets/zakat.webp";
 import homeData from "../content/pages/home.json";
 import useScrollReveal from "../hooks/useScrollReveal";
+import TestimonialCarousel from "../components/TestimonialCarousel";
 
 // Load activities from the CMS (JSON files)
 const activityModules = import.meta.glob("../content/activities/*.json", {
@@ -132,19 +133,13 @@ export default function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="section" style={{ backgroundColor: 'var(--bg-secondary)' }}>
+      <section className="section" aria-labelledby="testimonials-title" style={{ backgroundColor: 'var(--bg-secondary)' }}>
         <div className="container">
           <div className="text-center mb-8 section-reveal">
-            <h2>Voices from Our Community</h2>
+            <h2 id="testimonials-title">{homeData.testimonialsTitle}</h2>
+            <p className="lead">{homeData.testimonialsIntro}</p>
           </div>
-          <div className="grid grid-3">
-            {homeData.testimonials.map((testimonial, index) => (
-              <div key={index} className={`card testimonial-card card-reveal reveal-delay-${index + 1}`}>
-                <blockquote>"{testimonial.quote}"</blockquote>
-                <p style={{ fontWeight: '600', marginTop: '1rem', color: 'var(--text-primary)' }}>- {testimonial.author}</p>
-              </div>
-            ))}
-          </div>
+          <TestimonialCarousel testimonials={homeData.testimonials} />
         </div>
       </section>
 

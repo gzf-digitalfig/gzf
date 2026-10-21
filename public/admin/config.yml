@@ -39,6 +39,8 @@ collections:
           - { label: "Impact Text", name: "impactText", widget: "text" }
           - { label: "Impact Image", name: "impactImage", widget: "image", required: false }
           - { label: "Impact Button Text", name: "impactBtnText", widget: "string" }
+          - { label: "Testimonials Title", name: "testimonialsTitle", widget: "string" }
+          - { label: "Testimonials Intro", name: "testimonialsIntro", widget: "text" }
           - { label: "Testimonials", name: "testimonials", widget: "list", fields: [
               { label: "Quote", name: "quote", widget: "text" },
               { label: "Author", name: "author", widget: "string" }
